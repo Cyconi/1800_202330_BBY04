@@ -1,14 +1,16 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+A better and more efficient way of electing our Government and how they will effect smarter and greener living. 
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 *.Hi~ I am ziqi. I am excited to create some cool stuff with my team.u
 * ...
 * ...
+* Jonathan Hilde
+* ...
+* Radaman
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
