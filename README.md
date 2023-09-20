@@ -5,11 +5,8 @@ A better and more efficient way of electing our Government and how they will eff
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-*.Hi~ I am ziqi. I am excited to create some cool stuff with my team.u
-* ...
-* ...
-* Jonathan Hilde
-* ...
+* Hi~ I am ziqi. I am excited to create some cool stuff with my team.u
+* Hi Im Jonathan and I hope that HTML is not as painful as I remember it to be.
 * Radaman
 	
 ## 3. Technologies and Resources Used
