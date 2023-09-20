@@ -7,7 +7,7 @@ A better and more efficient way of electing our Government and how they will eff
 List team members and/or short bio's here... 
 * Hi~ I am ziqi. I am excited to create some cool stuff with my team.u
 * Hi Im Jonathan and I hope that HTML is not as painful as I remember it to be.
-* Radaman
+* Hi I'm Radman, we should consider "user friendly" always, everywhere.
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
