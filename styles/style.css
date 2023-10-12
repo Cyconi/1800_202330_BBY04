@@ -15,7 +15,7 @@ body {
 #photo {
     width: 100%;
     height: 40%;
-    background-image: url("/images/people-circle-2.jpg");
+    background-image: url("../images/people-circle-2.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: grid;
