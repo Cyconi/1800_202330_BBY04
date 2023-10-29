@@ -15,7 +15,7 @@ body {
 #photo {
     width: 100%;
     height: 40%;
-    background-image: url(/Users/ziqi/Documents/BcitStudy/COMP1800/Teamrepo/1800_202330_BBY04/images/istockphoto-1427848461-612x612.jpg);
+    background-image: url(../images/istockphoto-1427848461-612x612.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: grid;
