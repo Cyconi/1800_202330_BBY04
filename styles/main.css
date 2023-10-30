@@ -9,13 +9,10 @@
     grid-template-columns: 100vw;
     grid-template-rows: 8vh 6vh 78vh 8vh;
 }
-/* This part is css about the header section */
-#header {
-    background-color: lawngreen;
-}
+/* This part is css about the header section on main page */
 #pageName {
     height: 100%;
-    width: 70%;
+    width: 80%;
     float: left;
     display: flex;
     align-items: center;
@@ -25,58 +22,92 @@
 }
 #account {
     height: 100%;
-    width: 15%;
+    width: 10%;
     float: left;
     text-align: center;
 }
-#account img {
+.headerImg {
     max-height: 100%;
     max-width: 100%;
 }
 #menu {
     height: 100%;
-    width: 15%;
+    width: 10%;
     float: left;
     text-align: center;
 }
-#menu img {
-    max-height: 100%;
-    max-width: 100%;
-}
 
-/* This Part is css about the searchBox and post */
+/* This Part is css about the searchBox and post on main page */
 #formandpost {
-    background-color: antiquewhite;
+    -webkit-box-shadow: 0 -1px 5px #777777;
 }
-#searchBox {
+#dropDpwn {
     height: 100%;
-    width: 85%;
+    width: 20%;
     float: left;
-
-}
-#searchBox form {
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#searchBox {
+    height: 100%;
+    width: 70%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+.searchBoxForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.searchBoxForm > input {
+    width: 50%;
+    height: 60%;
+    background-color: lightgray;
+    color: white;
+    background-image: url("../images/magnify.svg");
+    background-repeat: no-repeat;
+    padding-left: 40px;
 
+    /* This part is for the footer on main page */
 }
 #postBox {
     height: 100%;
-    width: 15%;
+    width: 10%;
     float: left;
     text-align: center;
 }
-#postBox img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-
-#body {
-    background-color: blueviolet;
-}
 #footer {
-    background-color: lawngreen;
+    -webkit-box-shadow: 0 -1px 5px #777777;
 }
+.footerNav {
+    height: 100%;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.footerImg {
+    max-height: 70%;
+    max-width: 70%;
+}
+
+/* This part is for the feedback main page */
+#voteSwitch {
+    width: 100%;
+    height: 7%;
+}
+.voteSwitchBottom {
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: outset;
+}
+
+
+
