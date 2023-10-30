@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     padding: 0px;
     margin: 0px;
@@ -10,6 +13,11 @@
     grid-template-rows: 8vh 6vh 78vh 8vh;
 }
 /* This part is css about the header section on main page */
+#header {
+    background-color: lawngreen;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
 #pageName {
     height: 100%;
     width: 80%;
@@ -70,8 +78,26 @@
     background-image: url("../images/magnify.svg");
     background-repeat: no-repeat;
     padding-left: 40px;
+}
+    /* This part is for the main content part on main page*/
+#body {
+    overflow: scroll;
+}
+.userPost {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -1px 5px #777777;
+}
 
     /* This part is for the footer on main page */
+
+#footer {
+    background-color: lawngreen;
+    font-family: 'Poppins', sans-serif;
+
 }
 #postBox {
     height: 100%;
