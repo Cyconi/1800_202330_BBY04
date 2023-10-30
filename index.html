@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
+    <title>CGlue</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -19,17 +19,27 @@
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Link to styles of your own -->
-    <link href="./styles/style.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link href="styles/index.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
 
 </head>
 
 <body>
+
+<!---------------------------------------------->
+<!-- This is the nav bar                      -->
+<!---------------------------------------------->
     <nav class="navbar navbar-dark bg-warning">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="margin-left: 218.172px;"><h1>CGlue</h1></a>
+            <a class="navbar-brand" href="#" ><h1 style="margin: auto;">CGlue</h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,6 +66,7 @@
             </div>
         </div>
     </nav>
+
     <div id="photo">
         <div id="CGlue">
             <p><span>CGlue</span><br /> <small>The Glue of Community</small></p>
@@ -68,7 +79,7 @@
             town/city representatives by allowing users to join community group.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Sign in for free</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Log in</button>
+            <a href="login.html" class="btn btn-outline-secondary btn-lg px-4" role="button">Log in</a>
         </div>
 
         <div class="fixed-bottom py-3 bg-warning">
@@ -94,6 +105,6 @@
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
-
+    <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
 </body>
 </html>

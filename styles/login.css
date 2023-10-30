@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+#container {
+    width: 100vw;
+    height: 100vh;
+}
+#brandName {
+    font-family: 'Archivo Black', sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+#welcomeText {
+    text-align: center;
+}
+#signinBlock {
+    margin-top: 25vh;
+}
