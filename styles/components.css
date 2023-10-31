@@ -1,0 +1,15 @@
+.navBarColor {
+    background-color: lawngreen;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navIcons {
+    padding-top: 15px;
+    height: 100%;
+    width: 75px;
+}
+.footerImg {
+    max-height: 70%;
+    max-width: 70%;
+}
