@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CGlue</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/chat.css">
+
+
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <div id="pageName">
+            <h1>Home</h1>
+        </div>
+        <div id="account">
+            <a href="#"><img src="./images/account.svg" alt="account" class="headerImg"></a>
+        </div>
+        <div id="menu">
+            <a href="#"><img src="./images/menu.svg" alt="menu" class="headerImg"></a>
+        </div>
+    </div>
+    <div id="formandpost">
+        <div id="dropDpwn">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="searchBox">
+            <form class="searchBoxForm">
+                <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
+            </form>
+        </div>
+        <div id="postBox">
+            <a href="#"><img src="./images/plus-circle-outline.svg" class="headerImg"></a>
+        </div>
+    </div>
+
+    <!--The main content part on the main page go below-->
+    <div id="body">
+        <div class="user-avatar">
+            <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+        </div>
+        <div class="chatContainerLeft chat">
+            <!-- Sample Chat 1 -->
+            <div class="message">
+                <p><strong>User 1:</strong>Hey, how's it going?</p>
+            </div><span class="time-right">11:00</span>
+        </div>
+    
+        <div class="user-avatar">
+            <img src="./images/man.png" class="imgRight" alt="User Avatar">
+        </div>
+        <div class="chatContainerRight chat">
+            <!-- Sample Chat 2 -->
+            <span class="time-left">11:01</span>
+            <div class="message">
+                <p><strong>User 2:</strong>Hey there! I'm doing pretty well, thanks. How about you?</p>
+            </div>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+        </div>
+        <div class="chatContainerLeft chat">
+            <!-- Sample Chat 1 -->
+            <div class="message">
+                <p><strong>User 1:</strong>Not too bad, just trying to stay busy. Have any exciting plans for the weekend?</p>
+            </div><span class="time-right">11:02</span>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/man.png" class="imgRight" alt="User Avatar">
+        </div>
+        <div class="chatContainerRight chat">
+            <!-- Sample Chat 2 -->
+            <span class="time-left">11:03</span>
+            <div class="message">
+                <p><strong>User 2:</strong> Yeah, I'm actually going hiking with some friends. Can't wait to enjoy the fall foliage.</p>
+            </div>
+        </div>
+    
+        <div class="user-avatar">
+            <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+        </div>
+        <div class="chatContainerLeft chat">
+            <!-- Sample Chat 1 -->
+            <div class="message">
+                <p><strong>User 1:</strong>That sounds amazing! I've been meaning to get out more and enjoy the season. Any hiking tips for a newbie like me?</p>
+            </div><span class="time-right">11:05</span>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/man.png" class="imgRight" alt="User Avatar">
+        </div>
+        <div class="chatContainerRight chat">
+            <!-- Sample Chat 2 -->
+            <span class="time-left">11:06</span>
+            <div class="message">
+                <p><strong>User 2:</strong> Definitely! Make sure to wear comfortable shoes, bring plenty of water and snacks, and don't forget bug spray. Oh, and take lots of pictures!</p>
+            </div>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+        </div>
+        <div class="chatContainerLeft chat">
+            <!-- Sample Chat 1 -->
+            <div class="message">
+                <p><strong>User 1:</strong> Hello, how are you?</p>
+            </div><span class="time-right">11:08</span>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/man.png" class="imgRight" alt="User Avatar">
+        </div>
+        <div class="chatContainerRight chat">
+            <!-- Sample Chat 2 -->
+            <span class="time-left">11:11</span>
+            <div class="message">
+                <p><strong>User 2:</strong> I'm good, thanks! How about you?</p>
+            </div>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+        </div>
+        <div class="chatContainerLeft chat">
+            <!-- Sample Chat 1 -->
+            <div class="message">
+                <p><strong>User 1:</strong> Hello, how are you?</p>
+            </div><span class="time-right">11:12</span>
+        </div>
+
+        <div class="user-avatar">
+            <img src="./images/man.png" class="imgRight" alt="User Avatar">
+        </div>
+        <div class="chatContainerRight chat">
+            <!-- Sample Chat 2 -->
+            <span class="time-left">11:16</span>
+            <div class="message">
+                <p><strong>User 2:</strong> I'm good, thanks! How about you?</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <!--Footer goes below-->
+    <div id="footer">
+        <figure class="footerNav">
+            <a href ="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
+            <figcaption>Home</figcaption>
+        </figure>
+        <figure class="footerNav">
+            <a href ="#"><img src="./images/chat-outline.svg" class="footerImg"></a>
+            <figcaption>Chat</figcaption>
+        </figure>
+        <figure class="footerNav">
+            <a href ="#"><img src="./images/newspaper.svg" class="footerImg"></a>
+            <figcaption>News</figcaption>
+        </figure>
+        <figure class="footerNav">
+           <a href ="feedback-home.html"><img src="./images/vote.svg" class="footerImg"></a>
+            <figcaption>Feedback</figcaption>
+        </figure>
+    </div>
+</div>
+
+</body>
+</html>
