@@ -8,8 +8,9 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    background-color: lawngreen;
 }
 #brandName {
     font-family: 'Archivo Black', sans-serif;
@@ -21,9 +22,20 @@
     justify-content: center;
     margin-top: 1em;
 }
+#Welcome {
+    width: 100%;
+}
 #welcomeText {
     text-align: center;
+    color: darkorange;
 }
 #signinBlock {
-    margin-top: 25vh;
+    width: 80vw;
+    height: 50vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 -1px 15px #777777;
 }
+
