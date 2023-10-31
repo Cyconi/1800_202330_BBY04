@@ -51,3 +51,11 @@
   .imgRight {
     float: right;
   }
+  #searchBox {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+  #dropDpwn {
+    width: 10%;
+  }
