@@ -1,15 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
 .navBarColor {
     background-color: lawngreen;
     font-family: 'Poppins', sans-serif;
 }
 
+#footer {
+    background-color: lawngreen;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: auto;
+    -webkit-box-shadow: 0 -1px 5px #777777;
+}
+
+#pageName {
+    height: 100%;
+    width: 80%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+#pageName h1 {
+    margin-left: 1em;
+    color: white;
+}
+
+.footerNav {
+    height: 100%;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.footerImg {
+    max-height: 70%;
+    max-width: 70%;
+}
 
 .navIcons {
     padding-top: 15px;
     height: 100%;
     width: 75px;
-}
-.footerImg {
-    max-height: 70%;
-    max-width: 70%;
 }

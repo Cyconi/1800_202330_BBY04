@@ -24,7 +24,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-
+        <link rel="stylesheet" href="/styles/main.css">
 </head>
 
 <body>
@@ -34,15 +34,75 @@
 
     <!-- page body -->
 
+    <div id="container">
+        <!-- <div id="header">
+            <div id="pageName">
+                <h1>Home</h1>
+            </div>
+            <div id="account">
+                <a href="#"><img src="./images/account.svg" alt="account" class="headerImg"></a>
+            </div>
+            <div id="menu">
+                <a href="#"><img src="./images/menu.svg" alt="menu" class="headerImg"></a>
+            </div>
+        </div> -->
+        <div id="formandpost">
+            <div id="dropDpwn">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Sort
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="searchBox">
+                <form class="searchBoxForm">
+                    <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
+                </form>
+            </div>
+            <div id="postBox">
+                <a href="#"><img src="./images/plus-circle-outline.svg" class="headerImg"></a>
+            </div>
+        </div>
 
+        <!--The main content part on the main page go below-->
+        <div id="body">
+            <div class="userPost">
+                <p>Users' posts about anything. Other user can see and comment.
+                    A place for all the users to share story in their life. </p>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+        </div>
 
-    <!-- end of page body -->
+        <!-- end of page body -->
 
-    <!-- bottom nav bar -->
-    <nav id="nav-Comp"></nav>
+        <div>
+            <!-- bottom nav bar -->
+        <nav id="nav-Comp"></nav>
+        </div>
+      
 
-    <!-- Js scripts-->
-    <script src="./scripts/Components.js"></script>
+        <!-- Js scripts-->
+        <script src="./scripts/Components.js"></script>
 
 </body>
 

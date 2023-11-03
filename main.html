@@ -1,97 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CGlue</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <link href="styles/main.css" rel="stylesheet">
+    <script src="./scripts/Components.js"></script>
 </head>
+
 <body>
-<div id="container">
-    <div id="header">
-        <div id="pageName">
-            <h1>Home</h1>
-        </div>
-        <div id="account">
-            <a href="#"><img src="./images/account.svg" alt="account" class="headerImg"></a>
-        </div>
-        <div id="menu">
-            <a href="#"><img src="./images/menu.svg" alt="menu" class="headerImg"></a>
-        </div>
-    </div>
-    <div id="formandpost">
-        <div id="dropDpwn">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sort
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+    <div id="container">
+        <div id="header">
+            <div id="pageName">
+                <h1>Home</h1>
+            </div>
+            <div id="account">
+                <a href="#"><img src="./images/account.svg" alt="account" class="headerImg"></a>
+            </div>
+            <div id="menu">
+                <a href="#"><img src="./images/menu.svg" alt="menu" class="headerImg"></a>
             </div>
         </div>
-        <div id="searchBox">
-            <form class="searchBoxForm">
-                <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
-            </form>
+        <div id="formandpost">
+            <div id="dropDpwn">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Sort
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="searchBox">
+                <form class="searchBoxForm">
+                    <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
+                </form>
+            </div>
+            <div id="postBox">
+                <a href="#"><img src="./images/plus-circle-outline.svg" class="headerImg"></a>
+            </div>
         </div>
-        <div id="postBox">
-            <a href="#"><img src="./images/plus-circle-outline.svg" class="headerImg"></a>
-        </div>
-    </div>
 
-    <!--The main content part on the main page go below-->
-    <div id="body">
-        <div class="userPost">
-            <p>Users' posts about anything. Other user can see and comment.
-                A place for all the users to share story in their life. </p>
+        <!--The main content part on the main page go below-->
+        <div id="body">
+            <div class="userPost">
+                <p>Users' posts about anything. Other user can see and comment.
+                    A place for all the users to share story in their life. </p>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
+            <div class="userPost">
+                <h1>User Post</h1>
+            </div>
         </div>
-        <div class="userPost">
-            <h1>User Post</h1>
-        </div>
-        <div class="userPost">
-            <h1>User Post</h1>
-        </div>
-        <div class="userPost">
-            <h1>User Post</h1>
-        </div>
-        <div class="userPost">
-            <h1>User Post</h1>
-        </div>
-        <div class="userPost">
-            <h1>User Post</h1>
-        </div>
-    </div>
 
-    <!--Footer goes below-->
-    <div id="footer">
-        <figure class="footerNav">
-            <a href ="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
-            <figcaption>Home</figcaption>
-        </figure>
-        <figure class="footerNav">
-            <a href ="chat.html"><img src="./images/chat-outline.svg" class="footerImg"></a>
-            <figcaption>Chat</figcaption>
-        </figure>
-        <figure class="footerNav">
-            <a href ="#"><img src="./images/newspaper.svg" class="footerImg"></a>
-            <figcaption>News</figcaption>
-        </figure>
-        <figure class="footerNav">
-           <a href ="feedback-home.html"><img src="./images/vote.svg" class="footerImg"></a>
-            <figcaption>Feedback</figcaption>
-        </figure>
+        <!--Footer goes below-->
+        <div id="footer">
+            <figure class="footerNav">
+                <a href="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
+                <figcaption>Home</figcaption>
+            </figure>
+            <figure class="footerNav">
+                <a href="chat.html"><img src="./images/chat-outline.svg" class="footerImg"></a>
+                <figcaption>Chat</figcaption>
+            </figure>
+            <figure class="footerNav">
+                <a href="#"><img src="./images/newspaper.svg" class="footerImg"></a>
+                <figcaption>News</figcaption>
+            </figure>
+            <figure class="footerNav">
+                <a href="feedback-home.html"><img src="./images/vote.svg" class="footerImg"></a>
+                <figcaption>Feedback</figcaption>
+            </figure>
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>
