@@ -8,13 +8,15 @@
 .navBarColor {
     background-color: lawngreen;
     font-family: 'Poppins', sans-serif;
+    box-shadow: auto;
+        -webkit-box-shadow: 0 -1px 5px #777777;
 }
 
 #footer {
     background-color: lawngreen;
     font-family: 'Poppins', sans-serif;
     box-shadow: auto;
-    -webkit-box-shadow: 0 -1px 5px #777777;
+        -webkit-box-shadow: 0 -1px 5px #777777;
 }
 
 #pageName {
@@ -27,6 +29,8 @@
 
 #pageName h1 {
     margin-left: 1em;
+    margin-bottom: 0px;
+    padding: 0px;
     color: white;
 }
 
@@ -41,9 +45,19 @@
     max-height: 70%;
     max-width: 70%;
 }
-
+.bar-contain {
+    padding: 0px;
+    margin: 0px;
+}
 .navIcons {
-    padding-top: 15px;
+    margin: 0px;
+    padding: 0px;
     height: 100%;
-    width: 75px;
+    width: 70px;
+}
+figcaption {
+    margin-inline: -20px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
 }
