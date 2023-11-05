@@ -32,44 +32,55 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <link href="styles/main.css" rel="stylesheet">
-    <script src="./scripts/Components.js"></script>
+
+    <!---------------------------------------------------------------->
+    <!-- Js for an Icon website, enable to insert an icon ------------>
+    <!-- by a link. Example:<i class="fa-solid fa-xmark fa-2xl"></i>-->
+    <!---------------------------------------------------------------->
+    <script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="container">
+
+        <!-------------------------------------------------------->
+        <!--------------The sidebar goes here--------------------->
+        <!-------------------------------------------------------->
+        <div class="sideBar" id="sideBar">
+            <button class="close-sidebar" id="close-sidebar">
+                <i class="fa-solid fa-xmark fa-2xl"></i>
+            </button>
+        </div>
+
+        <!--This is the header-->
         <div id="header">
             <div id="pageName">
                 <h1>Home</h1>
             </div>
-            <div id="account">
-                <a href="#"><img src="./images/account.svg" alt="account" class="headerImg"></a>
-            </div>
-            <div id="menu">
-                <a href="#"><img src="./images/menu.svg" alt="menu" class="headerImg"></a>
-            </div>
+            <button class="open-sidebar" id="open-sideBar">
+                <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
+            </button>
         </div>
+        <!--------------------------------------------------------------------------------------------------------------
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Above are side bar + header. it should be the same for most of the pages. If you want to use the main page as
+        template, change the content below this block.
+        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        --------------------------------------------------------------------------------------------------------------->
+
+        <!--The search box goes here-->
         <div id="formandpost">
-            <div id="dropDpwn">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Sort
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </div>
             <div id="searchBox">
                 <form class="searchBoxForm">
                     <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
                 </form>
             </div>
-            <div id="postBox">
-                <a href="#"><img src="./images/plus-circle-outline.svg" class="headerImg"></a>
-            </div>
+            <button class="post-sort">
+                <i class="fa-solid fa-plus fa-2xl"></i>
+            </button>
+            <button class="post-sort">
+                <i class="fa-solid fa-sort fa-2xl"></i>
+            </button>
         </div>
 
         <!--The main content part on the main page go below-->
@@ -95,6 +106,13 @@
             </div>
         </div>
 
+        <!--------------------------------------------------------------------------------------------------------------
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Below are footer. it should be the same for most of the pages. If you want to use the main page as
+        template, change the content above this block.
+        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        --------------------------------------------------------------------------------------------------------------->
+
         <!--Footer goes below-->
         <div id="footer">
             <figure class="footerNav">
@@ -115,6 +133,9 @@
             </figure>
         </div>
     </div>
+
+
+    <script src="./scripts/script.js"></script>
 
 </body>
 

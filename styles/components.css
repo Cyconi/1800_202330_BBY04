@@ -4,7 +4,9 @@
     padding: 0px;
     margin: 0px;
 }
-
+nav {
+    background-color: lawngreen;
+}
 .navBarColor {
     background-color: lawngreen;
     font-family: 'Poppins', sans-serif;

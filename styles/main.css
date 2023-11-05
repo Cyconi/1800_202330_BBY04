@@ -45,57 +45,48 @@ body {
 #pageName h1 {
     margin-left: 1em;
 }
-#account {
-    height: 100%;
-    width: 10%;
-    float: left;
-    text-align: center;
-}
 .headerImg {
     max-height: 100%;
     max-width: 100%;
 }
-#menu {
-    height: 100%;
-    width: 10%;
-    float: left;
-    text-align: center;
-}
+
 
 /* This Part is css about the searchBox and post on main page */
 #formandpost {
-    box-shadow: auto;
-        -webkit-box-shadow: 0 -1px 5px #777777;
+    -webkit-box-shadow: 0 -1px 5px #777777;
 }
-#dropDpwn {
+
+#searchBox {
     height: 100%;
-    width: 20%;
+    width: 60%;
     float: left;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#searchBox {
+.post-sort {
     height: 100%;
-    width: 70%;
+    width: 20%;
     float: left;
-    display: flex;
-    align-items: center;
+    border-style: none;
+    background-color: white;
 }
 .searchBoxForm {
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .searchBoxForm > input {
-    width: 50%;
-    height: 60%;
+    width: 90%;
+    height: 70%;
     background-color: lightgray;
     color: white;
     background-image: url("../images/magnify.svg");
     background-repeat: no-repeat;
     padding-left: 40px;
+    border-radius: 15px;
 }
     /* This part is for the main content part on main page*/
 #body {
@@ -157,6 +148,25 @@ a {
     height: 100%;
     width: 100%;
 }
+.open-sidebar {
+    height: 100%;
+    width: 20%;
+    background-color: lawngreen;
+    border-style: none;
+}
+.close-sidebar {
+    position: absolute;
 
+}
+
+.sideBar {
+    width: 60vw;
+    height: 100vh;
+    position: absolute;
+    left: 40vw;
+    background-color: #53d9ea;
+    box-shadow: 0 0 0 100000px rgba(0,0,0,.50);
+    display: none;
+}
 
 
