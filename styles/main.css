@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 /* html {
     width: 100%;
@@ -115,8 +115,7 @@ body {
     text-align: center;
 }
 #footer {
-    box-shadow: auto;
-        -webkit-box-shadow: 0 -1px 5px #777777;
+    -webkit-box-shadow: 0 -1px 5px #777777;
 }
 .footerNav {
     height: 100%;
@@ -148,25 +147,64 @@ a {
     height: 100%;
     width: 100%;
 }
+/* This part is css for side bar*/
 .open-sidebar {
     height: 100%;
     width: 20%;
     background-color: lawngreen;
     border-style: none;
 }
-.close-sidebar {
-    position: absolute;
-
-}
-
 .sideBar {
     width: 60vw;
     height: 100vh;
     position: absolute;
     left: 40vw;
-    background-color: #53d9ea;
+    background-color: #E5E4D7;
     box-shadow: 0 0 0 100000px rgba(0,0,0,.50);
+    font-family: 'Poppins', sans-serif;
     display: none;
+}
+
+.sideBar-close {
+    height: 5%;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em ;
+}
+.close-sidebar {
+    background-color: #E5E4D7;
+    border-style: none;
+    font-size: 20px;
+}
+
+.sideBar-user-info {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userImg {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50px;
+    background-color: white;
+}
+.sideBar-section-list {
+    padding-top: 2em;
+    height: 70%;
+    list-style: none;
+    line-height: 3em;
+    font-size: 20px;
+}
+
+.userImg {
+    width: 40vw;
+    height: 40vw;
+}
+.userName {
+    font-size: 20px;
+
 }
 
 

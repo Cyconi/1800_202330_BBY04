@@ -47,9 +47,26 @@
         <!--------------The sidebar goes here--------------------->
         <!-------------------------------------------------------->
         <div class="sideBar" id="sideBar">
-            <button class="close-sidebar" id="close-sidebar">
-                <i class="fa-solid fa-xmark fa-2xl"></i>
-            </button>
+
+                <div class="sideBar-close">
+                    <button class="close-sidebar" id="close-sidebar">
+                        <i class="fa-solid fa-arrow-left fa-2xl"></i>
+                    </button>
+                </div>
+                <div class="sideBar-user-info">
+                    <figure class="userImg">
+
+                    </figure>
+                    <span class="userName" id="username-goes-here"></span>
+                </div>
+                <ul class="sideBar-section-list">
+                    <li class="sideBar-section"><a href="#">Setting</a></li>
+                    <li class="sideBar-section"><a href="#">New Message</a></li>
+                    <li class="sideBar-section"><a href="#">My Activities</a></li>
+                    <li class="sideBar-section"><a href="#">Help</a></li>
+                    <li class="sideBar-section"><a href="#">About us</a></li>
+                </ul>
+
         </div>
 
         <!--This is the header-->
@@ -76,7 +93,7 @@
                 </form>
             </div>
             <button class="post-sort">
-                <i class="fa-solid fa-plus fa-2xl"></i>
+                <a href="post.html"><i class="fa-solid fa-plus fa-2xl"></i></a>
             </button>
             <button class="post-sort">
                 <i class="fa-solid fa-sort fa-2xl"></i>
@@ -134,7 +151,7 @@
         </div>
     </div>
 
-
+    <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
     <script src="./scripts/script.js"></script>
 
 </body>
