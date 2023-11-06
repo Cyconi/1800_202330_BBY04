@@ -1,0 +1,162 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+/* html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+} */
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 8vh 6vh 78vh 8vh;
+    overflow: hidden;
+}
+#container-test {
+    width: 100vw;
+    height: 89vh;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 6vh 81vh;
+    overflow: hidden;
+}
+/* This part is css about the header section on main page */
+#header {
+    background-color: lawngreen;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+#pageName {
+    height: 100%;
+    width: 80%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+#pageName h1 {
+    margin-left: 1em;
+}
+#account {
+    height: 100%;
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+.headerImg {
+    max-height: 100%;
+    max-width: 100%;
+}
+#menu {
+    height: 100%;
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+
+/* This Part is css about the searchBox and post on main page */
+#formandpost {
+    box-shadow: auto;
+        -webkit-box-shadow: 0 -1px 5px #777777;
+}
+#dropDpwn {
+    height: 100%;
+    width: 20%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#searchBox {
+    height: 100%;
+    width: 70%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+.searchBoxForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.searchBoxForm > input {
+    width: 50%;
+    height: 60%;
+    background-color: lightgray;
+    color: white;
+    background-image: url("../images/magnify.svg");
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+    /* This part is for the main content part on main page*/
+#body {
+    overflow: scroll;
+}
+.userPost {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -1px 5px #777777;
+}
+
+    /* This part is for the footer on main page */
+
+#footer {
+    background-color: lawngreen;
+    font-family: 'Poppins', sans-serif;
+
+}
+#postBox {
+    height: 100%;
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+#footer {
+    box-shadow: auto;
+        -webkit-box-shadow: 0 -1px 5px #777777;
+}
+.footerNav {
+    height: 100%;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.footerImg {
+    max-height: 70%;
+    max-width: 70%;
+}
+
+/* This part is for the feedback main page */
+#voteSwitch {
+    width: 100%;
+    height: 7%;
+}
+.voteSwitchBottom {
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: outset;
+}
+a {
+    height: 100%;
+    width: 100%;
+}
+
+
+
