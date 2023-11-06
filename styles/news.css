@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 /* html {
     width: 100%;
@@ -18,19 +18,13 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 8vh 6vh 78vh 8vh;
-    overflow: hidden;
-}
-#container-test {
-    width: 100vw;
-    height: 89vh;
-    display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 8hv 6vh 81vh;
+    grid-template-rows: 8vh 6vh 78vh;
     overflow: hidden;
 }
 /* This part is css about the header section on main page */
 #header {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
     background-color: lawngreen;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -45,74 +39,75 @@ body {
 #pageName h1 {
     margin-left: 1em;
 }
-#account {
-    height: 100%;
-    width: 10%;
-    float: left;
-    text-align: center;
-}
 .headerImg {
     max-height: 100%;
     max-width: 100%;
 }
-#menu {
-    height: 100%;
-    width: 10%;
-    float: left;
-    text-align: center;
-}
+
 
 /* This Part is css about the searchBox and post on main page */
 #formandpost {
-    box-shadow: auto;
-        -webkit-box-shadow: 0 -1px 5px #777777;
+    grid-column: 1 / span 1 ;
+    grid-row: 2 / span 1;
+    -webkit-box-shadow: 0 -1px 5px #777777;
 }
-#dropDpwn {
+
+#searchBox {
     height: 100%;
-    width: 20%;
+    width: 60%;
     float: left;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#searchBox {
+.post-sort {
     height: 100%;
-    width: 70%;
+    width: 20%;
     float: left;
-    display: flex;
-    align-items: center;
+    border-style: none;
+    background-color: white;
 }
 .searchBoxForm {
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .searchBoxForm > input {
-    width: 50%;
-    height: 60%;
+    width: 90%;
+    height: 70%;
     background-color: lightgray;
     color: white;
     background-image: url("../images/magnify.svg");
     background-repeat: no-repeat;
     padding-left: 40px;
+    border-radius: 15px;
 }
     /* This part is for the main content part on main page*/
 #body {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
     overflow: scroll;
+    display: grid;
+    grid-template-columns: 300px auto;
 }
 .userPost {
     width: 100%;
     height: 300px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    text-align: left;
     box-shadow: 0 -1px 5px #777777;
+    padding-left: 10px;
 }
 
     /* This part is for the footer on main page */
 
 #footer {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
     background-color: lawngreen;
     font-family: 'Poppins', sans-serif;
 
@@ -124,8 +119,7 @@ body {
     text-align: center;
 }
 #footer {
-    box-shadow: auto;
-        -webkit-box-shadow: 0 -1px 5px #777777;
+    -webkit-box-shadow: 0 -1px 5px #777777;
 }
 .footerNav {
     height: 100%;
@@ -153,24 +147,20 @@ body {
     align-items: center;
     border-style: outset;
 }
-a {
-    height: 100%;
-    width: 100%;
-}
+/* This part is css for side bar*/
 .open-sidebar {
     height: 100%;
     width: 20%;
     background-color: lawngreen;
     border-style: none;
 }
-
 .sideBar {
     width: 60vw;
     height: 100vh;
     position: absolute;
     left: 40vw;
     background-color: #E5E4D7;
-    box-shadow: 0 0 0 100000px rgba(0, 0, 0, .50);
+    box-shadow: 0 0 0 100000px rgba(0,0,0,.50);
     font-family: 'Poppins', sans-serif;
     display: none;
 }
@@ -179,9 +169,8 @@ a {
     height: 5%;
     display: flex;
     align-items: center;
-    margin-left: 0.5em;
+    margin-left: 0.5em ;
 }
-
 .close-sidebar {
     background-color: #E5E4D7;
     border-style: none;
@@ -195,5 +184,30 @@ a {
     justify-content: center;
     align-items: center;
 }
+.userImg {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50px;
+    background-color: white;
+}
+.sideBar-section-list {
+    padding-top: 2em;
+    height: 70%;
+    list-style: none;
+    line-height: 3em;
+    font-size: 20px;
+}
 
+.userImg {
+    width: 40vw;
+    height: 40vw;
+}
+.userName {
+    font-size: 20px;
+
+}
+a:link{
+    color: black;
+    text-decoration: none;
+}
 

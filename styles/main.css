@@ -21,14 +21,6 @@ body {
     grid-template-rows: 8vh 6vh 78vh 8vh;
     overflow: hidden;
 }
-#container-test {
-    width: 100vw;
-    height: 89vh;
-    display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 6vh 78vh;
-    overflow: hidden;
-}
 /* This part is css about the header section on main page */
 #header {
     grid-column: 1 / span 1;
