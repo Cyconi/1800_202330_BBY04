@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
     <link href="styles/post.css" rel="stylesheet">
 
 </head>
@@ -12,16 +22,18 @@
     <div id="header">
         <a href="main.html"><i class="fa-solid fa-xmark fa-2xl"></i></a>
 
-        <button class="post-button">Post</button>
+        <button id="postButton" class="post-button">Post</button>
     </div>
     <div id="textFile">
-        <form>
-            <textarea id="user-story" name="user-story" placeholder="What is on your mind?"></textarea>
+        <form name="userPosts">
+            <textarea id="user-story" name="userStory" placeholder="What is on your mind, my friend?"></textarea>
         </form>
     </div>
     <div id="addPhoto"></div>
 </div>
 
+<script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
 <script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
+<script src="./scripts/post.js"></script>
 </body>
 </html>
