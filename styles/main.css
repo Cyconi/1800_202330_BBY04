@@ -31,6 +31,8 @@ body {
 }
 /* This part is css about the header section on main page */
 #header {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
     background-color: lawngreen;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -53,6 +55,8 @@ body {
 
 /* This Part is css about the searchBox and post on main page */
 #formandpost {
+    grid-column: 1 / span 1 ;
+    grid-row: 2 / span 1;
     -webkit-box-shadow: 0 -1px 5px #777777;
 }
 
@@ -90,6 +94,8 @@ body {
 }
     /* This part is for the main content part on main page*/
 #body {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
     overflow: scroll;
 }
 .userPost {
@@ -104,6 +110,8 @@ body {
     /* This part is for the footer on main page */
 
 #footer {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
     background-color: lawngreen;
     font-family: 'Poppins', sans-serif;
 
@@ -142,10 +150,6 @@ body {
     justify-content: center;
     align-items: center;
     border-style: outset;
-}
-a {
-    height: 100%;
-    width: 100%;
 }
 /* This part is css for side bar*/
 .open-sidebar {
@@ -206,5 +210,8 @@ a {
     font-size: 20px;
 
 }
-
+a:link{
+    color: black;
+    text-decoration: none;
+}
 

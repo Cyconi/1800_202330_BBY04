@@ -32,6 +32,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <link href="styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/chat.css">
 
     <!---------------------------------------------------------------->
     <!-- Js for an Icon website, enable to insert an icon ------------>
@@ -72,7 +73,7 @@
         <!--This is the header-->
         <div id="header">
             <div id="pageName">
-                <h1>Home</h1>
+                <h1>Chat</h1>
             </div>
             <button class="open-sidebar" id="open-sideBar">
                 <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
@@ -87,39 +88,122 @@
 
         <!--The search box goes here-->
         <div id="formandpost">
-            <div id="searchBox">
-                <form class="searchBoxForm">
-                    <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
-                </form>
+            <div class="chat-exit-info">
+                <a href="mychat(ziqi).html"><i class="fa-solid fa-chevron-left fa-2xl"></i></a>
             </div>
-            <button class="post-sort">
-                <a href="post.html"><i class="fa-solid fa-plus fa-2xl"></i></a>
-            </button>
-            <button class="post-sort">
-                <i class="fa-solid fa-sort fa-2xl"></i>
-            </button>
+            <div class="chat-name">
+                <span id="chatname-goes-here">James Venturini</span>
+            </div>
+            <div class="chat-exit-info">
+                <a><i class="fa-solid fa-ellipsis-vertical fa-2xl"></i></a>
+            </div>
         </div>
 
         <!--The main content part on the main page go below-->
         <div id="body">
-            <div class="userPost">
-                <p>Users' posts about anything. Other user can see and comment.
-                    A place for all the users to share story in their life. </p>
+            <div class="user-avatar">
+                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
             </div>
-            <div class="userPost">
-                <h1>User Post</h1>
+            <div class="chatContainerLeft chat">
+                <!-- Sample Chat 1 -->
+                <div class="message">
+                    <p><strong>User 1:</strong>Hey, how's it going?</p>
+                </div><span class="time-right">11:00</span>
             </div>
-            <div class="userPost">
-                <h1>User Post</h1>
+
+            <div class="user-avatar">
+                <img src="./images/man.png" class="imgRight" alt="User Avatar">
             </div>
-            <div class="userPost">
-                <h1>User Post</h1>
+            <div class="chatContainerRight chat">
+                <!-- Sample Chat 2 -->
+                <span class="time-left">11:01</span>
+                <div class="message">
+                    <p><strong>User 2:</strong>Hey there! I'm doing pretty well, thanks. How about you?</p>
+                </div>
             </div>
-            <div class="userPost">
-                <h1>User Post</h1>
+
+            <div class="user-avatar">
+                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
             </div>
-            <div class="userPost">
-                <h1>User Post</h1>
+            <div class="chatContainerLeft chat">
+                <!-- Sample Chat 1 -->
+                <div class="message">
+                    <p><strong>User 1:</strong>Not too bad, just trying to stay busy. Have any exciting plans for the weekend?</p>
+                </div><span class="time-right">11:02</span>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/man.png" class="imgRight" alt="User Avatar">
+            </div>
+            <div class="chatContainerRight chat">
+                <!-- Sample Chat 2 -->
+                <span class="time-left">11:03</span>
+                <div class="message">
+                    <p><strong>User 2:</strong> Yeah, I'm actually going hiking with some friends. Can't wait to enjoy the fall foliage.</p>
+                </div>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+            </div>
+            <div class="chatContainerLeft chat">
+                <!-- Sample Chat 1 -->
+                <div class="message">
+                    <p><strong>User 1:</strong>That sounds amazing! I've been meaning to get out more and enjoy the season. Any hiking tips for a newbie like me?</p>
+                </div><span class="time-right">11:05</span>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/man.png" class="imgRight" alt="User Avatar">
+            </div>
+            <div class="chatContainerRight chat">
+                <!-- Sample Chat 2 -->
+                <span class="time-left">11:06</span>
+                <div class="message">
+                    <p><strong>User 2:</strong> Definitely! Make sure to wear comfortable shoes, bring plenty of water and snacks, and don't forget bug spray. Oh, and take lots of pictures!</p>
+                </div>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+            </div>
+            <div class="chatContainerLeft chat">
+                <!-- Sample Chat 1 -->
+                <div class="message">
+                    <p><strong>User 1:</strong> Hello, how are you?</p>
+                </div><span class="time-right">11:08</span>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/man.png" class="imgRight" alt="User Avatar">
+            </div>
+            <div class="chatContainerRight chat">
+                <!-- Sample Chat 2 -->
+                <span class="time-left">11:11</span>
+                <div class="message">
+                    <p><strong>User 2:</strong> I'm good, thanks! How about you?</p>
+                </div>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
+            </div>
+            <div class="chatContainerLeft chat">
+                <!-- Sample Chat 1 -->
+                <div class="message">
+                    <p><strong>User 1:</strong> Hello, how are you?</p>
+                </div><span class="time-right">11:12</span>
+            </div>
+
+            <div class="user-avatar">
+                <img src="./images/man.png" class="imgRight" alt="User Avatar">
+            </div>
+            <div class="chatContainerRight chat">
+                <!-- Sample Chat 2 -->
+                <span class="time-left">11:16</span>
+                <div class="message">
+                    <p><strong>User 2:</strong> I'm good, thanks! How about you?</p>
+                </div>
             </div>
         </div>
 
