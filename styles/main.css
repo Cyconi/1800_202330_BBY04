@@ -93,35 +93,66 @@ body {
 }
 .userPost {
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     box-shadow: 0 -1px 5px #777777;
+}
+.userPostContainer {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    height: 95%;
 }
 #posterInfo {
     width: 100%;
     height: 15%;
     float: left;
-    background-color: #CFFFB3;
-}
-#posterImg {
+
 
 }
-#posterNam {
+#posterImg-goes-here {
+    height: 100%;
+    width: 60px;
+    float: left;
+    margin: 0;
+    border-radius: 50%;
+    background-color: black;
+}
+#posterName-goes-here {
+    height: 100%;
+    width: 50%;
+    float: left;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
 
 }
-#postPhoto {
-
+#postTime-goes-here {
+    height: 100%;
+    width: 20%;
+    float: left;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #postText {
    width: 100%;
     height: 30%;
     float: left;
-    background-color: #53d9ea;
+}
+#postText-goes-here {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    margin: 0;
 }
 #postImg {
     width: 100%;
     height: 55%;
     float: left;
-    background-color: #d13eea;
+
 }
 
     /* This part is for the footer on main page */

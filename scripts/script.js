@@ -30,3 +30,20 @@ function insertNameFromFirestore() {
 }
 
 insertNameFromFirestore();
+
+function displayUserPosts(collection) {
+    let postsTemplate = document.getElementById("userPostTemplate")
+
+    db.collection(collection).get()
+        .then(allPosts => {
+            allPosts.forEach(doc => {
+                let story = doc.data().text;
+                let newpost = postsTemplate.content.cloneNode(true);
+
+                newpost.querySelector('#postText-goes-here').innerText = story
+                document.getElementById(collection + "-goes-here").appendChild(newpost);
+            })
+
+    })
+}
+displayUserPosts("posts");
