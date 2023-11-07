@@ -26,7 +26,7 @@ body {
     height: 89vh;
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 8hv 6vh 81vh;
+    grid-template-rows: 8vh 6vh 81vh;
     overflow: hidden;
 }
 /* This part is css about the header section on main page */

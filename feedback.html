@@ -48,24 +48,24 @@
         <!-------------------------------------------------------->
         <div class="sideBar" id="sideBar">
 
-                <div class="sideBar-close">
-                    <button class="close-sidebar" id="close-sidebar">
-                        <i class="fa-solid fa-arrow-left fa-2xl"></i>
-                    </button>
-                </div>
-                <div class="sideBar-user-info">
-                    <figure class="userImg">
+            <div class="sideBar-close">
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fa-solid fa-arrow-left fa-2xl"></i>
+                </button>
+            </div>
+            <div class="sideBar-user-info">
+                <figure class="userImg">
 
-                    </figure>
-                    <span class="userName" id="username-goes-here"></span>
-                </div>
-                <ul class="sideBar-section-list">
-                    <li class="sideBar-section"><a href="#">Setting</a></li>
-                    <li class="sideBar-section"><a href="#">New Message</a></li>
-                    <li class="sideBar-section"><a href="#">My Activities</a></li>
-                    <li class="sideBar-section"><a href="#">Help</a></li>
-                    <li class="sideBar-section"><a href="#">About us</a></li>
-                </ul>
+                </figure>
+                <span class="userName" id="username-goes-here"></span>
+            </div>
+            <ul class="sideBar-section-list">
+                <li class="sideBar-section"><a href="#">Setting</a></li>
+                <li class="sideBar-section"><a href="#">New Message</a></li>
+                <li class="sideBar-section"><a href="#">My Activities</a></li>
+                <li class="sideBar-section"><a href="#">Help</a></li>
+                <li class="sideBar-section"><a href="#">About us</a></li>
+            </ul>
 
         </div>
 
@@ -107,14 +107,17 @@
                     <h2>Feedback</h2>
                 </div>
                 <div class="voteSwitchBottom">
-                    <a href="myfeedback.html"><h2>My feedback</h2></a>
+                    <a href="myfeedback.html">
+                        <h2>My feedback</h2>
+                    </a>
                 </div>
             </div>
             <div class="userPost">
                 <p>Users' posts about things they are not satisfied with
                     or things they think that can be improved. All the post here will be anonymous.
                     Other users can not only comment but also vote/support the posts.
-                    The most voted/supported posts will be corrected by use every weeks and send them to local committee  </p>
+                    The most voted/supported posts will be corrected by use every weeks and send them to local committee
+                </p>
             </div>
             <div class="userPost">
                 <h1>User Post</h1>
@@ -138,7 +141,7 @@
         --------------------------------------------------------------------------------------------------------------->
 
         <!--Footer goes below-->
-        <div id="footer">
+        <!-- <div id="footer">
             <figure class="footerNav">
                 <a href="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
                 <figcaption>Home</figcaption>
@@ -155,9 +158,13 @@
                 <a href="feedback-home.html"><img src="./images/vote.svg" class="footerImg"></a>
                 <figcaption>Feedback</figcaption>
             </figure>
-        </div>
+        </div> -->
     </div>
+    <!-- bottom nav bar -->
+    <nav id="nav-Comp"></nav>
 
+    <!-- Js scripts-->
+    <script src="./scripts/Components.js"></script>
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
     <script src="./scripts/script.js"></script>
 
