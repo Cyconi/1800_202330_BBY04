@@ -68,3 +68,33 @@
     align-items: center;
     font-size: 20px;
   }
+
+/* chat box */
+    /* Style for the chat box container */
+    .chat-container {
+      position: fixed;
+      bottom: 60px; /* Adjust this value to position the chat box just above the navbar */
+      width: 100%;
+      background-color: #f0f0f0;
+      padding: 20px;
+      display: flex;
+    }
+
+    /* Style for the chat input */
+    .chat-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Style for the chat button */
+    .chat-button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
