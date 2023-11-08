@@ -120,7 +120,7 @@ body {
 }
 #posterName-goes-here {
     height: 100%;
-    width: 50%;
+    width: 20%;
     float: left;
     margin: 0;
     display: flex;
@@ -130,7 +130,7 @@ body {
 }
 #postTime-goes-here {
     height: 100%;
-    width: 20%;
+    width: 50%;
     float: left;
     margin: 0;
     display: flex;

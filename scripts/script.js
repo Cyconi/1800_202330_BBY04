@@ -38,12 +38,21 @@ function displayUserPosts(collection) {
         .then(allPosts => {
             allPosts.forEach(doc => {
                 let story = doc.data().text;
+                let posterName = doc.data().poster;
+                const firestoreTimeStamp = doc.data().timestamp;
+                const date = firestoreTimeStamp.toDate();
+
                 let newpost = postsTemplate.content.cloneNode(true);
 
                 newpost.querySelector('#postText-goes-here').innerText = story
+                newpost.querySelector('#posterName-goes-here').innerText = posterName
+                newpost.querySelector('#postTime-goes-here').innerHTML = new Date(date).toLocaleString()
+
+
                 document.getElementById(collection + "-goes-here").appendChild(newpost);
             })
 
     })
 }
 displayUserPosts("posts");
+
