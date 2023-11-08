@@ -87,10 +87,11 @@ body {
     /* This part is for the main content part on main page*/
 #body {
     grid-column: 1 / span 1;
-    grid-row: 3 / span 1;
+    grid-row: 2 / span 2;
     overflow: scroll;
-    display: grid;
-    grid-template-columns: 300px auto;
+    display: flex;
+    box-shadow: 0 -1px 5px #777777;
+    /* position: absolute; */
 }
 .userPost {
     width: 100%;
@@ -164,6 +165,7 @@ body {
     box-shadow: 0 0 0 100000px rgba(0,0,0,.50);
     font-family: 'Poppins', sans-serif;
     display: none;
+    z-index: 1;
 }
 
 .sideBar-close {
