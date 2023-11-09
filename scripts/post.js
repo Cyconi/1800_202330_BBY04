@@ -27,7 +27,8 @@ postButton.addEventListener("click", () => {
             currentUser = db.collection("users").doc(user.uid);
             let userID = user.uid;
 
-            
+
+
             db.collection("users").doc(userID).get().then((doc) => {
                 let userName = doc.data().name
 
