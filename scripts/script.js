@@ -39,6 +39,7 @@ function displayUserPosts(collection) {
             allPosts.forEach(doc => {
                 let story = doc.data().text;
                 let posterName = doc.data().poster;
+                let imageUrl = doc.data().imageUrl
                 const firestoreTimeStamp = doc.data().timestamp;
                 const date = firestoreTimeStamp.toDate();
 
@@ -48,6 +49,11 @@ function displayUserPosts(collection) {
                 newpost.querySelector('#posterName-goes-here').innerText = posterName
                 newpost.querySelector('#postTime-goes-here').innerHTML = new Date(date).toLocaleString()
 
+                if (imageUrl) {
+                    let imgElement = newpost.querySelector('#postImg-goes-here')
+                    imgElement.src = imageUrl
+                    imgElement.style.display = 'block';
+                }
 
                 document.getElementById(collection + "-goes-here").appendChild(newpost);
             })
