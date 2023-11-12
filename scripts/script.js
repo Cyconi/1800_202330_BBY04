@@ -31,6 +31,11 @@ function insertNameFromFirestore() {
 
 insertNameFromFirestore();
 
+document.querySelector('#logout').addEventListener('click', function (){
+    firebase.auth().signOut().then(() => {
+        window.location.href = 'login.html'
+    })
+})
 function displayUserPosts(collection) {
     let postsTemplate = document.getElementById("userPostTemplate")
 
@@ -61,4 +66,6 @@ function displayUserPosts(collection) {
     })
 }
 displayUserPosts("posts");
+
+
 

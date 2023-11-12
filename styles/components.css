@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 nav {
     background-color: lawngreen;
@@ -44,8 +44,8 @@ nav {
 }
 
 .footerImg {
-    max-height: 70%;
-    max-width: 70%;
+    max-height: 60%;
+    max-width: 60%;
 }
 .bar-contain {
     padding: 0px;
@@ -62,4 +62,7 @@ figcaption {
     text-align: center;
     align-content: center;
     justify-content: center;
+}
+#navbar-container {
+    height: 8vh;
 }

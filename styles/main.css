@@ -4,6 +4,7 @@
 * {
     padding: 0;
     margin: 0;
+
 }
 /* html {
     width: 100%;
@@ -16,15 +17,13 @@ body {
 #container {
     width: 100vw;
     height: 100vh;
-    display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 8vh 6vh 78vh 8vh;
     overflow: hidden;
 }
+
 /* This part is css about the header section on main page */
 #header {
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+    width: 100vw;
+    height: 8vh;
     background-color: lawngreen;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -47,8 +46,8 @@ body {
 
 /* This Part is css about the searchBox and post on main page */
 #formandpost {
-    grid-column: 1 / span 1 ;
-    grid-row: 2 / span 1;
+    width: 100vw;
+    height: 6vh;
     box-shadow: auto;
     -webkit-box-shadow: 0 -1px 5px #777777;
 }
@@ -87,28 +86,35 @@ body {
 }
     /* This part is for the main content part on main page*/
 #body {
-    grid-column: 1 / span 1;
-    grid-row: 3 / span 1;
+    width: 100vw;
+    height: 78vh;
     overflow: scroll;
 }
+
 .userPost {
+    margin: 1vh 0;
     width: 100%;
     height: 50vh;
-    box-shadow: 0 -1px 5px #777777;
+    background-color: white;
+}
+.userPost:hover {
+    box-shadow: 0 -3px 10px black;
+}
+#posts-goes-here {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #a5a5a5;
 }
 .userPostContainer {
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    height: 95%;
+    margin: 5%;
+    height: 90%;
 }
 #posterInfo {
     width: 100%;
     height: 15%;
     float: left;
-
-
 }
 #posterImg-goes-here {
     height: 100%;
@@ -209,7 +215,7 @@ body {
 }
 .sideBar {
     width: 60vw;
-    height: 100vh;
+    height: 92vh;
     position: absolute;
     left: 40vw;
     background-color: #E5E4D7;
@@ -244,11 +250,19 @@ body {
     background-color: white;
 }
 .sideBar-section-list {
+    margin: 0;
     padding-top: 2em;
-    height: 70%;
+    height: 50%;
     list-style: none;
     line-height: 3em;
     font-size: 20px;
+}
+.sideBar-logout {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
 }
 
 .userImg {

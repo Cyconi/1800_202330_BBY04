@@ -68,6 +68,10 @@
                     <li class="sideBar-section"><a href="#">About us</a></li>
                 </ul>
 
+            <div class="sideBar-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-2xl" id="logout"></i>
+            </div>
+
         </div>
 
         <!--This is the header-->
@@ -86,161 +90,27 @@
         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         --------------------------------------------------------------------------------------------------------------->
 
-        <!--The search box goes here-->
-        <div id="formandpost">
-            <div class="chat-exit-info">
-                <a href="mychats.html"><i class="fa-solid fa-chevron-left fa-2xl"></i></a>
-            </div>
-            <div class="chat-name">
-                <span id="chatname-goes-here">James Venturini</span>
-            </div>
-            <div class="chat-exit-info">
-                <a><i class="fa-solid fa-ellipsis-vertical fa-2xl"></i></a>
-            </div>
-        </div>
+
 
         <!--The main content part on the main page go below-->
         <div id="body">
-            <div class="user-avatar">
-                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
-            </div>
-            <div class="chatContainerLeft chat">
-                <!-- Sample Chat 1 -->
-                <div class="message">
-                    <p><strong>User 1:</strong>Hey, how's it going?</p>
-                </div><span class="time-right">11:00</span>
-            </div>
+            <ul id="messageList"></ul>
 
-            <div class="user-avatar">
-                <img src="./images/man.png" class="imgRight" alt="User Avatar">
-            </div>
-            <div class="chatContainerRight chat">
-                <!-- Sample Chat 2 -->
-                <span class="time-left">11:01</span>
-                <div class="message">
-                    <p><strong>User 2:</strong>Hey there! I'm doing pretty well, thanks. How about you?</p>
-                </div>
-            </div>
 
-            <div class="user-avatar">
-                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
-            </div>
-            <div class="chatContainerLeft chat">
-                <!-- Sample Chat 1 -->
-                <div class="message">
-                    <p><strong>User 1:</strong>Not too bad, just trying to stay busy. Have any exciting plans for the weekend?</p>
-                </div><span class="time-right">11:02</span>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/man.png" class="imgRight" alt="User Avatar">
-            </div>
-            <div class="chatContainerRight chat">
-                <!-- Sample Chat 2 -->
-                <span class="time-left">11:03</span>
-                <div class="message">
-                    <p><strong>User 2:</strong> Yeah, I'm actually going hiking with some friends. Can't wait to enjoy the fall foliage.</p>
-                </div>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
-            </div>
-            <div class="chatContainerLeft chat">
-                <!-- Sample Chat 1 -->
-                <div class="message">
-                    <p><strong>User 1:</strong>That sounds amazing! I've been meaning to get out more and enjoy the season. Any hiking tips for a newbie like me?</p>
-                </div><span class="time-right">11:05</span>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/man.png" class="imgRight" alt="User Avatar">
-            </div>
-            <div class="chatContainerRight chat">
-                <!-- Sample Chat 2 -->
-                <span class="time-left">11:06</span>
-                <div class="message">
-                    <p><strong>User 2:</strong> Definitely! Make sure to wear comfortable shoes, bring plenty of water and snacks, and don't forget bug spray. Oh, and take lots of pictures!</p>
-                </div>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
-            </div>
-            <div class="chatContainerLeft chat">
-                <!-- Sample Chat 1 -->
-                <div class="message">
-                    <p><strong>User 1:</strong> Hello, how are you?</p>
-                </div><span class="time-right">11:08</span>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/man.png" class="imgRight" alt="User Avatar">
-            </div>
-            <div class="chatContainerRight chat">
-                <!-- Sample Chat 2 -->
-                <span class="time-left">11:11</span>
-                <div class="message">
-                    <p><strong>User 2:</strong> I'm good, thanks! How about you?</p>
-                </div>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/gamer.png" class="imgLeft" alt="User Avatar">
-            </div>
-            <div class="chatContainerLeft chat">
-                <!-- Sample Chat 1 -->
-                <div class="message">
-                    <p><strong>User 1:</strong> Hello, how are you?</p>
-                </div><span class="time-right">11:12</span>
-            </div>
-
-            <div class="user-avatar">
-                <img src="./images/man.png" class="imgRight" alt="User Avatar">
-            </div>
-            <div class="chatContainerRight chat">
-                <!-- Sample Chat 2 -->
-                <span class="time-left">11:16</span>
-                <div class="message">
-                    <p><strong>User 2:</strong> I'm good, thanks! How about you?</p>
-                </div>
-            </div>
         </div>
+        </div>
+
+
+
 
 
   <!-- Chat Box Container -->
   <div class="chat-container">
-    <input type="text" class="chat-input" placeholder="Type your message...">
-    <button class="chat-button">Send</button>
+    <input type="text" id="messageInput" class="chat-input" placeholder="Type your message...">
+    <button id="sendMessageButton" class="chat-button">Send</button>
   </div>
 
 
-        <!--------------------------------------------------------------------------------------------------------------
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Below are footer. it should be the same for most of the pages. If you want to use the main page as
-        template, change the content above this block.
-        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        --------------------------------------------------------------------------------------------------------------->
-
-        <!--Footer goes below-->
-        <!-- <div id="footer">
-            <figure class="footerNav">
-                <a href="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
-                <figcaption>Home</figcaption>
-            </figure>
-            <figure class="footerNav">
-                <a href="mychats.html"><img src="./images/chat-outline.svg" class="footerImg"></a>
-                <figcaption>Chat</figcaption>
-            </figure>
-            <figure class="footerNav">
-                <a href="#"><img src="./images/newspaper.svg" class="footerImg"></a>
-                <figcaption>News</figcaption>
-            </figure>
-            <figure class="footerNav">
-                <a href="feedback.html"><img src="./images/vote.svg" class="footerImg"></a>
-                <figcaption>Feedback</figcaption>
-            </figure>
-        </div> -->
     </div>
 
     <!-- bottom nav bar -->
@@ -250,6 +120,7 @@
     <!-- Js scripts-->
     <script src="./scripts/Components.js"></script>
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
+    <script src="./scripts/chat.js"></script>
     <script src="./scripts/script.js"></script>
 
 </body>
