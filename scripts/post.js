@@ -40,6 +40,9 @@ function createPostWithImage(postTextContent, imageUrl) {
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
 
                 }
+                if (doc.data().photoURL) {
+                    postData.posterImg = doc.data().photoURL
+                }
 
                 if (imageUrl) {
                     postData.imageUrl = imageUrl

@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#container {
+    width: 100vw;
+    height: 100vh;
+    background-color: lawngreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form-container {
+    width: 60vw;
+    height: 60vh;
+    background-color: #cccccc;
+    border-radius: 10px;
+}
+#imagePreviewContainer-out {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imagePreviewContainer-inner {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+}
+#imagePreview {
+    height: 100%;
+    width: 100%;
+}
+#profileForm {
+    width: 100%;
+    height: 60%;
+}
+#profileForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}

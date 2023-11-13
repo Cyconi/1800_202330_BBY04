@@ -28,6 +28,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
@@ -54,8 +55,8 @@
                 </button>
             </div>
             <div class="sideBar-user-info">
-                <figure class="userImg">
-
+                <figure class="userImg-figure">
+                    <img id="userImg" src="">
                 </figure>
                 <span class="userName" id="username-goes-here"></span>
             </div>
@@ -115,26 +116,6 @@
                     </a>
                 </div>
             </div>
-            <div class="userPost">
-                <p>Users' posts about things they are not satisfied with
-                    or things they think that can be improved. All the post here will be anonymous.
-                    Other users can not only comment but also vote/support the posts.
-                    The most voted/supported posts will be corrected by use every weeks and send them to local committee
-                </p>
-            </div>
-            <div class="userPost">
-                <h1>User Post</h1>
-            </div>
-            <div class="userPost">
-                <h1>User Post</h1>
-            </div>
-            <div class="userPost">
-                <h1>User Post</h1>
-            </div>
-            <div class="userPost">
-                <h1>User Post</h1>
-            </div>
-        </div>
 
         <!--------------------------------------------------------------------------------------------------------------
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,7 +150,7 @@
     <!-- Js scripts-->
     <script src="./scripts/Components.js"></script>
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/feedback.js"></script>
 
 </body>
 

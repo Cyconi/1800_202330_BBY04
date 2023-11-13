@@ -28,6 +28,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
@@ -54,13 +55,13 @@
                 </button>
             </div>
             <div class="sideBar-user-info">
-                <figure class="userImg">
-
+                <figure class="userImg-figure">
+                    <img id="userImg" src="">
                 </figure>
                 <span class="userName" id="username-goes-here"></span>
             </div>
             <ul class="sideBar-section-list">
-                <li class="sideBar-section"><a href="#">Setting</a></li>
+                <li class="sideBar-section"><a href="editprofile.html">Edit Profile</a></li>
                 <li class="sideBar-section"><a href="#">New Message</a></li>
                 <li class="sideBar-section"><a href="#">My Activities</a></li>
                 <li class="sideBar-section"><a href="#">Help</a></li>
@@ -69,7 +70,6 @@
             <div class="sideBar-logout">
                 <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-2xl" id="logout"></i>
             </div>
-
         </div>
 
         <!--This is the header-->
@@ -113,7 +113,9 @@
                 <div class="userPost">
                     <div class="userPostContainer">
                         <div id="posterInfo">
-                            <figure id="posterImg-goes-here"></figure>
+                            <figure id="posterImg-goes-here">
+                                <img id="posterImg" src="images/gamer.png">
+                            </figure>
                             <p id="posterName-goes-here"></p>
                             <p id="postTime-goes-here"></p>
                         </div>
