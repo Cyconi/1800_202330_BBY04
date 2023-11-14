@@ -88,7 +88,7 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
     event.preventDefault()
     firebase.auth().onAuthStateChanged(function(user) {
         let comment = document.querySelector('#comment-input').value
-        if (user&& comment.value.trim() !== "") {
+        if (user&& comment.trim() !== "") {
             db.collection('users').doc(user.uid).get().then(doc => {
 
                 let params = new URL(window.location.href)
