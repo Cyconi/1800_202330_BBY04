@@ -1,7 +1,3 @@
-
-
-
-
 document.querySelector('#profileForm').addEventListener('submit', function (event){
     event.preventDefault()
     const user = firebase.auth().currentUser

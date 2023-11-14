@@ -27,6 +27,9 @@ body {
     background-color: lawngreen;
     color: white;
     font-family: 'Poppins', sans-serif;
+    z-index: 8;
+        box-shadow: auto;
+        -webkit-box-shadow: 0 -1px 5px #777777;
 }
 #pageName {
     height: 100%;
