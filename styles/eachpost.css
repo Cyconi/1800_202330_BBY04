@@ -36,9 +36,39 @@
 }
 
 /* CSS for the template*/
-
+#comment-display {
+    background-color: #cccccc;
+}
 .user-comment-container {
+    margin-top: 5px;
     max-width: 100%;
-    background-color: #a5a5a5;
-    margin-bottom: 10px;
+    background-color: white;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.user-comment-inner-container {
+    margin: 5% 5%;
+    width: 90%;
+    height: 90%;
+}
+.commenter-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment-name {
+    text-align: left;
+}
+.comment-text-container {
+    margin: 5% 0;
+}
+.commenter-img-container {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.commenter-img {
+    width: 100%;
+    height: 100%;
 }
