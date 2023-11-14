@@ -1,0 +1,44 @@
+#body {
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+}
+.userPost {
+    border-bottom-style: groove;
+}
+
+#comment {
+    width: 100vw;
+    height: 8vh;
+
+}
+#comment-form {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 12px;
+    display: flex;
+}
+#comment-input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+#comment-send {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* CSS for the template*/
+
+.user-comment-container {
+    max-width: 100%;
+    background-color: #a5a5a5;
+    margin-bottom: 10px;
+}

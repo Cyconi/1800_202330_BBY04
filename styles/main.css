@@ -16,7 +16,7 @@ body {
 } */
 #container {
     width: 100vw;
-    height: 100vh;
+    height: 92vh;
     overflow: hidden;
 }
 
@@ -92,8 +92,7 @@ body {
 }
 
 .userPost {
-    margin: 1vh 0;
-    width: 100%;
+    width: 100vw;
     height: 50vh;
     background-color: white;
 }
@@ -293,5 +292,11 @@ a:link{
 #posterImg {
     width: 100%;
     height: 100%;
+}
+.postLinks {
+    height: 50vh;
+    width: 100vw;
+    margin: 1vh 0;
+    display: flex;
 }
 
