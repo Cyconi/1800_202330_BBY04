@@ -73,7 +73,7 @@
     /* Style for the chat box container */
     .chat-container {
       position: fixed;
-      bottom: 60px; /* Adjust this value to position the chat box just above the navbar */
+      bottom: 8%; /* changed to 8% to keep it consistant to window changes */
       width: 100%;
       background-color: #f0f0f0;
       padding: 20px;

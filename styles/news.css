@@ -33,6 +33,7 @@ body {
         -webkit-box-shadow: 0 -1px 5px #777777;
 }
 #pageName {
+    border-radius: 0%;
     height: 100%;
     width: 80%;
     float: left;

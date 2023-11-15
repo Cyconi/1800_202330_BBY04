@@ -11,7 +11,7 @@
     width: 100%;
     height: 100%;
 } */
-body *{
+#body *{
     border-radius: 15px;
 }
 #container {
@@ -22,6 +22,7 @@ body *{
 
 /* This part is css about the header section on main page */
 #header {
+    border-radius: 0%;
     width: 100vw;
     height: 8vh;
     background-color: lawngreen;
@@ -32,6 +33,7 @@ body *{
         -webkit-box-shadow: 0 -1px 5px #777777;
 }
 #pageName {
+    border-radius: 0%;
     height: 100%;
     width: 80%;
     float: left;
@@ -210,63 +212,15 @@ body *{
     border-style: outset;
 }
 /* This part is css for side bar*/
-.open-sidebar {
-    height: 100%;
-    width: 20%;
-    background-color: lawngreen;
-    border-style: none;
-}
-.sideBar {
-    width: 60vw;
-    height: 92vh;
-    position: absolute;
-    left: 40vw;
-    background-color: #E5E4D7;
-    box-shadow: 0 0 0 100000px rgba(0,0,0,.50);
-    font-family: 'Poppins', sans-serif;
-    display: none;
-}
 
-.sideBar-close {
-    height: 5%;
-    display: flex;
-    align-items: center;
-    margin-left: 0.5em ;
-}
-.close-sidebar {
-    background-color: #E5E4D7;
-    border-style: none;
-    font-size: 20px;
-}
 
-.sideBar-user-info {
-    height: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 .userImg {
     margin: 0;
     width: 20vw;
     height: 40vw;
     border-radius: 50%;
     background-color: white;
-}
-.sideBar-section-list {
-    margin: 0;
-    padding-top: 2em;
-    height: 50%;
-    list-style: none;
-    line-height: 3em;
-    font-size: 20px;
-}
-.sideBar-logout {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    padding-left: 2rem;
 }
 
 .userImg-figure {
@@ -303,3 +257,225 @@ a:link{
     display: flex;
 }
 
+
+
+
+
+
+
+/* General CSS */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* End of General CSS */
+/* Nav bar */
+nav {
+    background-color: lawngreen;
+}
+
+.navBarColor {
+    background-color: lawngreen;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: auto;
+    -webkit-box-shadow: 0 -1px 5px #777777;
+}
+
+#footer {
+    background-color: lawngreen;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: auto;
+    -webkit-box-shadow: 0 -1px 5px #777777;
+}
+
+#pageName {
+    border-radius: 0%;
+    height: 100%;
+    width: 80%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+#pageName h1 {
+    margin-left: 1em;
+    margin-bottom: 0px;
+    padding: 0px;
+    color: white;
+}
+
+.footerNav {
+    height: 100%;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.footerImg {
+    max-height: 60%;
+    max-width: 60%;
+}
+
+.bar-contain {
+    padding: 0px;
+    margin: 0px;
+}
+
+.navIcons {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 70px;
+}
+
+figcaption {
+    margin-inline: -20px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#navbar-container {
+    height: 8vh;
+}
+
+/* End of Nav CSS */
+
+
+/* Side Bar CSS*/
+.open-sidebar {
+    height: 100%;
+    width: 20%;
+    background-color: lawngreen;
+    border-style: none;
+}
+
+.sideBar {
+    width: 60vw;
+    left: 40vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #E5E4D7;
+    box-shadow: 0 0 0 100000px rgba(0, 0, 0, .50);
+    font-family: 'Poppins', sans-serif;
+    display: none;
+    z-index: 9;
+}
+
+@media screen and (min-width: 900px) {
+    .sideBar {
+        width: 40vw;
+        left: 60vw;
+    }
+}
+
+.sideBar-close {
+    height: 5%;
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+    padding-left: 1em;
+}
+
+.close-sidebar {
+    background-color: #E5E4D7;
+    border-style: none;
+    font-size: 20px;
+}
+
+.close-sidebar:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sideBar-user-info {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.sideBar-section-list {
+    /* padding-top: 2em; */
+    padding-left: 3em;
+    height: 45%;
+    list-style: none;
+    line-height: 3em;
+    font-size: 20px;
+
+}
+
+/* Side bar animations */
+.sideBar-section-list li:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sideBar-section-list a {
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .50);
+    background-color: rgba(0, 255, 0, 0.50);
+    color: black;
+}
+
+.sideBar-logout:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.userImg {
+    width: 40vw;
+    height: 40vw;
+}
+
+.userName {
+    font-size: 20px;
+
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.userImg {
+    margin: 0;
+    width: 20vw;
+    height: 40vw;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
+.sideBar-logout {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding-left: 3em;
+    padding-top: 20px;
+}
+
+.userImg-figure {
+    width: 152px;
+    height: 182px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#userImg {
+    width: 100%;
+    height: 100%;
+}
+
+/* End of Side Bar CSS */
