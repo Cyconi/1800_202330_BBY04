@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,25 +16,27 @@
 
     <link href="styles/editprofile.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<div id="container">
 
-    <div id="form-container">
-        <div id="imagePreviewContainer-out">
-            <div id="imagePreviewContainer-inner">
-                <img id="imagePreview" src="">
+<body>
+    <div id="container">
+
+        <div id="form-container">
+            <div id="imagePreviewContainer-out">
+                <div id="imagePreviewContainer-inner">
+                    <img id="imagePreview" src="">
+                </div>
             </div>
+            <form id="profileForm">
+                <input type="text" id="username" placeholder="User Name" required>
+                <input type="text" id="postalcode" placeholder="Your Postal Code">
+                <input type="file" id="profilePhoto" accept="image/*">
+                <input type="submit" id="profile-submit" value="Save Profile">
+                <a href="main.html" id="profile-close">Cancel</a>
+            </form>
         </div>
-        <form id="profileForm">
-            <input type="text" id="username" placeholder="User Name" required>
-            <input type="text" id="postalcode" placeholder="Your Postal Code">
-            <input type="file" id="profilePhoto" accept="image/*">
-            <input type="submit" id="profile-submit" value="Save Profile">
-            <a href="main.html" id="profile-close">Cancel</a>
-        </form>
     </div>
-</div>
-<script src="scripts/editprofile.js"></script>
-<script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
+    <script src="scripts/editprofile.js"></script>
+    <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
 </body>
+
 </html>
