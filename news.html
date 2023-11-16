@@ -47,26 +47,28 @@
         <!--------------The sidebar goes here--------------------->
         <!-------------------------------------------------------->
         <div class="sideBar" id="sideBar">
-
-                <div class="sideBar-close">
-                    <button class="close-sidebar" id="close-sidebar">
-                        <i class="fa-solid fa-arrow-left fa-2xl"></i>
-                    </button>
-                </div>
-                <div class="sideBar-user-info">
-                    <figure class="userImg">
-
-                    </figure>
-                    <span class="userName" id="username-goes-here"></span>
-                </div>
-                <ul class="sideBar-section-list">
-                    <li class="sideBar-section"><a href="#">Setting</a></li>
-                    <li class="sideBar-section"><a href="#">New Message</a></li>
-                    <li class="sideBar-section"><a href="#">My Activities</a></li>
-                    <li class="sideBar-section"><a href="#">Help</a></li>
-                    <li class="sideBar-section"><a href="#">About us</a></li>
-                </ul>
-
+        
+            <div class="sideBar-close">
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fa-solid fa-arrow-left fa-2xl"></i>
+                </button>
+            </div>
+            <div class="sideBar-user-info">
+                <figure class="userImg-figure">
+                    <img id="userImg" src="">
+                </figure>
+                <span class="userName" id="username-goes-here"></span>
+            </div>
+            <ul class="sideBar-section-list">
+                <li class="sideBar-section"><a href="editprofile.html">Edit Profile</a></li>
+                <li class="sideBar-section"><a href="#">New Message</a></li>
+                <li class="sideBar-section"><a href="#">My Activities</a></li>
+                <li class="sideBar-section"><a href="#">Help</a></li>
+                <li class="sideBar-section"><a href="#">About us</a></li>
+            </ul>
+            <div class="sideBar-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-2xl" id="logout"></i>
+            </div>
         </div>
 
         <!--This is the header-->
@@ -78,31 +80,8 @@
                 <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
             </button>
         </div>
-        <!--------------------------------------------------------------------------------------------------------------
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Above are side bar + header. it should be the same for most of the pages. If you want to use the main page as
-        template, change the content below this block.
-        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        --------------------------------------------------------------------------------------------------------------->
-
-        <!--The search box goes here-->
-        <!-- <div id="formandpost">
-            <div id="searchBox">
-                <form class="searchBoxForm">
-                    <input type="text" id="userSearch" name="userSearch" placeholder="Search Posts">
-                </form>
-            </div>
-            <button class="post-sort">
-                <a href="post.html"><i class="fa-solid fa-plus fa-2xl"></i></a>
-            </button>
-            <button class="post-sort">
-                <i class="fa-solid fa-sort fa-2xl"></i>
-            </button>
-        </div> -->
-
-        <!--The main content part on the main page go below-->      
-
-        <!--News feed widget-->
+        
+        <!--The main content part on the main page go below-->
         <div id="body">
             <rssapp-magazine id="SopvIxLcoCeurl96"></rssapp-magazine>
             <script src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async></script>

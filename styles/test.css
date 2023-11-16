@@ -31,11 +31,13 @@ body {
 }
 /* This part is css about the header section on main page */
 #header {
+    border-radius: 0%;
     background-color: lawngreen;
     color: white;
     font-family: 'Poppins', sans-serif;
 }
 #pageName {
+    border-radius: 0%;
     height: 100%;
     width: 80%;
     float: left;

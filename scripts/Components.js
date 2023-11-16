@@ -9,3 +9,4 @@ function loadSkeleton() {
     console.log($('#Sidebar').load('../Components/sidebar.html'))
 }
 loadSkeleton();  //invoke the function
+    

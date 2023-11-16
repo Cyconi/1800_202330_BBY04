@@ -73,7 +73,7 @@
     /* Style for the chat box container */
     .chat-container {
       position: fixed;
-      bottom: 60px; /* Adjust this value to position the chat box just above the navbar */
+      bottom: 8%; /* changed to 8% to keep it consistant to window changes */
       width: 100%;
       background-color: #f0f0f0;
       padding: 20px;
@@ -100,4 +100,20 @@
     }
     #body {
       height: 84vh;
+    }
+
+
+
+
+    /* the css for messages */
+        #messageList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #messageList li {
+      margin-bottom: 16px;
+      padding: 12px;
+      border-radius: 10px; /* Added rounded border */
     }
