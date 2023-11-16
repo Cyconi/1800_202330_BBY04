@@ -77,9 +77,15 @@ function displayMessage(messageData) {
 
     // Apply the user's color to the message text
     messageElement.style.color = userColor;
+    
+    // Add a border style to the message element
+    messageElement.style.border = `1px solid ${userColor}`;
+    messageElement.style.borderRadius = '5px'; // Optional: Add rounded corners
+    
     messageElement.textContent = `${messageData.userName}: ${messageData.message}`;
 
     messageList.appendChild(messageElement);
 
     messageList.scrollTop = messageList.scrollHeight;
 }
+
