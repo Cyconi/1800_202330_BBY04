@@ -101,3 +101,20 @@
     #body {
       height: 84vh;
     }
+
+
+
+
+    /* the css for messages */
+        #messageList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #messageList li {
+      margin-bottom: 16px;
+      padding: 12px;
+      border-radius: 10px; /* Added rounded border */
+      color: darkmagenta;
+    }
