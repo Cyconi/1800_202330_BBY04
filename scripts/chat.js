@@ -57,7 +57,7 @@ function getRandomColor() {
     return color;
 }
 
-// Update your displayMessage function
+// Update the previous displayMessage function
 function displayMessage(messageData) {
     const messageList = document.querySelector('#messageList');
     const messageElement = document.createElement('li');
