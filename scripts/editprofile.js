@@ -31,6 +31,33 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
     }
 })
 
+function showExistingPhoto() {
+
+    let user = firebase.auth().currentUser
+   console.log("abcdefg")
+        if (user) {
+            db.collection('users').doc(user.uid).get().then (doc => {
+                if (doc.exists) {
+                    const userData = doc.data()
+                    console.log("userData")
+                    if (userData.photoURL) {
+                        console.log("userData.photoURL")
+                        document.querySelector('#imagePreview').src = userData.photoURL
+                    }
+                } else {
+                    console.log("No such document")
+                }
+            }).catch((error) => {
+                console.log("Error getting document", error)
+            })
+        } else {
+            console.log("No user log in")
+        }
+
+}
+
+showExistingPhoto()
+
 document.querySelector('#profilePhoto').addEventListener('change', function (event){
     const [file] = event.target.files;
     const imagePreview = document.querySelector('#imagePreview')
