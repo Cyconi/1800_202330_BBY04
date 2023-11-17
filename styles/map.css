@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+#map {
+    width: 100vw;
+    height: 80vh;
+    background-color: #cccccc;
+}
+#map-container {
+    width: 100vw;
+    overflow: scroll;
+}

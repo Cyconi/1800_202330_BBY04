@@ -13,6 +13,7 @@
 } */
 #body *{
     border-radius: 15px;
+
 }
 #container {
     width: 100vw;
@@ -97,7 +98,8 @@
 }
 
 .userPost {
-    width: 100vw;
+    margin: 0 2vw;
+    width: 96vw;
     height: 50vh;
     background-color: white;
 }
