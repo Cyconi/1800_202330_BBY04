@@ -19,6 +19,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                 photoURL: downloadURL
             }).then(() => {
                 console.log("Profile updated successfully")
+                window.location.href ="main.html"
 
             })
         })
@@ -27,15 +28,22 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
     }
 })
 
-function showExistingPhoto() {
+function showCurrentInfo() {
 
     let user = firebase.auth().currentUser
    console.log("abcdefg")
+
+    firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            db.collection('users').doc(user.uid).get().then (doc => {
+            db.collection('users').doc(user.uid).get().then(doc => {
                 if (doc.exists) {
                     const userData = doc.data()
                     console.log("userData")
+                    const userName = userData.name
+                    const postalCode = userData.postalcode
+
+                    document.querySelector('#username').placeholder = userName
+                    document.querySelector('#postalcode').placeholder = postalCode
                     if (userData.photoURL) {
                         console.log("userData.photoURL")
                         document.querySelector('#imagePreview').src = userData.photoURL
@@ -49,10 +57,11 @@ function showExistingPhoto() {
         } else {
             console.log("No user log in")
         }
+    })
 
 }
 
-showExistingPhoto()
+showCurrentInfo()
 
 document.querySelector('#profilePhoto').addEventListener('change', function (event){
     const [file] = event.target.files;
