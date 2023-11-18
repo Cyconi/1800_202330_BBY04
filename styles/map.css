@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    border-radius: 10px;
 }
 #container {
     width: 100vw;
@@ -8,7 +9,10 @@
     background-color: #CFFFB3;
     overflow: hidden;
 }
-
+#title {
+    text-align: center;
+    padding: 5px;
+}
 #map-container {
     text-align: center;
     width: 96vw;
@@ -16,4 +20,27 @@
     overflow: scroll;
     border-radius: 10px;
     box-shadow: -1px -1px 6px 6px #777777;
+}
+#drop-Down {
+    text-align: center;
+    padding: 15px;
+    font-size: 15pt;
+}
+select {
+    font-size: 11pt;
+    padding: 10px;
+    margin-right: 5px;
+    background-color: rgba(0, 255, 0, 0.50);
+}
+#location-submit {
+    font-size: 11pt;
+    padding: 10px;
+    padding-inline: 15px;
+    background-color: rgba(0, 255, 0, 0.50);
+}
+#location-submit:hover {
+    transform: scale(1.05);
+    box-shadow: auto;
+        -webkit-box-shadow: 0 -1px 5px #777777;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
