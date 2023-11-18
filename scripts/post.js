@@ -31,10 +31,12 @@ function createPostWithImage(postTextContent, imageUrl) {
             db.collection("users").doc(userID).get().then((doc) => {
 
                 let userName = doc.data().name
+                let userLocation = doc.data().location
 
                 let postData = {
                     posterID: userID,
                     poster: userName,
+                    posterLocation: userLocation,
                     text: postTextContent,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
 

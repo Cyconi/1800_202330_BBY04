@@ -48,7 +48,6 @@
         <!--------------The sidebar goes here--------------------->
         <!-------------------------------------------------------->
         <div class="sideBar" id="sideBar">
-        
             <div class="sideBar-close">
                 <button class="close-sidebar" id="close-sidebar">
                     <i class="fa-solid fa-arrow-left fa-2xl"></i>
@@ -113,18 +112,22 @@
             <a class="postLinks">
                 <div class="userPost">
                     <div class="userPostContainer">
-                        <div id="posterInfo">
-                            <figure id="posterImg-goes-here">
-                                <img id="posterImg" src="images/gamer.png">
+                        <div class="posterInfo">
+                            <figure class="posterImg-goes-here">
+                                <img class="posterImg" src="images/gamer.png" alt="poster profile image">
                             </figure>
-                            <p id="posterName-goes-here"></p>
-                            <p id="postTime-goes-here"></p>
+                            <p class="posterName-goes-here"></p>
+                            <p class="postTime-goes-here"></p>
                         </div>
-                        <div id="postText">
-                            <p id="postText-goes-here"></p>
+                        <div class="postText">
+                            <p class="postText-goes-here"></p>
                         </div>
-                        <div id="postImg">
-                            <img id="postImg-goes-here">
+                        <div class="postImg">
+                            <img class="postImg-goes-here" src="" alt="post photo content">
+                        </div>
+                        <div class="post-like-comment">
+                            <div><i class="fa-regular fa-thumbs-up"></i></div>
+                            <div><i class="fa-regular fa-message"></i></div>
                         </div>
                     </div>
                 </div>
@@ -166,10 +169,9 @@
     <script src="./scripts/Components.js"></script>
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/displayPost.js"></script>
 
 </body>
 
 </html>
 
-<!--Google Cloud API Key : AIzaSyAQ_qIGZtYovSLH8tNOWgRv3XYFWplcURg-->
-<!--Google Cloud API Key : AIzaSyC6GYw7hwktzRPmUmj3lMMILLSctNXFwsE-->

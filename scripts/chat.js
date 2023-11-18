@@ -6,29 +6,47 @@ sendButton.addEventListener('click', function (){
 
     if (user && messageInput.value.trim() !== ""){
 
-        db.collection("messages").add({
-            userID: user.uid,
-            userName: user.displayName || "Anonymous",
-            message: messageInput.value,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => {
-            console.log("Message sent!")
-            messageInput.value = ""
+        db.collection('users').doc(user.uid).get().then(doc => {
+            const userLocation = doc.data().location
+            const messageCollection = `messages-${userLocation}`
+
+            db.collection(messageCollection).add({
+                userID: user.uid,
+                userName: user.displayName || "Anonymous",
+                message: messageInput.value,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                console.log("Message sent!")
+                messageInput.value = ""
+            })
         })
+
     } else {
         console.log("User is not signed in or message is empty")
     }
 })
 
-db.collection("messages").orderBy("timestamp").onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(change => {
-        if (change.type === "added") {
-            const messageData = change.doc.data();
-            displayMessage(messageData)
 
-        }
-    })
+firebase.auth().onAuthStateChanged(function(user) {
+    if(user){
+        db.collection('users').doc(user.uid).get().then(doc => {
+            const userLocation = doc.data().location
+            const messageCollection = `messages-${userLocation}`
+
+            db.collection(messageCollection).orderBy("timestamp").onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        const messageData = change.doc.data();
+                        console.log(messageData)
+                        displayMessage(messageData)
+
+                    }
+                })
+            })
+        })
+    }
 })
+
 
 function displayMessage(messageData) {
     const messageList = document.querySelector('#messageList')

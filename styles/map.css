@@ -8,12 +8,9 @@
     background-color: #CFFFB3;
     overflow: hidden;
 }
-#map {
-    width: 100vw;
-    height: 80vh;
-    background-color: #cccccc;
-}
+
 #map-container {
+    text-align: center;
     width: 96vw;
     margin: 2vh 2vw;
     overflow: scroll;
