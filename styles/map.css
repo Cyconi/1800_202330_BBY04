@@ -5,6 +5,7 @@
 #container {
     width: 100vw;
     height: 100vh;
+    background-color: #CFFFB3;
     overflow: hidden;
 }
 #map {
@@ -13,6 +14,9 @@
     background-color: #cccccc;
 }
 #map-container {
-    width: 100vw;
+    width: 96vw;
+    margin: 2vh 2vw;
     overflow: scroll;
+    border-radius: 10px;
+    box-shadow: -1px -1px 6px 6px #777777;
 }

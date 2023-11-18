@@ -18,25 +18,48 @@
 <body>
 <div id="container">
 
+    <div id="title">
+        <h1>Choose where you live!</h1>
+    </div>
 
     <div id="map-container">
         <img src="images/municipalities_a2a70f1b-0041-49d0-8c98-4cb83d618f081.png" usemap="#Vancouvermap">
     </div>
 
+    <div>
+        <p>You live in...</p>
+        <select id="location-dropdown">
+            <option value="Vancouver">Vancouver</option>
+            <option value="Burnaby">Burnaby</option>
+            <option value="West Vancouver">West Vancouver</option>
+            <option value="North Vancouver">North Vancouver</option>
+            <option value="Coquitlam">Coquitlam</option>
+            <option value="Pitt Meadows">Pitt Meadows</option>
+            <option value="Maple Ridge">Maple Ridge</option>
+            <option value="Langley Township">Langley Township</option>
+            <option value="Surrey">Surrey</option>
+            <option value="Delta">Delta</option>
+            <option value="Richmond">Richmond</option>
+        </select>
+        <button id="location-submit">Yes</button>
+
+    </div>
+
+
 
 
     <map name="Vancouvermap">
-        <area onclick="console.log('Vancouver Clicked')" alt="Vancouver" title="Vancouver" coords="136,258,136,272,150,283,187,314,203,320,226,337,237,338,242,335,261,334,277,330,290,333,316,335,317,236,294,236,280,238,270,242,247,238,232,231,243,225,227,210,220,210,215,225,224,234,235,250,254,251,250,263,221,254,188,257,180,251,148,249" shape="poly">
-        <area onclick="console.log('Burnaby Clicked')" alt="Burnaby" title="Burnaby" coords="318,234,316,334,345,358,366,341,398,338,423,310,414,295,411,238,393,240,381,233,353,239,342,232" shape="poly">
-        <area onclick="console.log('West Vancouver Clicked')" alt="West Vancouver" title="West Vancouver" coords="151,104,139,122,127,134,115,138,120,157,132,165,134,187,147,183,174,181,201,188,220,194,241,204,247,187,245,155,250,142,240,106" shape="poly">
-        <area onclick="console.log('North Vancouver Clicked')" alt="North Vancouver" title="North Vancouver" coords="418,105,242,103,250,140,251,149,244,204,268,208,286,220,306,218,320,222,361,219,376,200,375,186,411,149,413,132,420,127" shape="poly">
-        <area onclick="console.log('Coquitlam Clicked')" alt="Coquitlam" title="Coquitlam" coords="434,128,399,203,397,193,385,194,391,226,424,222,456,241,432,246,414,237,412,293,423,299,428,312,493,308,506,299,525,285,556,239,575,232,568,214,590,167,467,166,459,149,456,132" shape="poly">
-        <area onclick="console.log('Pitt Meadows Clicked')" alt="Pitt Meadows" title="Pitt Meadows" coords="643,165,628,182,615,173,578,213,590,228,564,246,537,292,512,302,520,319,542,326,577,334,590,290,600,282,615,279,630,274,625,260,631,253,630,198" shape="poly">
-        <area onclick="console.log('Maple Ridge Clicked')" alt="Maple Ridge" title="Maple Ridge" coords="647,166,772,168,759,185,738,198,730,209,715,217,714,237,728,229,750,209,763,196,773,187,775,261,761,262,762,361,751,369,714,369,668,361,644,348,630,325,581,336,588,303,600,280,633,270,624,259,633,253,631,197" shape="poly">
-        <area onclick="console.log('Langley Township')" alt="Langley Township" title="Langley Township" coords="573,357,607,335,623,333,637,358,651,381,702,379,728,374,737,382,736,461,573,460" shape="poly">
-        <area onclick="console.log('Surrey')" alt="Surrey" title="Surrey" coords="397,366,416,367,418,461,572,462,573,357,563,363,539,362,527,333,502,329,490,323,430,324,415,330" shape="poly">
-        <area onclick="console.log('Delta')" alt="Delta" title="Delta" coords="396,368,416,366,415,461,270,462,283,446,307,416,330,405,355,393,372,395,387,380" shape="poly">
-        <area onclick="console.log('Richmond')" alt="Richmond" title="Richmond" coords="185,370,185,424,238,444,275,422,385,352,374,346,354,362,339,365,289,338,267,344,237,342,234,365" shape="poly">
+        <area onclick="setDropDown('Vancouver')" alt="Vancouver" title="Vancouver" coords="136,258,136,272,150,283,187,314,203,320,226,337,237,338,242,335,261,334,277,330,290,333,316,335,317,236,294,236,280,238,270,242,247,238,232,231,243,225,227,210,220,210,215,225,224,234,235,250,254,251,250,263,221,254,188,257,180,251,148,249" shape="poly">
+        <area onclick="setDropDown('Burnaby')" alt="Burnaby" title="Burnaby" coords="318,234,316,334,345,358,366,341,398,338,423,310,414,295,411,238,393,240,381,233,353,239,342,232" shape="poly">
+        <area onclick="setDropDown('West Vancouver')" alt="West Vancouver" title="West Vancouver" coords="151,104,139,122,127,134,115,138,120,157,132,165,134,187,147,183,174,181,201,188,220,194,241,204,247,187,245,155,250,142,240,106" shape="poly">
+        <area onclick="setDropDown('North Vancouver')" alt="North Vancouver" title="North Vancouver" coords="418,105,242,103,250,140,251,149,244,204,268,208,286,220,306,218,320,222,361,219,376,200,375,186,411,149,413,132,420,127" shape="poly">
+        <area onclick="setDropDown('Coquitlam')" alt="Coquitlam" title="Coquitlam" coords="434,128,399,203,397,193,385,194,391,226,424,222,456,241,432,246,414,237,412,293,423,299,428,312,493,308,506,299,525,285,556,239,575,232,568,214,590,167,467,166,459,149,456,132" shape="poly">
+        <area onclick="setDropDown('Pitt Meadows')" alt="Pitt Meadows" title="Pitt Meadows" coords="643,165,628,182,615,173,578,213,590,228,564,246,537,292,512,302,520,319,542,326,577,334,590,290,600,282,615,279,630,274,625,260,631,253,630,198" shape="poly">
+        <area onclick="setDropDown('Maple Ridge')" alt="Maple Ridge" title="Maple Ridge" coords="647,166,772,168,759,185,738,198,730,209,715,217,714,237,728,229,750,209,763,196,773,187,775,261,761,262,762,361,751,369,714,369,668,361,644,348,630,325,581,336,588,303,600,280,633,270,624,259,633,253,631,197" shape="poly">
+        <area onclick="setDropDown('Langley Township')" alt="Langley Township" title="Langley Township" coords="573,357,607,335,623,333,637,358,651,381,702,379,728,374,737,382,736,461,573,460" shape="poly">
+        <area onclick="setDropDown('Surrey')" alt="Surrey" title="Surrey" coords="397,366,416,367,418,461,572,462,573,357,563,363,539,362,527,333,502,329,490,323,430,324,415,330" shape="poly">
+        <area onclick="setDropDown('Delta')" alt="Delta" title="Delta" coords="396,368,416,366,415,461,270,462,283,446,307,416,330,405,355,393,372,395,387,380" shape="poly">
+        <area onclick="setDropDown('Richmond')" alt="Richmond" title="Richmond" coords="185,370,185,424,238,444,275,422,385,352,374,346,354,362,339,365,289,338,267,344,237,342,234,365" shape="poly">
     </map>
 
 

@@ -33,7 +33,6 @@ function createPostWithImage(postTextContent, imageUrl) {
                 let userName = doc.data().name
 
                 let postData = {
-
                     posterID: userID,
                     poster: userName,
                     text: postTextContent,

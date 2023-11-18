@@ -1,6 +1,5 @@
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
 var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
@@ -16,17 +15,21 @@ var uiConfig = {
             // The Firestore rules must allow the user to write.
             //------------------------------------------------------------------------------------------
             var user = authResult.user;                            // get the user object from the Firebase authentication database
-            if (authResult.additionalUserInfo.isNewUser) {         //if new user
-                db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
-                    name: user.displayName,                    //"users" collection
-                    email: user.email,                         //with authenticated user's ID (user.uid)
-                    postalcode: "V4N 4Y2"                         //optional default profile info
-                }).then(function () {
-                    console.log("New user added to firestore");
-                    window.location.assign("main.html");       //re-direct to main.html after signup
-                }).catch(function (error) {
-                    console.log("Error adding new user: " + error);
-                });
+            if (authResult.additionalUserInfo.isNewUser) {//if new user
+                let storageRef = firebase.storage().ref().child('profile_photos/CGlue.png')
+                storageRef.getDownloadURL().then(function(url) {
+
+                    db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
+                        name: user.displayName,                    //"users" collection
+                        email: user.email,                         //with authenticated user's ID (user.uid)
+                        photoURL: url                        //optional default profile info
+                    }).then(function () {
+                        console.log("New user added to firestore");
+                        window.location.assign("map.html");       //re-direct to main.html after signup
+                    }).catch(function (error) {
+                        console.log("Error adding new user: " + error);
+                    });
+                })
             } else {
                 return true;
             }
