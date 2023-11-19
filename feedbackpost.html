@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <link href="styles/post.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <a href="feedback.html"><i class="fa-solid fa-xmark fa-2xl"></i></a>
+
+        <button id="postButton" class="post-button">Post</button>
+    </div>
+    <div id="textFile">
+        <form name="userPosts">
+            <input type="text" id="feedback-title" placeholder="Title for your feedback">
+            <textarea id="user-story" name="userStory" placeholder="Post an anonymous feedback. The most supported feedback will be sent to your local committee"></textarea>
+        </form>
+    </div>
+    <div id="addPhoto">
+        <input type="file" id="photoUpload" accept="image/*">
+    </div>
+</div>
+
+<script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
+<script src="./scripts/feedbackpost.js"></script>
+<script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
