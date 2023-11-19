@@ -62,25 +62,36 @@ firebase.auth().onAuthStateChanged(function(user) {
 function displayPostInfo() {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docID")
-    console.log(ID)
 
-    db.collection("posts")
-        .doc(ID)
-        .get()
-        .then(doc => {
-            let data = doc.data()
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            db.collection('users').doc(user.uid).get().then(doc => {
 
-            let postTime = doc.data().timestamp
-            let date = postTime.toDate()
+                let userLocation = doc.data().location
 
+                db.collection(`posts-${userLocation}`)
+                    .doc(ID)
+                    .get()
+                    .then(doc => {
+                        let data = doc.data()
 
-            document.querySelector('.posterImg').src = data.posterImg
-            document.querySelector('.posterName-goes-here').innerText = data.poster
-            document.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
-            document.querySelector('.postText-goes-here').innerText = data.text
-            document.querySelector('.postImg-goes-here').src = data.imageUrl
+                        let postTime = doc.data().timestamp
+                        let date = postTime.toDate()
+                        let likesNumber = data.likesNumber
+                        let commentsNumber = data.commentsNumber
 
-        })
+                        document.querySelector('.posterImg').src = data.posterImg
+                        document.querySelector('.posterName-goes-here').innerText = data.poster
+                        document.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
+                        document.querySelector('.postText-goes-here').innerText = data.text
+                        document.querySelector('.postImg-goes-here').src = data.imageUrl
+                        document.querySelector('.likes-number').innerText = likesNumber
+                        document.querySelector('.comments-number').innerText = commentsNumber
+
+                    })
+            })
+        }
+    })
 }
 displayPostInfo()
 
@@ -91,12 +102,13 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
         if (user&& comment.trim() !== "") {
             db.collection('users').doc(user.uid).get().then(doc => {
 
+                let userLocation = doc.data().location
+
                 let params = new URL(window.location.href)
                 let ID = params.searchParams.get("docID")
                 let commenterImg = doc.data().photoURL
                 let comment = document.querySelector('#comment-input').value
                 let commenter = doc.data().name
-                let commenterLocation = doc.data().location
                 let commenterID = user.uid
 
                 firebase.firestore().collection("posts-comments").add({
@@ -109,6 +121,7 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
                 }).then(function () {
                     console.log("Comment added!")
                     document.querySelector('#comment-input').value = ""
+                    addCommentsNumber(userLocation, "posts")
                 })
             })
         } else {
@@ -120,26 +133,64 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
 
 
 function loadComments() {
+    let params = new URL(window.location.href);
+    let ID = params.searchParams.get("docID");
+
+    db.collection('posts-comments').where("postID", "==", ID)
+        .orderBy("timestamp")
+        .onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+                const commentData = change.doc.data();
+                const commentId = `comment-${change.doc.id}`;
+                let commentElement = document.getElementById(commentId);
+
+                if (change.type === 'added') {
+                    let commentTemplate = document.querySelector('#comment-template');
+                    let newComment = commentTemplate.content.cloneNode(true);
+
+                    let commentContainer = newComment.querySelector('.user-comment-container');
+                    commentContainer.id = commentId; // Set a unique ID
+
+                    commentContainer.querySelector('.comment-name').innerText = commentData.commenter;
+                    commentContainer.querySelector('.commenter-img').src = commentData.commenterImg || 'default-avatar.png';
+                    commentContainer.querySelector('.comment-text').innerText = commentData.comment;
+
+                    // Check if the timestamp exists
+                    let commentTimeElement = commentContainer.querySelector('.comment-time');
+                    if (commentData.timestamp) {
+                        let time = commentData.timestamp.toDate();
+                        commentTimeElement.innerText = new Date(time).toLocaleString();
+                    } else {
+                        commentTimeElement.innerText = 'Date processing...';
+                    }
+
+                    document.querySelector('#comment-display').appendChild(commentContainer);
+                }
+
+                // Handle modifications (like the addition of the timestamp)
+                if (change.type === 'modified' && commentElement) {
+                    if (commentData.timestamp) {
+                        let time = commentData.timestamp.toDate();
+                        commentElement.querySelector('.comment-time').innerText = new Date(time).toLocaleString();
+                    }
+                }
+            });
+        });
+}
+
+loadComments();
+
+function addCommentsNumber(userLocation, section) {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docID")
-    db.collection('posts-comments').where("postID", "==", ID).orderBy("timestamp").get().then(function (querySnapshot){
-        querySnapshot.forEach(function (doc) {
-            let commentTemplate = document.querySelector('#comment-template')
 
-            let commenter = doc.data().commenter
-            let commenterImg = doc.data().commenterImg
-            let commentText = doc.data().comment
-            let time = doc.data().timestamp.toDate()
-
-            let newcomment = commentTemplate.content.cloneNode(true)
-
-            newcomment.querySelector('.comment-name').innerText = commenter
-            newcomment.querySelector('.commenter-img').src = commenterImg
-            newcomment.querySelector('.comment-time').innerHTML = new Date(time).toLocaleString()
-            newcomment.querySelector('.comment-text').innerText = commentText
-
-            document.querySelector('#comment-display').appendChild(newcomment)
+    db.collection(`${section}-${userLocation}`).doc(ID).get().then(doc => {
+        let commentsNumber = doc.data().commentsNumber
+        commentsNumber += 1
+        db.collection(`${section}-${userLocation}`).doc(ID).update({
+            commentsNumber: commentsNumber
+        }).then(() => {
+            console.log("Comments number added")
         })
     })
 }
-loadComments()

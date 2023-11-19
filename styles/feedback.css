@@ -3,7 +3,7 @@
 * {
     font-family: 'Comfortaa', sans-serif;
 }
-
+/* /////////////////For the template ////////////////////////*/
 #feedbacks-goes-here {
     display: flex;
     flex-direction: column;
@@ -32,4 +32,18 @@
     margin: 2vh 0;
     display: flex;
     justify-content: space-between;
+}
+/* ///////////////////// End of section ///////////////////*/
+
+.feedback-comment-container {
+    border-radius: 0;
+    background-color: #dadada;
+    width: 100%;
+}
+.feedback-comment-inner-container {
+    background-color: white;
+    margin: 1vh 2vw;
+}
+.feedback-comment-text {
+    padding: 2vh 1vw;
 }
