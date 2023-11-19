@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+* {
+    font-family: 'Comfortaa', sans-serif;
+}
 #body {
     height: 84vh;
     display: flex;

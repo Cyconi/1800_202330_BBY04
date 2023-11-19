@@ -1,4 +1,8 @@
-* { box-sizing: border-box}
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+* { 
+  box-sizing: border-box;
+  font-family: 'Comfortaa', sans-serif;
+}
 body{
   font-family: 'Asap', sans-serif;
 }
