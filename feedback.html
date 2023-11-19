@@ -39,7 +39,7 @@
     <!-- Js for an Icon website, enable to insert an icon ------------>
     <!-- by a link. Example:<i class="fa-solid fa-xmark fa-2xl"></i>-->
     <!---------------------------------------------------------------->
-    <script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -98,7 +98,7 @@
                 </form>
             </div>
             <button class="post-sort">
-                <a href="post.html"><i class="fa-solid fa-plus fa-2xl"></i></a>
+                <a href="feedbackpost.html"><i class="fa-solid fa-plus fa-2xl"></i></a>
             </button>
             <button class="post-sort">
                 <i class="fa-solid fa-sort fa-2xl"></i>
@@ -108,27 +108,32 @@
         <!--The main content part on the main page go below-->
         <div id="body">
 
+            <div id="feedbacks-goes-here"></div>
             <!--The template for the user feedback-->
 
-                <a class="postLinks">
-                    <div class="userPost">
-                        <div class="userPostContainer">
-                            <div id="posterInfo">
-                                <figure id="posterImg-goes-here">
-                                    <img id="posterImg" src="images/gamer.png">
-                                </figure>
-                                <p id="posterName-goes-here"></p>
-                                <p id="postTime-goes-here"></p>
+            <template id="feedback-template">
+            <a class="feedback-link" href="">
+                <div class="feedback-out-container">
+                    <div class="feedback-inner-container">
+                        <h1 class="feedback-title"></h1>
+                        <p class="feedback-detail"></p>
+                        <div class="feedback-photo-container">
+                            <img class="feedback-photo" src="" alt="feedback-photo">
+                        </div>
+                        <div class="feedback-like-comment">
+                            <div>
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <span class="feedback-likes-number"></span>
                             </div>
-                            <div id="postText">
-                                <p id="postText-goes-here"></p>
-                            </div>
-                            <div id="postImg">
-                                <img id="postImg-goes-here">
+                            <div>
+                                <i class="fa-regular fa-message"></i>
+                                <span class="feedback-comments-number"></span>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
+            </template>
 
 
 
@@ -144,6 +149,8 @@
     <script src="./scripts/Components.js"></script>
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/feedback.js"></script>
+    <script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
 
 </body>
 
