@@ -21,6 +21,27 @@
     display: flex;
     flex-direction: column;
 }
+.feedback-title-vote {
+    display: flex;
+    justify-content: space-between;
+}
+.feedback-title {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.feedback-vote {
+    border-radius: 0;
+    background-color: #CFFFB3;
+    padding: 10px;
+    box-shadow: 1px 1px 5px 1px #777777;
+}
+.feedback-detail {
+    margin: 0;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+}
 .feedback-photo-container {
     width: 100%;
 }
@@ -29,9 +50,12 @@
     height: 100%;
 }
 .feedback-like-comment {
-    margin: 2vh 0;
+    margin: 20px 0;
     display: flex;
     justify-content: space-between;
+}
+h1 {
+    margin: 0;
 }
 /* ///////////////////// End of section ///////////////////*/
 
