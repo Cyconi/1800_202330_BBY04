@@ -74,11 +74,11 @@ function displayPostInfo() {
             let date = postTime.toDate()
 
 
-            document.querySelector('#posterImg').src = data.posterImg
-            document.querySelector('#posterName-goes-here').innerText = data.poster
-            document.querySelector('#postTime-goes-here').innerHTML = new Date(date).toLocaleString()
-            document.querySelector('#postText-goes-here').innerText = data.text
-            document.querySelector('#postImg-goes-here').src = data.imageUrl
+            document.querySelector('.posterImg').src = data.posterImg
+            document.querySelector('.posterName-goes-here').innerText = data.poster
+            document.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
+            document.querySelector('.postText-goes-here').innerText = data.text
+            document.querySelector('.postImg-goes-here').src = data.imageUrl
 
         })
 }
@@ -96,6 +96,7 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
                 let commenterImg = doc.data().photoURL
                 let comment = document.querySelector('#comment-input').value
                 let commenter = doc.data().name
+                let commenterLocation = doc.data().location
                 let commenterID = user.uid
 
                 firebase.firestore().collection("posts-comments").add({

@@ -4,3 +4,26 @@
     justify-content: space-evenly;
     background-color: #cccccc;
 }
+.feedback-link {
+    margin: 1vh 2vw;
+    background-color: white;
+    box-shadow: 1px 1px 5px 1px #777777;
+}
+.feedback-inner-container {
+    width: 90%;
+    margin: 5vw;
+    display: flex;
+    flex-direction: column;
+}
+.feedback-photo-container {
+    width: 100%;
+}
+.feedback-photo {
+    width: 100%;
+    height: 100%;
+}
+.feedback-like-comment {
+    margin: 2vh 0;
+    display: flex;
+    justify-content: space-between;
+}

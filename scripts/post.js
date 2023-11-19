@@ -26,19 +26,23 @@ function createPostWithImage(postTextContent, imageUrl) {
         if (user) {
 
             let userID = user.uid;
-            let postWrite = db.collection("posts");
+
 
             db.collection("users").doc(userID).get().then((doc) => {
 
-                let userName = doc.data().name
                 let userLocation = doc.data().location
+                let postWrite = db.collection(`posts-${userLocation}`);
+                let userName = doc.data().name
+
 
                 let postData = {
                     posterID: userID,
                     poster: userName,
                     posterLocation: userLocation,
                     text: postTextContent,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    likesNumber: 0,
+                    commentsNumber: 0
 
                 }
                 if (doc.data().photoURL) {

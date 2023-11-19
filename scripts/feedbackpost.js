@@ -22,6 +22,8 @@ function createFeedbackWithImage(title, text, photoURL){
 
             db.collection('users').doc(userID).get().then(userDoc => {
 
+                let userLocation = userDoc.data().location
+
                 let feedback = {
                     posterName: userDoc.data().name,
                     posterID: userID,
@@ -36,7 +38,7 @@ function createFeedbackWithImage(title, text, photoURL){
                     feedback.photoURL =  photoURL
                 }
 
-                db.collection('feedbacks').add(feedback).then(function(){
+                db.collection(`feedbacks-${userLocation}`).add(feedback).then(function(){
                     console.log("feedback sent")
                     window.location.assign("feedback.html")
                 })
