@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
 
 * {
     padding: 0px;
     margin: 0px;
+    font-family: 'Comfortaa', sans-serif;
 }
 #container {
     width: 100vw;

@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 /* CSS for Chat Messages */
+* {
+  font-family: 'Comfortaa', sans-serif;
+}
+
 .chat {
     display: flex;
     align-items: flex-start;

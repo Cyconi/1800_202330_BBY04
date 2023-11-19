@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+* {
+    font-family: 'Comfortaa', sans-serif;
+}
+
 #feedbacks-goes-here {
     display: flex;
     flex-direction: column;
