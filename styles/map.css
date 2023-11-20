@@ -5,12 +5,13 @@
     margin: 0;
     border-radius: 10px;
     font-family: 'Comfortaa', sans-serif;
+    
 }
 #container {
     width: 100vw;
     height: 100vh;
     background-color: #CFFFB3;
-    overflow: hidden;
+    overflow: scroll;
 }
 #title {
     text-align: center;
