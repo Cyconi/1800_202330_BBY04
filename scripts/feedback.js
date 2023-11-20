@@ -96,4 +96,48 @@ document.querySelector('#feedbacks-goes-here').addEventListener('click', functio
     }
 });
 
+function addLikeByClickingIcon() {
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('#feedbacks-goes-here').addEventListener('click', function(event) {
+            if (event.target.classList.contains('feedback-icon-add-like') || event.target.closest('.feedback-icon-add-like')) {
+                // Prevent the default action and stop event propagation right away
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                let feedbackElement = event.target.closest('.feedback-photo-container');
+                console.log(feedbackElement)
+                let feedbackID = feedbackElement.id.value;
+                console.log(feedbackID)
+
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        let userID = user.uid;
+                        db.collection('users').doc(userID).get().then(function(userDoc) {
+                            let userLocation = userDoc.data().location;
+                            let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(feedbackID);
+
+                            db.runTransaction(transaction => {
+                                return transaction.get(feedbackRef).then(feedbackDoc => {
+                                    if (!feedbackDoc.exists) {
+                                        throw "Document does not exist!";
+                                    }
+                                    // ... transaction code ...
+                                });
+                            }).then(() => {
+                                console.log("Transaction successfully committed!");
+                            }).catch(error => {
+                                console.error("Transaction failed: ", error);
+                            });
+                        });
+                    }
+                });
+            }
+
+        });
+    });
+}
+addLikeByClickingIcon()
+
+
 
