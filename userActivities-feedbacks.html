@@ -34,6 +34,8 @@
 
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link href="styles/userActivities.css" rel="stylesheet" type="text/css">
+    <link href="styles/feedback.css" rel="stylesheet" type="text/css">
+
 
 
     <!---------------------------------------------------------------->
@@ -72,6 +74,27 @@
             <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-2xl" id="logout"></i>
         </div>
     </div>
+    <!-------------------------------------------------------->
+    <!--------------The end of sidebar------------------------>
+    <!-------------------------------------------------------->
+
+    <!-------------------------------------------------------->
+    <!--------------The Delete confirm window----------------->
+    <!-------------------------------------------------------->
+
+    <div class="delete-confirm-container">
+        <div class="delete-confirm-text-container">
+            <P>Are you sure that you want to delete this?</P>
+        </div>
+        <div class="delete-confirm-buttons-container">
+
+                <div class="delete-confirm-button">No</div>
+
+
+                <div class="delete-confirm-button">Yes</div>
+
+        </div>
+    </div>
 
     <!--This is the header-->
     <div id="header">
@@ -91,12 +114,12 @@
 
     <!--The search box goes here-->
     <div id="formandpost">
-        <a href="userActivities.html">
+        <a href="userActivities-posts.html" class="section-switch-link">
             <div class="section-switch-container">
                 <div class="section-switch">My Posts</div>
             </div>
         </a>
-        <a href="userActivities-feedbacks.html">
+        <a href="userActivities-feedbacks.html" class="section-switch-link">
             <div class="section-switch-container">
                 <div class="section-switch">My Feedbacks</div>
             </div>
@@ -106,39 +129,38 @@
     <!--The main content part on the main page go below-->
     <div id="body">
 
-        <div id="posts-goes-here">
-        </div>
+        <div id="feedbacks-goes-here"></div>
+        <!--The template for the user feedback-->
 
-        <template id="userPostTemplate">
-            <a class="postLinks">
-                <div class="userPost">
-                    <div class="userPostContainer">
-                        <div class="posterInfo">
-                            <figure class="posterImg-goes-here">
-                                <img class="posterImg" src="images/gamer.png" alt="poster profile image">
-                            </figure>
-                            <p class="posterName-goes-here"></p>
-                            <p class="postTime-goes-here"></p>
+        <template id="feedback-template">
+            <a class="feedback-link" href="">
+                <div class="feedback-out-container">
+                    <div class="feedback-inner-container">
+                        <div class="feedback-title-vote">
+                            <h1 class="feedback-title"></h1>
+                            <div class="feedback-vote" data-feedbackid=""><h1>Vote</h1></div>
                         </div>
-                        <div class="postText">
-                            <p class="postText-goes-here"></p>
+                        <p class="feedback-detail"></p>
+                        <div class="feedback-photo-container">
+                            <img class="feedback-photo" src="" alt="feedback-photo">
                         </div>
-                        <div class="postImg">
-                            <img class="postImg-goes-here" src="" alt="post photo content">
-                        </div>
-                        <div class="post-like-comment">
-                            <div class="post-icon-like">
-                                <i class="fa-regular fa-thumbs-up"></i>
-                                <span class="likes-number"></span>
+                        <div class="feedback-like-comment">
+                            <div class="feedback-icon-add-like">
+                                <i class="fa-solid fa-up-long"></i>
+                                <span class="feedback-likes-number"></span>
+                            </div>
+                            <div class="delete-button">
+                                Delete
                             </div>
                             <div>
                                 <i class="fa-regular fa-message"></i>
-                                <span class="comments-number"></span>
+                                <span class="feedback-comments-number"></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
+
         </template>
     </div>
 
@@ -176,6 +198,7 @@
 <script src="./scripts/Components.js"></script>
 <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
 <script src="./scripts/script.js"></script>
+<script src="./scripts/userActivities-feedbacks.js"></script>
 
 </body>
 

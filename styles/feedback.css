@@ -31,10 +31,14 @@
     padding-bottom: 10px;
 }
 .feedback-vote {
+    height: 60px;
     border-radius: 0;
-    background-color: #CFFFB3;
+    background-color: lawngreen;
     padding: 10px;
     box-shadow: 1px 1px 5px 1px #777777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .feedback-detail {
     margin: 0;

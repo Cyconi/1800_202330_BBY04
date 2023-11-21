@@ -1,7 +1,7 @@
 #formandpost {
     display: flex;
 }
-a {
+.section-switch-link {
     width: 100%;
     height: 100%;
 }
@@ -17,5 +17,44 @@ a {
     justify-content: center;
     align-items: center;
     background-color: lawngreen;
+    box-shadow: 1px 1px 5px 1px #777777;
+}
+.delete-button {
+    background-color: lawngreen;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px #777777;
+}
+
+/** ////////////////////////CSS for the Delete confirm window///////////////////////*/
+.delete-confirm-container {
+    border-radius: 15px;
+    width: 80vw;
+    height: 30vh;
+    background-color: white;
+    position: absolute;
+    left: 10vw;
+    top: 35vh;
+    box-shadow: 100000px 100000px 100000px 100000px rgba(0, 0, 0, .50);
+    display: none;
+}
+.delete-confirm-text-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-confirm-buttons-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.delete-confirm-button {
+    background-color: lawngreen;
+    padding: 10px 20px;
+    border-radius: 10px;
     box-shadow: 1px 1px 5px 1px #777777;
 }
