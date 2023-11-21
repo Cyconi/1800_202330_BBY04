@@ -26,6 +26,7 @@ function createPostWithImage(postTextContent, imageUrl) {
         if (user) {
 
             let userID = user.uid;
+            let userRef = db.collection('users').doc(userID)
 
 
             db.collection("users").doc(userID).get().then((doc) => {
@@ -52,11 +53,15 @@ function createPostWithImage(postTextContent, imageUrl) {
                 if (imageUrl) {
                     postData.imageUrl = imageUrl
                 }
-                postWrite.add(postData).then(function () {
-                    console.log("Post success")
-                    window.location.assign("main.html");
-                })
+                return postWrite.add(postData)
 
+            }).then(function(postRef) {
+                console.log("Post success with ID ", postRef.id)
+                return userRef.update({
+                    posts: firebase.firestore.FieldValue.arrayUnion(postRef.id)
+                })
+            }).then(() => {
+                window.location.assign('main.html')
             })
         }
     })

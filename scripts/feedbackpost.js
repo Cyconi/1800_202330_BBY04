@@ -19,6 +19,7 @@ function createFeedbackWithImage(title, text, photoURL){
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             let userID = user.uid
+            let userRef = db.collection('users').doc(userID)
 
             db.collection('users').doc(userID).get().then(userDoc => {
 
@@ -39,13 +40,16 @@ function createFeedbackWithImage(title, text, photoURL){
                     feedback.photoURL =  photoURL
                 }
 
-                db.collection(`feedbacks-${userLocation}`).add(feedback).then(function(){
-                    console.log("feedback sent")
-                    window.location.assign("feedback.html")
+                return db.collection(`feedbacks-${userLocation}`).add(feedback)
+            }).then(feedbackRef => {
+                console.log("Feedback sent with ID", feedbackRef.id)
+                return userRef.update({
+                    feedbacks:firebase.firestore.FieldValue.arrayUnion(feedbackRef.id)
                 })
-
-
-
+            }).then(() => {
+                window.location.assign('feedback.html')
+            }).catch(error => {
+                console.log("Error posting feedback: ", error)
             })
         }
     })

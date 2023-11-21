@@ -1,0 +1,21 @@
+#formandpost {
+    display: flex;
+}
+a {
+    width: 100%;
+    height: 100%;
+}
+.section-switch-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+}
+.section-switch {
+    border-radius: 10px;
+    height: calc(6vh - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lawngreen;
+    box-shadow: 1px 1px 5px 1px #777777;
+}

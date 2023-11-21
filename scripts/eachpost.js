@@ -85,9 +85,15 @@ function displayPostInfo() {
                         document.querySelector('.posterName-goes-here').innerText = data.poster
                         document.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
                         document.querySelector('.postText-goes-here').innerText = data.text
-                        document.querySelector('.postImg-goes-here').src = data.imageUrl
+
                         document.querySelector('.likes-number').innerText = likesNumber
                         document.querySelector('.comments-number').innerText = commentsNumber
+
+                        if (data.imageUrl) {
+                            document.querySelector('.postImg-goes-here').src = data.imageUrl
+                        } else {
+                            document.querySelector('.postImg-goes-here').style.display = 'none'
+                        }
 
                         document.querySelector('#post-icon-like').addEventListener('click', function () {
                             console.log("working?")

@@ -1,18 +1,33 @@
-function displayUserPosts() {
-    let user = firebase.auth().currentUser;
-    firebase.auth().onAuthStateChanged(function(user) {
-        let postsTemplate = document.getElementById("userPostTemplate")
+function displayPostSearchResult() {
+    let params = new URLSearchParams(window.location.search)
+    let searchTerm = params.get('userSearch').toLowerCase()
+    console.log(searchTerm)
+    let searchKeywords = searchTerm.split(' ')
 
-        if (user) {
+    if(searchTerm) {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                let postsTemplate = document.getElementById("userPostTemplate")
+                let userID = user.uid
 
-            db.collection('users').doc(user.uid).get().then(userDoc => {
+                db.collection('users').doc(userID).get().then(userDoc => {
+                    let userLocation = userDoc.data().location
+                    console.log(userLocation)
+                    return db.collection(`posts-${userLocation}`).get()
 
-                const userLocation = userDoc.data().location
-                const userID = user.uid
+                }).then(allFeedback => {
+                    document.querySelector('#posts-goes-here').innerHTML = ''
 
-                db.collection(`posts-${userLocation}`).get()
-                    .then(allPosts => {
-                        allPosts.forEach(doc => {
+                    allFeedback.forEach(doc => {
+
+                        let textContent = doc.data().text.toLowerCase()
+                        console.log(textContent)
+                        let userName = doc.data().poster.toLowerCase()
+                        console.log(userName)
+                        let textFound = searchKeywords.some(keyword => textContent.includes(keyword))
+                        let nameFound = searchKeywords.some(keyword => userName.includes(keyword))
+
+                        if(textFound || nameFound || searchTerm === '') {
 
                             let story = doc.data().text
                             let posterName = doc.data().poster
@@ -85,25 +100,12 @@ function displayUserPosts() {
                                 document.getElementById(`${docID}`).style.display = 'none'
 
                             }
-                        })
+                        }
 
                     })
-            })
-
-        } else {
-            console.log('User is not login')
-        }
-    })
-
-
-
-}
-displayUserPosts();
-
-document.querySelector('.searchBoxForm').addEventListener('submit', function(event) {
-    event.preventDefault()
-    let searchTerm = document.querySelector('#userSearch').value.trim()
-    if (searchTerm) {
-        window.location.href = `postSearch.html?userSearch=${searchTerm}`
+                })
+            }
+        })
     }
-})
+}
+displayPostSearchResult()

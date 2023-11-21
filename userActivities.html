@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CGlue</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN go here -->
+    <!------------------------------------------>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/userActivities.css" rel="stylesheet" type="text/css">
+
+
+    <!---------------------------------------------------------------->
+    <!-- Js for an Icon website, enable to insert an icon ------------>
+    <!-- by a link. Example:<i class="fa-solid fa-xmark fa-2xl"></i>-->
+    <!---------------------------------------------------------------->
+    <script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div id="container">
+
+    <!-------------------------------------------------------->
+    <!--------------The sidebar goes here--------------------->
+    <!-------------------------------------------------------->
+    <div class="sideBar" id="sideBar">
+        <div class="sideBar-close">
+            <button class="close-sidebar" id="close-sidebar">
+                <i class="fa-solid fa-arrow-left fa-2xl"></i>
+            </button>
+        </div>
+        <div class="sideBar-user-info">
+            <figure class="userImg-figure">
+                <img id="userImg" src="">
+            </figure>
+            <span class="userName" id="username-goes-here"></span>
+        </div>
+        <ul class="sideBar-section-list">
+            <li class="sideBar-section"><a href="editprofile.html">Edit Profile</a></li>
+            <li class="sideBar-section"><a href="map.html">Change Location</a></li>
+            <li class="sideBar-section"><a href="#">My Activities</a></li>
+            <li class="sideBar-section"><a href="#">Help</a></li>
+            <li class="sideBar-section"><a href="#">About us</a></li>
+        </ul>
+        <div class="sideBar-logout">
+            <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-2xl" id="logout"></i>
+        </div>
+    </div>
+
+    <!--This is the header-->
+    <div id="header">
+        <div id="pageName">
+            <h1>My Posts</h1>
+        </div>
+        <button class="open-sidebar" id="open-sideBar">
+            <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
+        </button>
+    </div>
+    <!--------------------------------------------------------------------------------------------------------------
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Above are side bar + header. it should be the same for most of the pages. If you want to use the main page as
+    template, change the content below this block.
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    --------------------------------------------------------------------------------------------------------------->
+
+    <!--The search box goes here-->
+    <div id="formandpost">
+        <a href="userActivities.html">
+            <div class="section-switch-container">
+                <div class="section-switch">My Posts</div>
+            </div>
+        </a>
+        <a href="userActivities-feedbacks.html">
+            <div class="section-switch-container">
+                <div class="section-switch">My Feedbacks</div>
+            </div>
+        </a>
+    </div>
+
+    <!--The main content part on the main page go below-->
+    <div id="body">
+
+        <div id="posts-goes-here">
+        </div>
+
+        <template id="userPostTemplate">
+            <a class="postLinks">
+                <div class="userPost">
+                    <div class="userPostContainer">
+                        <div class="posterInfo">
+                            <figure class="posterImg-goes-here">
+                                <img class="posterImg" src="images/gamer.png" alt="poster profile image">
+                            </figure>
+                            <p class="posterName-goes-here"></p>
+                            <p class="postTime-goes-here"></p>
+                        </div>
+                        <div class="postText">
+                            <p class="postText-goes-here"></p>
+                        </div>
+                        <div class="postImg">
+                            <img class="postImg-goes-here" src="" alt="post photo content">
+                        </div>
+                        <div class="post-like-comment">
+                            <div class="post-icon-like">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <span class="likes-number"></span>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-message"></i>
+                                <span class="comments-number"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </template>
+    </div>
+
+    <!--------------------------------------------------------------------------------------------------------------
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Below are footer. it should be the same for most of the pages. If you want to use the main page as
+    template, change the content above this block.
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    --------------------------------------------------------------------------------------------------------------->
+
+    <!--Footer goes below-->
+    <!-- <div id="footer">
+        <figure class="footerNav">
+            <a href="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
+            <figcaption>Home</figcaption>
+        </figure>
+        <figure class="footerNav">
+            <a href="mychats.html"><img src="./images/chat-outline.svg" class="footerImg"></a>
+            <figcaption>Chat</figcaption>
+        </figure>
+        <figure class="footerNav">
+            <a href="#"><img src="./images/newspaper.svg" class="footerImg"></a>
+            <figcaption>News</figcaption>
+        </figure>
+        <figure class="footerNav">
+            <a href="feedback.html"><img src="./images/vote.svg" class="footerImg"></a>
+            <figcaption>Feedback</figcaption>
+        </figure>
+    </div> -->
+</div>
+<!-- bottom nav bar -->
+<nav id="nav-Comp"></nav>
+
+<!-- Js scripts-->
+<script src="./scripts/Components.js"></script>
+<script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
+<script src="./scripts/script.js"></script>
+
+</body>
+
+</html>
+

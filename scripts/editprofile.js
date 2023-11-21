@@ -2,7 +2,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
     event.preventDefault()
     const user = firebase.auth().currentUser
     const username = document.querySelector('#username').value
-    const postalcode = document.querySelector('#postalcode').value
     const profilePhoto = document.querySelector('#profilePhoto').files[0]
 
     if(user && profilePhoto) {
@@ -15,7 +14,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
 
             return db.collection('users').doc(user.uid).update({
                 name: username,
-                postalcode: postalcode,
                 photoURL: downloadURL
             }).then(() => {
                 console.log("Profile updated successfully")
@@ -43,7 +41,6 @@ function showCurrentInfo() {
                     const postalCode = userData.postalcode
 
                     document.querySelector('#username').placeholder = userName
-                    document.querySelector('#postalcode').placeholder = postalCode
                     if (userData.photoURL) {
                         console.log("userData.photoURL")
                         document.querySelector('#imagePreview').src = userData.photoURL
