@@ -19,6 +19,82 @@ function displayFeedback () {
                         newFeedback.querySelector('.feedback-comments-number').innerText = doc.data().commentsNumber
                         newFeedback.querySelector('.feedback-photo-container').id = `${doc.id}`
                         newFeedback.querySelector('.feedback-vote').dataset.feedbackid = `${doc.id}`
+                        newFeedback.querySelector('.feedback-icon-add-like').dataset.feedbackid = `${doc.id}`
+                        let feedbackLikesNumber = newFeedback.querySelector('.feedback-likes-number')
+
+                        let voteButton = newFeedback.querySelector('.feedback-vote')
+
+                        voteButton.addEventListener('click', function(event) {
+
+                            event.preventDefault()
+                            event.stopPropagation()
+                            let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(doc.id)
+
+                            db.runTransaction(transaction => {
+                                return transaction.get(feedbackRef).then(doc => {
+                                    console.log("work so far")
+
+                                    let newLikes = doc.data().likesNumber || 0
+                                    let voteUsers = doc.data().voteUser || []
+
+                                    let userIndex = voteUsers.indexOf(userID)
+
+                                    if (userIndex === -1) {
+                                        newLikes++
+                                        voteUsers.push(userID)
+                                    } else {
+                                        newLikes = newLikes > 0? newLikes - 1: 0
+                                        voteUsers.splice(userIndex, 1)
+                                    }
+
+                                    transaction.update(feedbackRef, {
+                                        likesNumber: newLikes,
+                                        voteUser: voteUsers
+                                    })
+                                    feedbackLikesNumber.innerText = newLikes
+
+                                }).then(() => {
+                                    console.log("works")
+                                })
+                            })
+                        })
+
+
+                        let likeButton = newFeedback.querySelector('.feedback-icon-add-like')
+
+                        likeButton.addEventListener('click', function(event) {
+                            event.preventDefault()
+                            event.stopPropagation()
+
+                            let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(doc.id)
+                            db.runTransaction(transaction => {
+                                return transaction.get(feedbackRef).then(doc => {
+                                    console.log("work so far")
+
+                                    let newLikes = doc.data().likesNumber || 0
+                                    let voteUsers = doc.data().voteUser || []
+
+                                    let userIndex = voteUsers.indexOf(userID)
+
+                                    if (userIndex === -1) {
+                                        newLikes++
+                                        voteUsers.push(userID)
+                                    } else {
+                                        newLikes = newLikes > 0? newLikes - 1: 0
+                                        voteUsers.splice(userIndex, 1)
+                                    }
+
+                                    transaction.update(feedbackRef, {
+                                        likesNumber: newLikes,
+                                        voteUser: voteUsers
+                                    })
+                                    feedbackLikesNumber.innerText = newLikes
+
+                                }).then(() => {
+                                    console.log("works")
+                                })
+                            })
+                        })
 
                         if (doc.data().photoURL) {
                             let imgElement = newFeedback.querySelector('.feedback-photo')
@@ -38,106 +114,8 @@ function displayFeedback () {
 }
 displayFeedback()
 
-document.querySelector('#feedbacks-goes-here').addEventListener('click', function(event) {
-    if (event.target.classList.contains('feedback-vote') || event.target.closest('.feedback-vote')) {
-        let feedbackElement = event.target.closest('.feedback-vote');
-        let feedbackID = feedbackElement.dataset.feedbackid;
 
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                let userID = user.uid;
-                db.collection('users').doc(userID).get().then(function(userDoc) {
-                    let userLocation = userDoc.data().location;
 
-                    let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(feedbackID);
-
-                    return db.runTransaction(transaction => {
-                        return transaction.get(feedbackRef).then(feedbackDoc => {
-                            if (!feedbackDoc.exists) {
-                                throw "Document does not exist!";
-                            }
-
-                            let feedbackData = feedbackDoc.data();
-                            let votedUsers = feedbackData.voteUser || [];
-
-                            // Check if user has already voted
-                            let userIndex = votedUsers.indexOf(userID);
-                            if (userIndex === -1) {
-                                // User hasn't voted yet, so increment likes and add user to array
-                                let newLikes = (feedbackData.likesNumber || 0) + 1;
-                                votedUsers.push(userID);
-                                transaction.update(feedbackRef, {
-                                    likesNumber: newLikes,
-                                    voteUser: votedUsers
-                                });
-                            } else {
-                                // User has already voted, so decrement likes and remove user from array
-                                let newLikes = (feedbackData.likesNumber || 0) - 1;
-                                newLikes = newLikes < 0 ? 0 : newLikes; // Prevent negative likes
-                                votedUsers.splice(userIndex, 1);
-                                transaction.update(feedbackRef, {
-                                    likesNumber: newLikes,
-                                    voteUser: votedUsers
-                                });
-                            }
-                        });
-                    }).then(() => {
-                        console.log("Transaction successfully committed!");
-                    }).catch(error => {
-                        console.error("Transaction failed: ", error);
-                    });
-                });
-            }
-        });
-
-        // Stop the event from propagating to the parent anchor tag
-        event.preventDefault();
-        event.stopPropagation();
-    }
-});
-
-function addLikeByClickingIcon() {
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('#feedbacks-goes-here').addEventListener('click', function(event) {
-            if (event.target.classList.contains('feedback-icon-add-like') || event.target.closest('.feedback-icon-add-like')) {
-                // Prevent the default action and stop event propagation right away
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                let feedbackElement = event.target.closest('.feedback-photo-container');
-                console.log(feedbackElement)
-                let feedbackID = feedbackElement.id.value;
-                console.log(feedbackID)
-
-                firebase.auth().onAuthStateChanged(function(user) {
-                    if (user) {
-                        let userID = user.uid;
-                        db.collection('users').doc(userID).get().then(function(userDoc) {
-                            let userLocation = userDoc.data().location;
-                            let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(feedbackID);
-
-                            db.runTransaction(transaction => {
-                                return transaction.get(feedbackRef).then(feedbackDoc => {
-                                    if (!feedbackDoc.exists) {
-                                        throw "Document does not exist!";
-                                    }
-                                    // ... transaction code ...
-                                });
-                            }).then(() => {
-                                console.log("Transaction successfully committed!");
-                            }).catch(error => {
-                                console.error("Transaction failed: ", error);
-                            });
-                        });
-                    }
-                });
-            }
-
-        });
-    });
-}
-addLikeByClickingIcon()
 
 
 
