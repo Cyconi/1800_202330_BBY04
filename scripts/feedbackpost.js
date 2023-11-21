@@ -33,6 +33,7 @@ function createFeedbackWithImage(title, text, photoURL){
                     likesNumber: 0,
                     commentsNumber: 0,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
+
                 }
                 if (photoURL) {
                     feedback.photoURL =  photoURL

@@ -55,8 +55,6 @@
 #formandpost {
     width: 100vw;
     height: 6vh;
-    box-shadow: auto;
-    -webkit-box-shadow: 0 -1px 5px #777777;
 }
 
 #searchBox {
@@ -68,7 +66,8 @@
     align-items: center;
 }
 .post-sort {
-    height: 100%;
+    margin-top: 2px;
+    height: calc(100% - 2px);
     width: 20%;
     float: left;
     border-style: none;
@@ -342,7 +341,7 @@ figcaption {
 
 /* Side Bar CSS*/
 .open-sidebar {
-    height: 100%;
+    height: 95%;
     width: 20%;
     background-color: lawngreen;
     border-style: none;

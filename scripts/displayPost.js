@@ -8,6 +8,7 @@ function displayUserPosts() {
             db.collection('users').doc(user.uid).get().then(userDoc => {
 
                 const userLocation = userDoc.data().location
+                const userID = user.uid
 
                 db.collection(`posts-${userLocation}`).get()
                     .then(allPosts => {
@@ -32,6 +33,42 @@ function displayUserPosts() {
                             newpost.querySelector('.comments-number').innerText = commentsNumber
                             newpost.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
                             newpost.querySelector('a').href = "eachPost.html?docID=" + docID
+
+                            let postLikesNumber = newpost.querySelector('.likes-number')
+
+                            newpost.querySelector('.post-icon-like').addEventListener('click', function(event){
+                                event.preventDefault()
+                                event.stopPropagation()
+
+                                let postRef = db.collection(`posts-${userLocation}`).doc(docID)
+
+                                db.runTransaction(transaction => {
+                                    return transaction.get(postRef).then(doc => {
+
+                                        let newLikes = doc.data().likesNumber || 0
+                                        let voteUsers = doc. data().voteUser || []
+
+                                        let userIndex = voteUsers.indexOf(userID)
+
+                                        if (userIndex === -1) {
+                                            newLikes++
+                                            voteUsers.push(userID)
+                                        } else {
+                                            newLikes = newLikes > 0? newLikes - 1: 0
+                                            voteUsers.splice(userIndex, 1)
+                                        }
+
+                                        transaction.update(postRef, {
+                                            likesNumber: newLikes,
+                                            voteUser: voteUsers
+                                        })
+                                        postLikesNumber.innerText = newLikes
+
+                                    }).then(() => {
+                                        console.log("Work!")
+                                    })
+                                })
+                            })
 
                             if (imageUrl) {
                                 let imgElement = newpost.querySelector('.postImg-goes-here')

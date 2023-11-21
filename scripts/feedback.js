@@ -7,7 +7,9 @@ function displayFeedback () {
 
                 let userLocation = userDoc.data().location
 
-                db.collection(`feedbacks-${userLocation}`).get().then(allFeedback => {
+                db.collection(`feedbacks-${userLocation}`)
+                    .get()
+                    .then(allFeedback => {
                     allFeedback.forEach(doc => {
 
                         let newFeedback = feedbackTemplate.content.cloneNode(true)
@@ -113,6 +115,14 @@ function displayFeedback () {
     })
 }
 displayFeedback()
+
+document.querySelector('.searchBoxForm').addEventListener('submit', function(event) {
+    event.preventDefault()
+    let searchTerm = document.querySelector('#userSearch').value.trim()
+    if (searchTerm) {
+        window.location.href = `feedbackSearch.html?userSearch=${searchTerm}`
+    }
+})
 
 
 

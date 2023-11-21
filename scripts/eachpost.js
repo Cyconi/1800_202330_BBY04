@@ -68,6 +68,7 @@ function displayPostInfo() {
             db.collection('users').doc(user.uid).get().then(doc => {
 
                 let userLocation = doc.data().location
+                let userID = user.uid
 
                 db.collection(`posts-${userLocation}`)
                     .doc(ID)
@@ -87,6 +88,38 @@ function displayPostInfo() {
                         document.querySelector('.postImg-goes-here').src = data.imageUrl
                         document.querySelector('.likes-number').innerText = likesNumber
                         document.querySelector('.comments-number').innerText = commentsNumber
+
+                        document.querySelector('#post-icon-like').addEventListener('click', function () {
+                            console.log("working?")
+
+                            let postRef = db.collection(`posts-${userLocation}`).doc(ID)
+
+
+                            db.runTransaction(transaction => {
+                                return transaction.get(postRef).then(doc => {
+
+                                    let newLikes = doc.data().likesNumber || 0
+                                    let voteUsers = doc.data().voteUser || []
+                                    let userIndex = voteUsers.indexOf(userID)
+
+                                    if (userIndex === -1) {
+                                        newLikes++;
+                                        voteUsers.push(userID);
+                                    } else {
+                                        newLikes = newLikes > 0 ? newLikes - 1 : 0;
+                                        voteUsers.splice(userIndex, 1);
+                                    }
+
+                                    transaction.update(postRef, {
+                                        likesNumber: newLikes,
+                                        voteUser: voteUsers
+                                    })
+                                    document.querySelector('.likes-number').innerText = newLikes
+                                })
+                            }).then(() => {
+                                console.log("yeah")
+                            })
+                        })
 
                     })
             })
@@ -191,6 +224,7 @@ function addCommentsNumber(userLocation, section) {
             commentsNumber: commentsNumber
         }).then(() => {
             console.log("Comments number added")
+            document.querySelector('.comments-number').innerText = commentsNumber
         })
     })
 }
