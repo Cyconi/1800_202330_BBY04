@@ -26,7 +26,7 @@ body {
 #header {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-    background-color: lawngreen;
+    background-color: #44CF6C;
     color: white;
     font-family: 'Poppins', sans-serif;
     position: relative;
