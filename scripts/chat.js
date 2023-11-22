@@ -74,6 +74,7 @@ function stringToColor(str) {
     return '#' + '00000'.substring(0, 6 - c.length) + c;
 }
 
+
 // Update previous displayMessage function
 function displayMessage(messageData) {
     const messageList = document.querySelector('#messageList');
@@ -89,7 +90,7 @@ function displayMessage(messageData) {
     // Add a border style to the message element
     messageElement.style.border = `1px solid ${userColor}`;
     messageElement.style.borderRadius = '5px'; // Optional: Add rounded corners
-    
+
     // Add a class to the message element for styling
     messageElement.classList.add('message');
 
@@ -104,6 +105,9 @@ function displayMessage(messageData) {
     const messageContent = document.createElement('div');
     messageContent.appendChild(profilePhoto);
 
+    // Create a div for the message text and timestamp
+    const textAndTimestampDiv = document.createElement('div');
+
     // Create a span for the message text
     const messageText = document.createElement('span');
     messageText.textContent = `${messageData.userName}: ${messageData.message}`;
@@ -117,9 +121,12 @@ function displayMessage(messageData) {
     timestampSpan.textContent = timestamp.toLocaleTimeString(undefined, options);
     timestampSpan.style.float = 'right'; // Align the timestamp to the right
 
-    // Append the message text and timestamp to the message content
-    messageContent.appendChild(messageText);
-    messageContent.appendChild(timestampSpan);
+    // Append the message text and timestamp to the textAndTimestampDiv
+    textAndTimestampDiv.appendChild(messageText);
+    textAndTimestampDiv.appendChild(timestampSpan);
+
+    // Append the textAndTimestampDiv to the message content
+    messageContent.appendChild(textAndTimestampDiv);
 
     // Append the message content to the message element
     messageElement.appendChild(messageContent);
@@ -130,5 +137,6 @@ function displayMessage(messageData) {
     // Scroll to the bottom of the message list
     messageList.scrollTop = messageList.scrollHeight;
 }
+
 
 
