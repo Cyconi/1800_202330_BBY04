@@ -89,6 +89,9 @@ function displayMessage(messageData) {
     // Add a border style to the message element
     messageElement.style.border = `1px solid ${userColor}`;
     messageElement.style.borderRadius = '5px'; // Optional: Add rounded corners
+    
+    // Add a class to the message element for styling
+    messageElement.classList.add('message');
 
     // Create an image element for the user's profile photo
     const profilePhoto = document.createElement('img');
@@ -108,10 +111,11 @@ function displayMessage(messageData) {
     // Create a span for the timestamp
     const timestampSpan = document.createElement('span');
     const timestamp = messageData.timestamp ? new Date(messageData.timestamp.toDate()) : new Date();
-    
+
     // Format the timestamp to display hours and minutes only
     const options = { hour: 'numeric', minute: 'numeric' };
-    timestampSpan.textContent = ` - ${timestamp.toLocaleTimeString(undefined, options)}`;
+    timestampSpan.textContent = timestamp.toLocaleTimeString(undefined, options);
+    timestampSpan.style.float = 'right'; // Align the timestamp to the right
 
     // Append the message text and timestamp to the message content
     messageContent.appendChild(messageText);
@@ -126,4 +130,5 @@ function displayMessage(messageData) {
     // Scroll to the bottom of the message list
     messageList.scrollTop = messageList.scrollHeight;
 }
+
 
