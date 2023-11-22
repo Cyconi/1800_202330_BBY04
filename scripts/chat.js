@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                         db.collection('users').doc(messageData.userID).get().then(userDoc => {
                             messageData.photoURL = userDoc.data().photoURL;
 
-                            // Display the message with the profile photo
+                            // Display the message with the profile photo and timestamp
                             displayMessage(messageData);
                         });
                     }
@@ -105,8 +105,17 @@ function displayMessage(messageData) {
     const messageText = document.createElement('span');
     messageText.textContent = `${messageData.userName}: ${messageData.message}`;
 
-    // Append the message text to the message content
+    // Create a span for the timestamp
+    const timestampSpan = document.createElement('span');
+    const timestamp = messageData.timestamp ? new Date(messageData.timestamp.toDate()) : new Date();
+    
+    // Format the timestamp to display hours and minutes only
+    const options = { hour: 'numeric', minute: 'numeric' };
+    timestampSpan.textContent = ` - ${timestamp.toLocaleTimeString(undefined, options)}`;
+
+    // Append the message text and timestamp to the message content
     messageContent.appendChild(messageText);
+    messageContent.appendChild(timestampSpan);
 
     // Append the message content to the message element
     messageElement.appendChild(messageContent);
@@ -117,3 +126,4 @@ function displayMessage(messageData) {
     // Scroll to the bottom of the message list
     messageList.scrollTop = messageList.scrollHeight;
 }
+
