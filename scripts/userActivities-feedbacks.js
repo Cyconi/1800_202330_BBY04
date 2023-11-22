@@ -5,7 +5,7 @@ function loadUserFeedbacks () {
 
             db.collection('users').doc(userID).get().then(userDoc => {
                 let userLocation = userDoc.data().location
-                let feedbackArray = userDoc.data().feedbacks
+                let feedbackArray = userDoc.data().feedbacks || []
                 let feedbackTemplate = document.querySelector('#feedback-template')
 
                 feedbackArray.forEach(feedbackID => {
@@ -20,7 +20,7 @@ function loadUserFeedbacks () {
                         newFeedback.querySelector('.feedback-photo-container').id = `${doc.id}`
                         newFeedback.querySelector('.feedback-vote').dataset.feedbackid = `${doc.id}`
                         newFeedback.querySelector('.feedback-icon-add-like').dataset.feedbackid = `${doc.id}`
-                        
+
                         let feedbackLikesNumber = newFeedback.querySelector('.feedback-likes-number')
 
                         let voteButton = newFeedback.querySelector('.feedback-vote')
