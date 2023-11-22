@@ -57,3 +57,32 @@ textarea {
     box-shadow:  0 -1px 5px #777777;
     font-family: 'Poppins', sans-serif;
 }
+
+/* CSS for the confirm message */
+.post-thankyou {
+   /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    justify-content: center; /* Center the inner content horizontally */
+    align-items: center; /* Center the inner content vertically */
+    display: none; /* Enables the justification and alignment */
+}
+
+.post-thankyou h2 {
+    height: 200px;
+    width: 400px;
+    margin: auto; /* Center the text block */
+    background: lawngreen; /* Your color for the text block */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for the text block */
+    color: white; /* Text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

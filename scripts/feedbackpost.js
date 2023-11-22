@@ -3,6 +3,7 @@ document.querySelector('#postButton').addEventListener('click', function(){
     let feedbackText = document.querySelector('#user-story').value
     let feedbackPhoto = document.querySelector('#photoUpload').files[0]
 
+    showThankYouMessage()
     if (feedbackPhoto) {
         let storageRef = firebase.storage().ref('photos-feedback/' + feedbackPhoto.name)
         storageRef.put(feedbackPhoto).then(function(snapshot) {
@@ -54,4 +55,12 @@ function createFeedbackWithImage(title, text, photoURL){
         }
     })
 
+}
+function showThankYouMessage() {
+    const thankYouDiv = document.querySelector('.post-thankyou')
+    thankYouDiv.style.display = 'flex'
+
+    setTimeout(() => {
+        thankYouDiv.style.display = 'none'
+    }, 20000)
 }
