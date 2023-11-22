@@ -36,7 +36,6 @@ function displayUserPosts() {
                             newpost.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
                             newpost.querySelector('a').href = "eachPost.html?docID=" + docID
                             let likeIcon =  newpost.querySelector('i.fa-thumbs-up')
-
                             let postLikesNumber = newpost.querySelector('.likes-number')
 
                             newpost.querySelector('.post-icon-like').addEventListener('click', function(event){
@@ -89,10 +88,10 @@ function displayUserPosts() {
                             document.getElementById("posts-goes-here").appendChild(newpost);
 
                             if (userIndex === -1) {
-                                likeIcon.classList.replace('fa-regular','fa-solid' )
+                                likeIcon.classList.add('fa-regular')
 
                             } else {
-                                likeIcon.classList.replace('fa-solid','fa-regular')
+                                likeIcon.classList.add('fa-solid')
                             }
                             if (!imageUrl) {
                                 document.getElementById(`${docID}`).style.display = 'none'
