@@ -11,7 +11,8 @@
 nav {
     background-color: #44CF6C;
 }
-.navBar {
+#navbar-container {
+    height: 75px;
     background-color: #44CF6C;
     font-family: 'Poppins', sans-serif;
     box-shadow: auto;
@@ -19,7 +20,11 @@ nav {
     border-radius: 0%;
     padding-top: 1vh;
 }
-
+@media screen and (max-height: 750px) {
+    #navbar-container {
+        height: 70px;
+    }
+}
 #footer {
     background-color: #44CF6C;
     font-family: 'Poppins', sans-serif;
@@ -64,15 +69,15 @@ nav {
     height: 100%;
     width: 70px;
 }
+.LinkedIcon img:hover { 
+    transform: scale(1.5);
+}
 figcaption {
     margin-inline: -20px;
     text-align: center;
     align-content: center;
     justify-content: center;
     
-}
-#navbar-container {
-    height: 9vh;
 }
 /* End of Nav CSS */
 
