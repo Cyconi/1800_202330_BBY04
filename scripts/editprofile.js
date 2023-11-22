@@ -1,6 +1,7 @@
 document.querySelector('#profileForm').addEventListener('submit', function (event){
     event.preventDefault()
     const user = firebase.auth().currentUser
+    console.log(user.uid)
     const username = document.querySelector('#username').value
     const profilePhoto = document.querySelector('#profilePhoto').files[0]
 
@@ -17,12 +18,17 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                 photoURL: downloadURL
             }).then(() => {
                 console.log("Profile updated successfully")
-                window.location.href ="main.html"
+                window.location.assign("main.html")
 
             })
         })
-
-
+    } else {
+        db.collection('users').doc(user.uid).update({
+            name: username
+        }).then(() => {
+            console.log("Username updated successfully")
+            window.history.back()
+        })
     }
 })
 

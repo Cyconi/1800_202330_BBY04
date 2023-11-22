@@ -25,9 +25,14 @@ function displayFeedbackInfo() {
 
                         document.querySelector('.feedback-title').innerText = title
                         document.querySelector('.feedback-detail').innerText = text
-                        document.querySelector('.feedback-photo').src = imageURL
                         document.querySelector('.feedback-likes-number').innerText = numberOfLikes
                         document.querySelector('.feedback-comments-number').innerText = numberOfComments
+
+                        if (imageURL) {
+                            document.querySelector('.feedback-photo').src = imageURL
+                        } else {
+                            document.querySelector('.feedback-photo').style.display = 'none'
+                        }
 
                         document.querySelector('#feedback-add-like').addEventListener('click', function () {
                             console.log("working?")
