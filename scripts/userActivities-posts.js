@@ -4,7 +4,7 @@ function loadUserPosts() {
             let userID = user.uid
             db.collection('users').doc(userID).get().then(userDoc => {
                 let userLocation = userDoc.data().location
-                let postsArray = userDoc.data().posts
+                let postsArray = userDoc.data().posts || []
                 let postsTemplate = document.querySelector('#userPostTemplate')
 
                 postsArray.forEach(postID => {
