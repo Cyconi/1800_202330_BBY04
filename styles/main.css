@@ -24,10 +24,10 @@
 
 /* This part is css about the header section on main page */
 #header {
-    border-radius: 0%;
+    border-radius: 0;
     width: 100vw;
     height: 8vh;
-    background-color: lawngreen;
+    background-color: #44CF6C;
     color: white;
     font-family: 'Poppins', sans-serif;
     z-index: 8;
@@ -108,7 +108,7 @@
 /* //////////////////////////////////For user post template on home page///////////////////////////////*/
 .postLinks {
     margin: 1vh 2vw;
-    background-color: white;
+    background-color: #F1FFE7;
     box-shadow: 1px 1px 5px 1px #777777;
 }
 

@@ -9,10 +9,10 @@
 /* End of General CSS */
 /* Nav bar */
 nav {
-    background-color: lawngreen;
+    background-color: #44CF6C;
 }
 .navBar {
-    background-color: lawngreen;
+    background-color: #44CF6C;
     font-family: 'Poppins', sans-serif;
     box-shadow: auto;
     -webkit-box-shadow: 0 -1px 5px #777777;
@@ -21,7 +21,7 @@ nav {
 }
 
 #footer {
-    background-color: lawngreen;
+    background-color: #44CF6C;
     font-family: 'Poppins', sans-serif;
     box-shadow: auto;
         -webkit-box-shadow: 0 -1px 5px #777777;
@@ -81,7 +81,7 @@ figcaption {
 .open-sidebar {
     height: 95%;
     width: 20%;
-    background-color: lawngreen;
+    background-color: #44CF6C;
     border-style: none;
 }
 
