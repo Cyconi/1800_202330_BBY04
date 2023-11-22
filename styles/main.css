@@ -108,7 +108,11 @@
 /* //////////////////////////////////For user post template on home page///////////////////////////////*/
 .postLinks {
     margin: 1vh 2vw;
+<<<<<<< HEAD
     background-color: #FAFAFA;
+=======
+    background-color: #FFFFE7;
+>>>>>>> 13cac05e10accfe811383babfb87ae46aed25a78
     box-shadow: 1px 1px 5px 1px #777777;
 }
 
