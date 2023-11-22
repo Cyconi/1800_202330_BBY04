@@ -6,6 +6,8 @@ postButton.addEventListener("click", () => {
     const file = fileInput.files[0];
     const postTextContent = testFile.value
 
+    showThankYouMessage()
+
     if (file) {
         let storageRef = firebase.storage().ref('photos/' + file.name)
 
@@ -65,4 +67,13 @@ function createPostWithImage(postTextContent, imageUrl) {
             })
         }
     })
+}
+
+function showThankYouMessage() {
+    const thankYouDiv = document.querySelector('.post-thankyou')
+    thankYouDiv.style.display = 'flex'
+
+    setTimeout(() => {
+        thankYouDiv.style.display = 'none'
+    }, 20000)
 }
