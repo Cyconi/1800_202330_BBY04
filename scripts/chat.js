@@ -131,12 +131,22 @@ function displayMessage(messageData) {
     // Append the message content to the message element
     messageElement.appendChild(messageContent);
 
+    // Remove marginBottom from the previous messages
+    Array.from(messageList.children).forEach((child) => {
+        child.style.marginBottom = '0';
+    });
+
+    // Calculate the distance from the bottom
+    const distanceFromBottom = messageList.scrollHeight - (messageList.scrollTop + messageList.clientHeight);
+
+    // Add marginBottom to the latest message if it's less than 50px from the bottom
+    if (distanceFromBottom < 100) {
+        messageElement.style.marginBottom = `${100 - distanceFromBottom}px`;
+    }
+
     // Append the message element to the message list
     messageList.appendChild(messageElement);
 
     // Scroll the newly added message into view
     messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
-
-
-
