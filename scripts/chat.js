@@ -134,8 +134,8 @@ function displayMessage(messageData) {
     // Append the message element to the message list
     messageList.appendChild(messageElement);
 
-    // Scroll to the bottom of the message list
-    messageList.scrollTop = messageList.scrollHeight;
+    // Scroll the newly added message into view
+    messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 
