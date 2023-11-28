@@ -91,6 +91,17 @@ It has the following subfolders and files:
     /post.css                # Styles for individual post details and comments
     /editprofile.css                # Styles for the edit profile interface
 
+
+Firebase hosting files: 
+├── .firebase
+	/hosting..cache
+├── .firebaserc
+├── 404.html
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+├── storage.rules
+
 ```
 
 
