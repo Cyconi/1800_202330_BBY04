@@ -18,10 +18,12 @@ function insertNameFromFirestore() {
             currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
             currentUser.get().then(userDoc => {
                 // Get the username
-                var userName = userDoc.data().name;
+                let userName = userDoc.data().name;
+                let userLocation = userDoc.data().location
 
                 //$("#name-goes-here").text(userName); // jQuery
                 document.getElementById("username-goes-here").innerText = userName;
+                document.getElementById("userLocation-goes-here").innerText = userLocation
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -60,5 +62,14 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("No user log in")
     }
 })
+
+function toggleInfo() {
+    var infoContainer = document.querySelector('.info-container');
+    if (infoContainer.style.display === "none" || !infoContainer.style.display) {
+        infoContainer.style.display = "block";
+    } else {
+        infoContainer.style.display = "none";
+    }
+}
 
 
