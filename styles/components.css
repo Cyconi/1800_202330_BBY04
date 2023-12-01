@@ -69,9 +69,6 @@ nav {
     height: 100%;
     width: 70px;
 }
-.LinkedIcon img:hover { 
-    /* transform: scale(1.5); */
-}
 figcaption {
     margin-inline: -20px;
     text-align: center;
@@ -168,10 +165,6 @@ figcaption {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     overflow: hidden;
 }
-.userImg {
-    width: 40vw;
-    height: 40vw;
-}
 
 .userName {
     font-size: 20px;
@@ -213,4 +206,5 @@ a:link {
     width: 100%;
     height: 100%;
 }
+
 /* End of Side Bar CSS */

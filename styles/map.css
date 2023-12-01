@@ -11,8 +11,9 @@
     width: 100vw;
     height: 100vh;
     /* background-color: #CFFFB3; */
-    background-color: #44CF6C;
+    background-color: #E5E4D7;
     overflow: scroll;
+    overflow-x: hidden;
 }
 #title {
     text-align: center;
@@ -23,8 +24,10 @@
     width: 96vw;
     margin: 2vh 2vw;
     overflow: scroll;
+    overflow-y: hidden;
     border-radius: 10px;
     box-shadow: -1px -1px 6px 6px #777777;
+    background-color: rgba(0, 255, 0, 0.50);
 }
 #drop-Down {
     text-align: center;
