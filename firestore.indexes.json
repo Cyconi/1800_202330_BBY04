@@ -1,0 +1,33 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "feedbacks-comments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "feedbackID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "posts-comments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "postID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

@@ -53,6 +53,25 @@
     max-height: 100%;
     max-width: 100%;
 }
+.fa-circle-info {
+    margin-left: 1em;
+}
+.info-container {
+    border-radius: 15px;
+    width: 80vw;
+    height: 30vh;
+    background-color: white;
+    position: absolute;
+    left: 10vw;
+    top: 35vh;
+    box-shadow: 100000px 100000px 100000px 100000px rgba(0, 0, 0, .50);
+    display: none;
+}
+.info-container p {
+    margin: 2em;
+    line-height: 4em;
+}
+
 
 
 /* This Part is css about the searchBox and post on main page */

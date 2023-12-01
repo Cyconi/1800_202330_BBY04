@@ -146,6 +146,9 @@ figcaption {
     list-style: none;
     line-height: 3em;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     
 }
 /* Side bar animations */

@@ -58,6 +58,7 @@
                     <img id="userImg" src="">
                 </figure>
                 <span class="userName" id="username-goes-here"></span>
+                <span id="userLocation-goes-here"></span>
             </div>
             <ul class="sideBar-section-list">
                 <li class="sideBar-section"><a href="editprofile.html">Edit Profile</a></li>
@@ -75,11 +76,17 @@
         <div id="header">
             <div id="pageName">
                 <h1>Local Chat</h1>
+                <i class="fa-solid fa-circle-info fa-xl" onclick="toggleInfo()"></i>
             </div>
             <button class="open-sidebar" id="open-sideBar">
                 <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
             </button>
         </div>
+
+        <div class="info-container">
+            <p>Welcome to chat section. This is where you chat with people in your local city, have fun!</p>
+        </div>
+
         <!--------------------------------------------------------------------------------------------------------------
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Above are side bar + header. it should be the same for most of the pages. If you want to use the main page as
@@ -96,9 +103,6 @@
     <div class="chat-container">
         <input type="text" id="messageInput" class="chat-input" placeholder="Type your message...">
         <button id="sendMessageButton" class="chat-button">Send</button>
-    </div>
-
-
     </div>
 
     <!-- bottom nav bar -->

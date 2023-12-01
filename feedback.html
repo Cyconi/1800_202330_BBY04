@@ -59,6 +59,7 @@
                     <img id="userImg" src="">
                 </figure>
                 <span class="userName" id="username-goes-here"></span>
+                <span id="userLocation-goes-here"></span>
             </div>
             <ul class="sideBar-section-list">
                 <li class="sideBar-section"><a href="editprofile.html">Edit Profile</a></li>
@@ -76,10 +77,15 @@
         <div id="header">
             <div id="pageName">
                 <h1>Vote for Change</h1>
+                <i class="fa-solid fa-circle-info fa-xl" onclick="toggleInfo()"></i>
             </div>
             <button class="open-sidebar" id="open-sideBar">
                 <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
             </button>
+        </div>
+
+        <div class="info-container">
+            <p>Welcome to feedback section, this is where people discuss and identifier local city issue, have fun!</p>
         </div>
         <!--------------------------------------------------------------------------------------------------------------
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,6 +157,7 @@
     <script src="./scripts/Components.js"></script>
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/populateFeedbackData.js"></script>
     <script src="./scripts/feedback.js"></script>
     <script src="https://kit.fontawesome.com/6094dd5ed7.js" crossorigin="anonymous"></script>
 
