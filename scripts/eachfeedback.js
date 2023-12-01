@@ -19,9 +19,18 @@ function displayFeedbackInfo() {
                         let title = data.title
                         let text = data.text
                         let imageURL = data.photoURL
-                        let date = data.timestamp.toDate()
                         let numberOfLikes = data.likesNumber
                         let numberOfComments = data.commentsNumber
+
+                        let voteUsers = doc.data().voteUser || []
+                        let userIndex = voteUsers.indexOf(userID)
+                        let likeButton = document.querySelector('#circle-up');
+
+                        if (userIndex === -1) {
+                            likeButton.classList.add('fa-regular')
+                        } else {
+                            likeButton.classList.add('fa-solid')
+                        }
 
                         document.querySelector('.feedback-title').innerText = title
                         document.querySelector('.feedback-detail').innerText = text
@@ -49,9 +58,11 @@ function displayFeedbackInfo() {
                                     if (userIndex === -1) {
                                         newLikes++;
                                         voteUsers.push(userID);
+                                        likeButton.classList.replace('fa-regular','fa-solid' )
                                     } else {
                                         newLikes = newLikes > 0 ? newLikes - 1 : 0;
                                         voteUsers.splice(userIndex, 1);
+                                        likeButton.classList.replace('fa-solid','fa-regular')
                                     }
 
                                     transaction.update(feedbackRef, {
@@ -81,9 +92,11 @@ function displayFeedbackInfo() {
                                     if (userIndex === -1) {
                                         newLikes++;
                                         voteUsers.push(userID);
+                                        likeButton.classList.replace('fa-regular','fa-solid' )
                                     } else {
                                         newLikes = newLikes > 0 ? newLikes - 1 : 0;
                                         voteUsers.splice(userIndex, 1);
+                                        likeButton.classList.replace('fa-solid','fa-regular')
                                     }
 
                                     transaction.update(feedbackRef, {
