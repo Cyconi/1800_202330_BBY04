@@ -121,10 +121,7 @@
     width: 100vw;
     height: 77vh;
     overflow: scroll;
-    background-image: url(/images/geoWhite.jpg);
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    
 
 }
 

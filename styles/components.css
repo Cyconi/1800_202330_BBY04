@@ -4,7 +4,6 @@
     padding: 0;
     margin: 0;
     font-family: 'Comfortaa', sans-serif;
-
 }
 /* End of General CSS */
 /* Nav bar */
@@ -30,6 +29,7 @@ nav {
     font-family: 'Poppins', sans-serif;
     box-shadow: auto;
         -webkit-box-shadow: 0 -1px 5px #777777;
+        
 }
 
 #pageName {
@@ -70,7 +70,7 @@ nav {
     width: 70px;
 }
 .LinkedIcon img:hover { 
-    transform: scale(1.5);
+    /* transform: scale(1.5); */
 }
 figcaption {
     margin-inline: -20px;
@@ -142,14 +142,14 @@ figcaption {
 .sideBar-section-list {
     /* padding-top: 2em; */
     padding-left: 3em;
-    height: 45%;
+    height: 50%;
     list-style: none;
     line-height: 3em;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    
+    overflow:hidden;
 }
 /* Side bar animations */
 .sideBar-section-list li:hover {
@@ -166,6 +166,7 @@ figcaption {
 .sideBar-logout:hover {
     transform: scale(1.05);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden;
 }
 .userImg {
     width: 40vw;
@@ -192,12 +193,13 @@ a:link {
 
 
 .sideBar-logout {
-    width: 100%;
-    height: 20%;
+    width: 50%;
+    height: 10%;
     display: flex;
     align-items: center;
     padding-left: 3em;
-    padding-top: 20px;
+    padding-top: 0px;
+    overflow: hidden;
 }
 
 .userImg-figure {

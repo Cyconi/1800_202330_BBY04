@@ -8,15 +8,18 @@
 #container {
     width: 100vw;
     height: 100vh;
-    background-color: lawngreen;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(/images/5367739.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
 }
 #form-container {
     width: 60vw;
     height: 70vh;
-    background-color: #cccccc;
+    background-color: #44CF6C;
     border-radius: 10px;
 }
 #imagePreviewContainer-out {
