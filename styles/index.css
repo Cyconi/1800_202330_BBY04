@@ -3,7 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 
 * {
+    padding: 0;
+    margin: 0;
     font-family: 'Comfortaa', sans-serif;
+    border-radius: 15px;
+
 }
 
 html {
@@ -15,14 +19,16 @@ body {
     width: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: #CFFFB3;
+    background-image:url(/images/geoWhite.jpg)
 }
 #photo {
-    width: 100%;
-    height: 40%; 
+    /* width: 100%; */
+    height: 40%;
+    border-radius: 0px;
     background-image: url("../images/people-circle-2.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -52,13 +58,14 @@ span {
     padding-right: 2vw;
     text-align: center;
 }
-h2,h1 {
-    font-family: 'Archivo Black', sans-serif;
-}
 #footerText {
     color: white;
     font-size: 3vw;
 
+}
+#buttontxt{
+    color: white;
+    background-color: #44CF6C;
 }
 
 

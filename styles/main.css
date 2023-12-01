@@ -30,7 +30,6 @@
     height: 8vh;
     background-color: #44CF6C;
     color: white;
-    font-family: 'Poppins', sans-serif;
     z-index: 8;
     box-shadow: auto;
     -webkit-box-shadow: 0 -1px 5px #777777;
@@ -122,6 +121,11 @@
     width: 100vw;
     height: 77vh;
     overflow: scroll;
+    background-image: url(/images/geoWhite.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 #posts-goes-here {

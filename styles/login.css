@@ -13,11 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lawngreen;
+    background-color: #44CF6C;
 }
 #brandName {
-    font-family: 'Archivo Black', sans-serif;
-    color: chartreuse;
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #44CF6C;
 }
 
 #header {
@@ -31,12 +31,16 @@
 }
 #welcomeText {
     text-align: center;
-    color: darkorange;
+    color: rgb(0, 0, 0);
 }
 #signinBlock {
     width: 80vw;
-    height: 50vh;
-    background-color: white;
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    background-image: url(/images/geoWhite.jpg);
+    background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;

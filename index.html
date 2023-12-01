@@ -28,16 +28,17 @@
 
     <!-- Link to styles of your own -->
     <link href="styles/index.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./styles/index.css"> -->
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link rel="stylesheet" href="styles/components.css" type="text/css">
 
 </head>
 
 <body>
 
-<!---------------------------------------------->
-<!-- This is the nav bar                      -->
-<!---------------------------------------------->
-    <nav class="navbar navbar-dark bg-warning">
+    <!---------------------------------------------->
+    <!-- This is the nav bar                      -->
+    <!---------------------------------------------->
+    <!-- <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" ><h1 style="margin: auto;">CGlue</h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -65,7 +66,23 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <!--This is the header-->
+    <div id="header">
+        <div id="pageName">
+            <h1>C G L U E</h1>
+            <i class="fa-solid fa-circle-info fa-xl" onclick="toggleInfo()"></i>
+        </div>
+        <button class="open-sidebar" id="open-sideBar">
+            <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
+        </button>
+    </div>
+
+    <div class="info-container">
+        <p>Welcome to post section, you can view, like and comment other people's post.
+            You can also post something by clicking on the plus icon beside the search bar, have fun!</p>
+    </div>
 
     <div id="photo">
         <div id="CGlue">
@@ -74,19 +91,18 @@
     </div>
 
     <div id="hero">
-        <h2 class="display-5 fw-bold"> Coummunication <br/><span class="lead mb-4">and</span><br/>Connection </h2>
-        <p class="lead mb-4">CGlue - An application to help people facilitate connections with local communities and 
+        <h2 class="display-5 fw-bold"> Coummunication <br /><span class="lead mb-4">and</span><br />Connection </h2>
+        <p class="lead mb-4">CGlue - An application to help people facilitate connections with local communities and
             town/city representatives by allowing users to join community group.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Sign in for free</button>
-            <a href="login.html" class="btn btn-outline-secondary btn-lg px-4" role="button">Log in</a>
+            <a href="login.html" class="btn btn-outline-secondary btn-lg px-4" role="button" id="buttontxt">Log in!</a>
         </div>
 
-        <div class="fixed-bottom py-3 bg-warning">
+        <!-- <div class="fixed-bottom py-3" id="footer">
             <div class="container text-center">
                 <p id="footerText">Welcome to the CGlue familty</p>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
@@ -107,4 +123,5 @@
     <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
 </body>
+
 </html>
