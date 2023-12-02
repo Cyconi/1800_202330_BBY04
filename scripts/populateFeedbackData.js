@@ -1,5 +1,7 @@
 function populateFeedbackData(doc, userID, userLocation ) {
+    let docID = doc.id;
     let voteUsers = doc. data().voteUser || []
+
     let userIndex = voteUsers.indexOf(userID)
 
     let feedbackTemplate = document.querySelector('#feedback-template')
@@ -14,10 +16,20 @@ function populateFeedbackData(doc, userID, userLocation ) {
     newFeedback.querySelector('.feedback-vote').dataset.feedbackid = `${doc.id}`
     newFeedback.querySelector('.feedback-icon-add-like').dataset.feedbackid = `${doc.id}`
 
+    let deleteButton = newFeedback.querySelector('.delete-button');
+    if (deleteButton) {
+        deleteButton.addEventListener('click', function(event) {
+            event.preventDefault()
+            event.stopPropagation()
+            document.querySelector('.delete-confirm-container').style.display = 'block'
+            document.querySelector('.yes').value = docID;
+        })
+    }
+
     let feedbackLikesNumber = newFeedback.querySelector('.feedback-likes-number')
     let votesIcon =  newFeedback.querySelector('i.fa-circle-up')
-
     let voteButton = newFeedback.querySelector('.feedback-vote')
+
     voteButton.addEventListener('click', function(event) {
         event.preventDefault()
         event.stopPropagation()

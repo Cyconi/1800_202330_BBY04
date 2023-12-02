@@ -13,10 +13,7 @@ function loadUserFeedbacks () {
                             populateFeedbackData(doc, userID, userLocation)
 
                         })
-
-
                 })
-
             })
         }
     })
@@ -26,6 +23,7 @@ loadUserFeedbacks()
 document.querySelector('.delete-confirm-button').addEventListener('click', function() {
     document.querySelector('.delete-confirm-container').style.display = 'none'
 })
+
 
 document.querySelector('.yes').addEventListener('click', function() {
     let feedbackID = document.querySelector('.yes').value

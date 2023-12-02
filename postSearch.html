@@ -58,6 +58,7 @@
                 <img id="userImg" src="">
             </figure>
             <span class="userName" id="username-goes-here"></span>
+            <span id="userLocation-goes-here"></span>
         </div>
         <ul class="sideBar-section-list">
             <li class="sideBar-section"><a href="editprofile.html">Edit Profile</a></li>
@@ -74,7 +75,7 @@
     <!--This is the header-->
     <div id="header">
         <div id="pageName">
-            <h1>Home</h1>
+            <h1>Posts Search</h1>
         </div>
         <button class="open-sidebar" id="open-sideBar">
             <i class="fa-solid fa-bars fa-2xl" id="menu"></i>
@@ -141,32 +142,6 @@
         </template>
     </div>
 
-    <!--------------------------------------------------------------------------------------------------------------
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    Below are footer. it should be the same for most of the pages. If you want to use the main page as
-    template, change the content above this block.
-    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    --------------------------------------------------------------------------------------------------------------->
-
-    <!--Footer goes below-->
-    <!-- <div id="footer">
-        <figure class="footerNav">
-            <a href="main.html"><img src="./images/home-outline.svg" class="footerImg"></a>
-            <figcaption>Home</figcaption>
-        </figure>
-        <figure class="footerNav">
-            <a href="mychats.html"><img src="./images/chat-outline.svg" class="footerImg"></a>
-            <figcaption>Chat</figcaption>
-        </figure>
-        <figure class="footerNav">
-            <a href="#"><img src="./images/newspaper.svg" class="footerImg"></a>
-            <figcaption>News</figcaption>
-        </figure>
-        <figure class="footerNav">
-            <a href="feedback.html"><img src="./images/vote.svg" class="footerImg"></a>
-            <figcaption>Feedback</figcaption>
-        </figure>
-    </div> -->
 </div>
 <!-- bottom nav bar -->
 <nav id="nav-Comp"></nav>
@@ -175,6 +150,7 @@
 <script src="./scripts/Components.js"></script>
 <script src="./scripts/firebaseAPI_TEAMBBY04.js"></script>
 <script src="./scripts/script.js"></script>
+<script src="./scripts/populatePostData.js"></script>
 <script src="./scripts/postSearch.js"></script>
 
 </body>

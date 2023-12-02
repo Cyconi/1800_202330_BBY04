@@ -5,7 +5,7 @@ function loadUserPosts() {
             db.collection('users').doc(userID).get().then(userDoc => {
                 let userLocation = userDoc.data().location
                 let postsArray = userDoc.data().posts || []
-                let postsTemplate = document.querySelector('#userPostTemplate')
+
 
                 postsArray.forEach(postID => {
                     db.collection(`posts-${userLocation}`).doc(postID).get().then(doc => {
@@ -19,6 +19,7 @@ function loadUserPosts() {
     })
 }
 loadUserPosts()
+
 
 document.querySelector('.delete-confirm-button').addEventListener('click', function() {
     document.querySelector('.delete-confirm-container').style.display = 'none'

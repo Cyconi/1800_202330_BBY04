@@ -34,6 +34,15 @@ function populatePostData(doc, userID, userLocation) {
             let posterPhoto = newpost.querySelector('.posterImg')
             posterPhoto.src = posterImg
         }
+        let deleteButton = newpost.querySelector('.delete-button');
+        if (deleteButton) {
+            deleteButton.addEventListener('click', function(event) {
+                event.preventDefault()
+                event.stopPropagation()
+                document.querySelector('.delete-confirm-container').style.display = 'block'
+                document.querySelector('.yes').value = docID;
+            })
+        }
         let likeIcon =  newpost.querySelector('i.fa-thumbs-up')
         let postLikesNumber = newpost.querySelector('.likes-number')
 
@@ -73,6 +82,7 @@ function populatePostData(doc, userID, userLocation) {
                 })
             })
         })
+
         document.getElementById("posts-goes-here").appendChild(newpost);
 
         if (userIndex === -1) {
