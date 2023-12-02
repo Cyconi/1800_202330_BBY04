@@ -59,17 +59,29 @@
     border-radius: 15px;
     width: 80vw;
     height: 30vh;
-    background-color: white;
+    background-color: #072448
+    ;
     position: absolute;
     left: 10vw;
     top: 35vh;
     box-shadow: 100000px 100000px 100000px 100000px rgba(0, 0, 0, .50);
     display: none;
+    color: greenyellow;
 }
+
+@media (max-width: 768px) {
+    .info-container {
+        width: 90vw; /* Adjust the percentage as needed */
+        left: 5vw; /* Adjust the positioning as needed */
+    }
+}
+
 .info-container p {
     margin: 2em;
     line-height: 4em;
+    font-size: 80%; /* Adjust the percentage as needed */
 }
+
 
 
 

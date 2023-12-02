@@ -102,6 +102,11 @@ Firebase hosting files:
 ├── firestore.rules
 ├── storage.rules
 
+
 ```
+## 8. Contact 
+* Jonathan Hilde - jonhilde5@gmail.com
+* Ziqi liu - ziqi.liu1207@gmail.com
+* Radman Mohammadi - radmanon01@gmail.com
 
 
