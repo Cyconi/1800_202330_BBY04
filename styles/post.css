@@ -44,7 +44,7 @@ textarea {
     width: 55vw;
     height: 70%;
     border-style: solid;
-    border-color: lawngreen;
+    border-color: #44CF6C;
     border-width: 5px;
     border-radius: 15px;
 }
@@ -52,14 +52,14 @@ textarea {
     width: 100%;
     height: 30%;
     float: left;
-    padding-top: 25px;
+    padding-top: 40px;
 }
 .post-button {
-    background-color: lawngreen;
+    background-color: #44CF6C;
     font-size: 18pt;
     padding: 0.2em 0.4em;
     border-radius: 20px;
-    border: lawngreen;
+    border: #44CF6C;
     box-shadow:  0 -1px 5px #777777;
     font-family: 'Poppins', sans-serif;
 }
@@ -84,11 +84,20 @@ textarea {
     height: 200px;
     width: 400px;
     margin: auto; /* Center the text block */
-    background: lawngreen; /* Your color for the text block */
+    background: #44CF6C; /* Your color for the text block */
     padding: 20px;
     border-radius: 10px; /* Rounded corners for the text block */
     color: white; /* Text color */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#feedback-title {
+        padding: 15px;
+        width: 40vw;
+        border-style: solid;
+        border-color: #44CF6C;
+        border-width: 5px;
+        border-radius: 15px;
+        margin-bottom: 10px;
 }

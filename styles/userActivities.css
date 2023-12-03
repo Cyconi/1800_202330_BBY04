@@ -16,11 +16,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lawngreen;
+    background-color: #44CF6C;
     box-shadow: 1px 1px 5px 1px #777777;
 }
 .delete-button {
-    background-color: lawngreen;
+    background-color: #44CF6C;
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px #777777;
@@ -53,7 +53,7 @@
     align-items: center;
 }
 .delete-confirm-button {
-    background-color: lawngreen;
+    background-color: #44CF6C;
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px #777777;

@@ -33,7 +33,7 @@
 .feedback-vote {
     height: 60px;
     border-radius: 0;
-    background-color: lawngreen;
+    background-color: #44CF6C;
     padding: 10px;
     box-shadow: 1px 1px 5px 1px #777777;
     display: flex;

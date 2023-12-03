@@ -34,7 +34,7 @@ body {
 /* This part is css about the header section on main page */
 #header {
     border-radius: 0%;
-    background-color: lawngreen;
+    background-color: #44CF6C;
     color: white;
     font-family: 'Poppins', sans-serif;
 }

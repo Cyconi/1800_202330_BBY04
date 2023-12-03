@@ -105,6 +105,8 @@
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
+    background-color: #44CF6C;
+    color: black;
 }
 
 #body {
