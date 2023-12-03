@@ -12,6 +12,7 @@
     height: 100vh;
     /* background-color: #CFFFB3; */
     background-color: #E5E4D7;
+    background-image: url(/images/5367739.jpg);
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -27,7 +28,7 @@
     overflow-y: hidden;
     border-radius: 10px;
     box-shadow: -1px -1px 6px 6px #777777;
-    background-color: rgba(0, 255, 0, 0.50);
+    background-color: #44cf6b;
 }
 #drop-Down {
     text-align: center;
@@ -38,13 +39,13 @@ select {
     font-size: 11pt;
     padding: 10px;
     margin-right: 5px;
-    background-color: rgba(0, 255, 0, 0.50);
+    background-color: #44cf6b;
 }
 #location-submit {
     font-size: 11pt;
     padding: 10px;
     padding-inline: 15px;
-    background-color: rgba(0, 255, 0, 0.50);
+    background-color: #44cf6b;
 }
 #location-submit:hover {
     transform: scale(1.05);
