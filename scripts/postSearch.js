@@ -1,3 +1,9 @@
+/**
+ * Retrieves and displays post items based on a user's search query. This function extracts the
+ * search term from the URL parameters, splits it into keywords, and then filters posts based on
+ * whether their text content or the poster's name contains any of the keywords. Only posts matching
+ * the search criteria are displayed by calling `populatePostData`.
+ */
 function displayPostSearchResult() {
     let params = new URLSearchParams(window.location.search)
     let searchTerm = params.get('userSearch').toLowerCase()

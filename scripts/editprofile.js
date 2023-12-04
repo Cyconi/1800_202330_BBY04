@@ -1,3 +1,8 @@
+/**
+ * Adds an event listener for the profile form submission. When submitted, it prevents the default form action,
+ * updates the user's username, and uploads a new profile photo if provided. It updates the user's profile
+ * information in Firestore and navigates to the main page upon successful update.
+ */
 document.querySelector('#profileForm').addEventListener('submit', function (event){
     event.preventDefault()
     const user = firebase.auth().currentUser
@@ -32,8 +37,12 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
     }
 })
 
+/**
+ * Displays the current user's information on the profile editing page. It fetches the user's data
+ * from Firestore and updates the username input placeholder and the image preview with the user's
+ * current information. This function is called when the profile editing page is loaded.
+ */
 function showCurrentInfo() {
-
     let user = firebase.auth().currentUser
    console.log("abcdefg")
 
@@ -63,9 +72,12 @@ function showCurrentInfo() {
     })
 
 }
-
 showCurrentInfo()
 
+/**
+ * Adds an event listener for changes to the profile photo input. When a new photo is selected,
+ * it updates the image preview to show the newly selected photo.
+ */
 document.querySelector('#profilePhoto').addEventListener('change', function (event){
     const [file] = event.target.files;
     const imagePreview = document.querySelector('#imagePreview')

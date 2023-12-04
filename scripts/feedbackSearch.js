@@ -1,3 +1,9 @@
+/**
+ * Retrieves and displays feedback items based on the user's search query. This function parses
+ * the search term from the URL parameters, splits it into keywords, and filters feedback items
+ * by checking if their title contains any of the keywords. Only feedback items matching the
+ * search criteria are displayed by calling `populateFeedbackData`.
+ */
 function displaySearchResult() {
     let params = new URLSearchParams(window.location.search)
     let searchTerm = params.get('userSearch').trim().toLowerCase()

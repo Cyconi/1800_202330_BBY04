@@ -1,8 +1,12 @@
+/**
+ * Populates a post template with data from a Firestore document and appends it to the post section.
+ * It sets up the content, photo, like button, and delete functionality for the post.
+ *
+ * @param {Object} doc - Firestore document containing the post's data.
+ * @param {string} userID - ID of the current user.
+ * @param {string} userLocation - Location of the user, used to specify the Firestore collection for likes.
+ */
 function populatePostData(doc, userID, userLocation) {
-    let story = doc.data().text
-    let imageUrl = doc.data().imageUrl
-    let likesNumber = doc.data().likesNumber
-    let commentsNumber = doc.data().commentsNumber
     let docID = doc.id
     const firestoreTimeStamp = doc.data().timestamp;
     const date = firestoreTimeStamp.toDate();
@@ -13,75 +17,16 @@ function populatePostData(doc, userID, userLocation) {
     let posterID = doc.data().posterID;
 
     db.collection('users').doc(posterID).get().then(posterDoc => {
-        let posterName = posterDoc.data().name
-        let posterImg = posterDoc.data().photoURL
         let postsTemplate = document.getElementById("userPostTemplate")
         let newpost = postsTemplate.content.cloneNode(true);
 
-        newpost.querySelector('.postImg').id = `${docID}`
-        newpost.querySelector('.postText-goes-here').innerText = story
-        newpost.querySelector('.posterName-goes-here').innerText = posterName
-        newpost.querySelector('.likes-number').innerText = likesNumber
-        newpost.querySelector('.comments-number').innerText = commentsNumber
-        newpost.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
-        newpost.querySelector('a').href = "eachPost.html?docID=" + docID
-        if (imageUrl) {
-            let imgElement = newpost.querySelector('.postImg-goes-here')
-            imgElement.src = imageUrl
-            imgElement.style.display = 'block';
-        }
-        if (posterImg) {
-            let posterPhoto = newpost.querySelector('.posterImg')
-            posterPhoto.src = posterImg
-        }
-        let deleteButton = newpost.querySelector('.delete-button');
-        if (deleteButton) {
-            deleteButton.addEventListener('click', function(event) {
-                event.preventDefault()
-                event.stopPropagation()
-                document.querySelector('.delete-confirm-container').style.display = 'block'
-                document.querySelector('.yes').value = docID;
-            })
-        }
+        setUpPostContent(newpost,doc,posterDoc, date)
+        setUpPostPhoto(newpost, doc, posterDoc)
+        setUpDeleteButton(newpost, docID)
+
         let likeIcon =  newpost.querySelector('i.fa-thumbs-up')
         let postLikesNumber = newpost.querySelector('.likes-number')
-
-        newpost.querySelector('.post-icon-like').addEventListener('click', function(event){
-            event.preventDefault()
-            event.stopPropagation()
-
-            let postRef = db.collection(`posts-${userLocation}`).doc(docID)
-
-            db.runTransaction(transaction => {
-                return transaction.get(postRef).then(doc => {
-
-                    let newLikes = doc.data().likesNumber || 0
-                    let voteUsers = doc. data().voteUser || []
-
-                    let userIndex = voteUsers.indexOf(userID)
-
-                    if (userIndex === -1) {
-                        newLikes++
-                        voteUsers.push(userID)
-                        likeIcon.classList.replace('fa-regular','fa-solid' )
-
-                    } else {
-                        newLikes = newLikes > 0? newLikes - 1: 0
-                        voteUsers.splice(userIndex, 1)
-                        likeIcon.classList.replace('fa-solid','fa-regular')
-                    }
-
-                    transaction.update(postRef, {
-                        likesNumber: newLikes,
-                        voteUser: voteUsers
-                    })
-                    postLikesNumber.innerText = newLikes
-
-                }).then(() => {
-                    console.log("Work!")
-                })
-            })
-        })
+        setUpLikeButton(newpost, docID, userID, userLocation, likeIcon, postLikesNumber)
 
         document.getElementById("posts-goes-here").appendChild(newpost);
 
@@ -91,11 +36,72 @@ function populatePostData(doc, userID, userLocation) {
         } else {
             likeIcon.classList.add('fa-solid')
         }
-        if (!imageUrl) {
-            document.getElementById(`${docID}`).style.display = 'none'
-
-        }
 
     })
 
+}
+
+/**
+ * Sets up the text content of a post, including the post's text, poster's name, likes, comments,
+ * and the time the post was created. It also sets the hyperlink reference for the post.
+ *
+ * @param {Element} newpost - The new post element being set up.
+ * @param {Object} doc - Firestore document of the post.
+ * @param {Object} posterDoc - Firestore document of the poster.
+ * @param {Date} date - The date the post was created.
+ */
+function setUpPostContent(newpost, doc, posterDoc, date) {
+    newpost.querySelector('.postImg').id = `${doc.id}`
+    newpost.querySelector('.postText-goes-here').innerText = doc.data().text
+    newpost.querySelector('.posterName-goes-here').innerText = posterDoc.data().name
+    newpost.querySelector('.likes-number').innerText = doc.data().likesNumber
+    newpost.querySelector('.comments-number').innerText = doc.data().commentsNumber
+    newpost.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
+    newpost.querySelector('a').href = "eachPost.html?docID=" + doc.id
+}
+
+/**
+ * Sets up the photo of the post and the poster's profile picture. If a photo URL is provided,
+ * it is set as the source of the corresponding image element. If not, the image container is hidden.
+ *
+ * @param {Element} newpost - The new post element.
+ * @param {Object} doc - Firestore document containing the post's data.
+ * @param {Object} posterDoc - Firestore document of the poster.
+ */
+function setUpPostPhoto(newpost, doc, posterDoc) {
+    let imageUrl = doc.data().imageUrl;
+    let posterImg = posterDoc.data().photoURL;
+
+    if (imageUrl) {
+        let imgElement = newpost.querySelector('.postImg-goes-here');
+        imgElement.src = imageUrl;
+        imgElement.style.display = 'block';
+    } else {
+        document.getElementById(`${doc.id}`).style.display = 'none';
+    }
+
+    if (posterImg) {
+        let posterPhoto = newpost.querySelector('.posterImg');
+        posterPhoto.src = posterImg;
+    }
+}
+
+/**
+ * Attaches an event listener to the like button of a post. When clicked, it triggers the like logic,
+ * which handles the liking or unliking of a post and updates the like count and icon appearance.
+ *
+ * @param {Element} newpost - The post element containing the like button.
+ * @param {string} docID - The document ID of the post.
+ * @param {string} userID - The user ID of the current user.
+ * @param {string} userLocation - The user's location, used to specify the Firestore collection.
+ * @param {Element} likeIcon - The DOM element representing the like icon.
+ * @param {Element} postLikesNumber - The DOM element displaying the number of likes.
+ */
+function setUpLikeButton(newpost, docID, userID, userLocation, likeIcon, postLikesNumber) {
+
+    newpost.querySelector('.post-icon-like').addEventListener('click', function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        handleLikeLogic("posts", docID, userID, userLocation, likeIcon, postLikesNumber);
+    });
 }

@@ -1,3 +1,8 @@
+/**
+ * Displays detailed information about a specific feedback item. This function fetches and shows
+ * feedback details including title, text, likes, comments, and an image if available. It also sets up
+ * like button functionalities and updates their appearance based on user interaction.
+ */
 function displayFeedbackInfo() {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docId")
@@ -15,13 +20,6 @@ function displayFeedbackInfo() {
                     .get()
                     .then(doc => {
                         let data = doc.data()
-
-                        let title = data.title
-                        let text = data.text
-                        let imageURL = data.photoURL
-                        let numberOfLikes = data.likesNumber
-                        let numberOfComments = data.commentsNumber
-
                         let voteUsers = doc.data().voteUser || []
                         let userIndex = voteUsers.indexOf(userID)
                         let likeButton = document.querySelector('#circle-up');
@@ -31,95 +29,38 @@ function displayFeedbackInfo() {
                         } else {
                             likeButton.classList.add('fa-solid')
                         }
+                        document.querySelector('.feedback-title').innerText = data.title
+                        document.querySelector('.feedback-detail').innerText = data.text
+                        document.querySelector('.feedback-likes-number').innerText = data.likesNumber
+                        document.querySelector('.feedback-comments-number').innerText = data.commentsNumber
 
-                        document.querySelector('.feedback-title').innerText = title
-                        document.querySelector('.feedback-detail').innerText = text
-                        document.querySelector('.feedback-likes-number').innerText = numberOfLikes
-                        document.querySelector('.feedback-comments-number').innerText = numberOfComments
-
+                        let imageURL = data.photoURL
                         if (imageURL) {
                             document.querySelector('.feedback-photo').src = imageURL
                         } else {
                             document.querySelector('.feedback-photo').style.display = 'none'
                         }
 
+                        let feedbackLikesNumber = document.querySelector('.feedback-likes-number')
                         document.querySelector('#feedback-add-like').addEventListener('click', function () {
-                            console.log("working?")
-
-                            let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(ID)
-
-                            db.runTransaction(transaction => {
-                                return transaction.get(feedbackRef).then(doc => {
-
-                                    let newLikes = doc.data().likesNumber || 0
-                                    let voteUsers = doc.data().voteUser || []
-                                    let userIndex = voteUsers.indexOf(userID)
-
-                                    if (userIndex === -1) {
-                                        newLikes++;
-                                        voteUsers.push(userID);
-                                        likeButton.classList.replace('fa-regular','fa-solid' )
-                                    } else {
-                                        newLikes = newLikes > 0 ? newLikes - 1 : 0;
-                                        voteUsers.splice(userIndex, 1);
-                                        likeButton.classList.replace('fa-solid','fa-regular')
-                                    }
-
-                                    transaction.update(feedbackRef, {
-                                        likesNumber: newLikes,
-                                        voteUser: voteUsers
-                                    })
-                                    document.querySelector('.feedback-likes-number').innerText = newLikes
-                                })
-                            }).then(() => {
-                                console.log("yeah")
-                            })
+                            handleLikeLogic('feedbacks', ID, userID, userLocation, likeButton, feedbackLikesNumber)
                         })
-
-
                         document.querySelector('.feedback-vote').addEventListener('click', function () {
-                            console.log("working?")
-
-                            let feedbackRef = db.collection(`feedbacks-${userLocation}`).doc(ID)
-
-                            db.runTransaction(transaction => {
-                                return transaction.get(feedbackRef).then(doc => {
-
-                                    let newLikes = doc.data().likesNumber || 0
-                                    let voteUsers = doc.data().voteUser || []
-                                    let userIndex = voteUsers.indexOf(userID)
-
-                                    if (userIndex === -1) {
-                                        newLikes++;
-                                        voteUsers.push(userID);
-                                        likeButton.classList.replace('fa-regular','fa-solid' )
-                                    } else {
-                                        newLikes = newLikes > 0 ? newLikes - 1 : 0;
-                                        voteUsers.splice(userIndex, 1);
-                                        likeButton.classList.replace('fa-solid','fa-regular')
-                                    }
-
-                                    transaction.update(feedbackRef, {
-                                        likesNumber: newLikes,
-                                        voteUser: voteUsers
-                                    })
-                                    document.querySelector('.feedback-likes-number').innerText = newLikes
-                                })
-                            }).then(() => {
-                                console.log("yeah")
-                            })
+                            handleLikeLogic('feedbacks', ID, userID, userLocation, likeButton, feedbackLikesNumber)
                         })
                     })
             })
         }
     })
 }
-
-
-
 displayFeedbackInfo()
 
-
+/**
+ * Adds an event listener to the comment submission form. When a comment is submitted,
+ * it prevents the default form action, checks if the user is logged in, and then posts
+ * the comment to the 'feedbacks-comments' collection in Firestore. It also updates the
+ * comments count for the feedback.
+ */
 document.querySelector('#comment-form').addEventListener('submit', function(event) {
     event.preventDefault()
 
@@ -155,6 +96,11 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
     })
 })
 
+/**
+ * Loads and displays comments for a specific feedback item. This function listens to the
+ * 'feedbacks-comments' collection in Firestore, fetching comments associated with the current
+ * feedback item and appending them to the comment display area.
+ */
 function loadFeedbackComment () {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docId")
@@ -179,6 +125,13 @@ function loadFeedbackComment () {
 }
 loadFeedbackComment()
 
+/**
+ * Increments and updates the comments number for a specific feedback item in Firestore.
+ * After updating, it also reflects the new comments count in the user interface.
+ *
+ * @param {string} userLocation - Location of the user, used to specify the Firestore collection.
+ * @param {string} section - The section type ('feedbacks' in this case), used to determine the correct Firestore collection.
+ */
 function addCommentsNumber(userLocation, section) {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docId")

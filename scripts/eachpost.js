@@ -1,4 +1,8 @@
-
+/**
+ * Retrieves and displays detailed information about a specific post. This includes the poster's image,
+ * name, post time, text content, likes, comments, and an image if available. Additionally, it sets up
+ * the like button's functionality and updates its appearance based on the user's interaction.
+ */
 function displayPostInfo() {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docID")
@@ -18,63 +22,30 @@ function displayPostInfo() {
 
                         let postTime = doc.data().timestamp
                         let date = postTime.toDate()
-                        let likesNumber = data.likesNumber
-                        let commentsNumber = data.commentsNumber
                         let voteUsers = doc.data().voteUser || []
                         let userIndex = voteUsers.indexOf(userID)
                         let likeButton = document.querySelector('#like-button')
-
+                        if (userIndex === -1) {
+                            likeButton.classList.add('fa-regular')
+                        } else {
+                            likeButton.classList.add('fa-solid')
+                        }
                         document.querySelector('.posterImg').src = data.posterImg
                         document.querySelector('.posterName-goes-here').innerText = data.poster
                         document.querySelector('.postTime-goes-here').innerHTML = new Date(date).toLocaleString()
                         document.querySelector('.postText-goes-here').innerText = data.text
-
-                        document.querySelector('.likes-number').innerText = likesNumber
-                        document.querySelector('.comments-number').innerText = commentsNumber
+                        document.querySelector('.likes-number').innerText = data.likesNumber
+                        document.querySelector('.comments-number').innerText = data.commentsNumber
 
                         if (data.imageUrl) {
                             document.querySelector('.postImg-goes-here').src = data.imageUrl
                         } else {
                             document.querySelector('.postImg-goes-here').style.display = 'none'
                         }
-                        if (userIndex === -1) {
-                            likeButton.classList.add('fa-regular')
-                        } else {
-                            likeButton.classList.add('fa-solid')
-                        }
 
+                        let likesNumber = document.querySelector('.likes-number')
                         document.querySelector('#post-icon-like').addEventListener('click', function () {
-                            console.log("working?")
-
-                            let postRef = db.collection(`posts-${userLocation}`).doc(ID)
-
-                            db.runTransaction(transaction => {
-                                return transaction.get(postRef).then(doc => {
-
-                                    let newLikes = doc.data().likesNumber || 0
-                                    let voteUsers = doc.data().voteUser || []
-                                    let userIndex = voteUsers.indexOf(userID)
-
-                                    if (userIndex === -1) {
-                                        newLikes++;
-                                        voteUsers.push(userID);
-                                        likeButton.classList.add('fa-regular')
-                                        likeButton.classList.replace('fa-regular','fa-solid' )
-                                    } else {
-                                        newLikes = newLikes > 0 ? newLikes - 1 : 0;
-                                        voteUsers.splice(userIndex, 1);
-                                        likeButton.classList.add('fa-solid')
-                                        likeButton.classList.replace('fa-solid','fa-regular')
-                                    }
-
-                                    transaction.update(postRef, {
-                                        likesNumber: newLikes,
-                                        voteUser: voteUsers
-                                    })
-                                    document.querySelector('.likes-number').innerText = newLikes
-                                })
-                            })
-
+                            handleLikeLogic('posts', ID, userID, userLocation, likeButton, likesNumber)
                         })
 
                     })
@@ -84,6 +55,11 @@ function displayPostInfo() {
 }
 displayPostInfo()
 
+/**
+ * Adds an event listener to the comment form for submitting comments. When the form is submitted, it prevents
+ * the default action and posts the comment to the 'posts-comments' collection in Firestore if the user is logged in.
+ * It also increments and updates the comments count for the post.
+ */
 document.querySelector('#comment-form').addEventListener('submit', function(event) {
     event.preventDefault()
     firebase.auth().onAuthStateChanged(function(user) {
@@ -119,8 +95,11 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
     })
 })
 
-
-
+/**
+ * Loads and displays comments for a specific post. It listens to changes in the 'posts-comments' collection in
+ * Firestore, fetching comments associated with the current post, and appends them to the comment display area.
+ * It also handles updates to existing comments, like the addition of timestamps.
+ */
 function loadComments() {
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
@@ -166,9 +145,15 @@ function loadComments() {
             });
         });
 }
-
 loadComments();
 
+/**
+ * Increments and updates the comment count for a specific post in Firestore. Once updated,
+ * the new comments count is also reflected in the user interface.
+ *
+ * @param {string} userLocation - Location of the user, used to specify the Firestore collection.
+ * @param {string} section - The section type ('posts' in this case), used to determine the correct Firestore collection.
+ */
 function addCommentsNumber(userLocation, section) {
     let params = new URL(window.location.href)
     let ID = params.searchParams.get("docID")

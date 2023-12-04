@@ -1,4 +1,5 @@
 // Initialize the FirebaseUI Widget using Firebase.
+// Function from learninghub demo
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
     callbacks: {

@@ -1,3 +1,8 @@
+/**
+ * Loads and displays the current user's posts. This function first verifies user authentication
+ * and then fetches the user's posts from Firestore based on their user ID and location. Each post
+ * is displayed by calling `populatePostData`.
+ */
 function loadUserPosts() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -20,11 +25,20 @@ function loadUserPosts() {
 }
 loadUserPosts()
 
-
+/**
+ * Adds an event listener to the 'Close' button on the delete confirmation dialog. When clicked,
+ * it hides the delete confirmation dialog without performing any deletion action.
+ */
 document.querySelector('.delete-confirm-button').addEventListener('click', function() {
     document.querySelector('.delete-confirm-container').style.display = 'none'
 })
 
+/**
+ * Adds an event listener to the 'Yes' button on the delete confirmation dialog. When clicked,
+ * it deletes the selected post from Firestore and updates the user's document to reflect the
+ * removal of the post. After successfully deleting the post, it reloads the page to update
+ * the displayed posts.
+ */
 document.querySelector('.yes').addEventListener('click', function() {
     let postID = document.querySelector('.yes').value
     console.log(postID)

@@ -1,3 +1,8 @@
+/**
+ * Adds an event listener to the feedback post button. When clicked, it retrieves feedback title,
+ * text content, and an optional photo. It then calls a function to show a thank you message and
+ * proceeds to create the feedback with or without an image, based on the user input.
+ */
 document.querySelector('#postButton').addEventListener('click', function(){
     let feedbackTitle = document.querySelector('#feedback-title').value
     let feedbackText = document.querySelector('#user-story').value
@@ -16,6 +21,16 @@ document.querySelector('#postButton').addEventListener('click', function(){
     }
 })
 
+/**
+ * Creates and posts new feedback with the provided title, text, and an optional photo URL.
+ * It first verifies user authentication, then constructs the feedback object and posts it
+ * to Firestore. If a photo is provided, it's uploaded and included in the feedback.
+ * Additionally, the function updates the user's document with the new feedback reference.
+ *
+ * @param {string} title - The title of the feedback.
+ * @param {string} text - The text content of the feedback.
+ * @param {string|null} photoURL - The URL of the uploaded photo, if available; otherwise null.
+ */
 function createFeedbackWithImage(title, text, photoURL){
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -54,8 +69,13 @@ function createFeedbackWithImage(title, text, photoURL){
             })
         }
     })
-
 }
+
+/**
+ * Displays a 'Thank You' message for 20 seconds after a user submits feedback.
+ * This function enhances the user experience by providing visual feedback
+ * that the feedback submission process is complete.
+ */
 function showThankYouMessage() {
     const thankYouDiv = document.querySelector('.post-thankyou')
     thankYouDiv.style.display = 'flex'
