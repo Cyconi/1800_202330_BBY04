@@ -49,11 +49,13 @@ Content of the project folder:
 ├── feedback.html               # Feedback HTML file, Enabling users to share feedback and comment on surveys and votes
 ├── eachpost.html               # View individual post details and comments
 ├── editprofile.html               # Edit user profile information and preferences
-├── feedbackpost.html               # # Provide feedback and comments on specific posts
+├── feedbackpost.html               # Provide feedback and comments on specific posts
+├── eachfeedback.html               # Provide each feedback which poping the feedbacks by themselves
 ├── feedbacksearch.html               # Search and explore user feedback and comments
 ├── map.html               # View a map displaying different zone of communities
 ├── myfeedback.html               # Find and see my personal feedback and comments
 ├── postsearch.html               # Search and explore posts and related content
+├── help.html               # Provide general information on each page and what everything does
 └── README.md
 
 It has the following subfolders and files:
