@@ -19,15 +19,15 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* download
-* pray
+* download the zip file from repository
+* open the code in any IDE then try for live server
 * go through login
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
-* to many
-* ...
-* ...
+* minor like the profile picture is not 1:1 ratio
+* pressing enter doesnt sent a chat, you need to click the send button
+* some other minor QOL bugs
 
 ## 6. Features for Future
 What we'd like to build in the future:
