@@ -56,17 +56,19 @@
     margin-left: 1em;
 }
 .info-container {
+    text-align: center;
     border-radius: 15px;
     width: 80vw;
     height: 30vh;
-    background-color: #072448
-    ;
+    background-color: #44CF6C;
     position: absolute;
     left: 10vw;
     top: 35vh;
     box-shadow: 100000px 100000px 100000px 100000px rgba(0, 0, 0, .50);
     display: none;
-    color: greenyellow;
+    color: white;
+    font-weight: bold;
+    font-size: 15pt;
 }
 
 @media (max-width: 768px) {
