@@ -56,7 +56,7 @@ Content of the project folder:
 ├── myfeedback.html               	# Find and see my feedback and comments
 ├── postsearch.html               	# Search and explore posts and related content
 ├── help.html               		# Provide general information on each page and what everything does
-└── README.md
+└── README.md				# Read me file (what you are looking at currently)
 
 It has the following subfolders and files:
 ├── .git                    		# Folder for git repo
