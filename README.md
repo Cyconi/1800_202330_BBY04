@@ -1,4 +1,4 @@
-# Project Title
+# CGlue
 
 ## 1. Project Description
 An app that keeps you locally connected and involved in such an online world. 
