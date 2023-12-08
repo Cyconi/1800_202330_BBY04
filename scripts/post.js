@@ -3,27 +3,30 @@
  * retrieves the post text content, and then creates a new post using these details. It also
  * displays a thank-you message after the button is clicked.
  */
-const postButton = document.getElementById("postButton")
+const postButton = document.getElementById("postButton");
 postButton.addEventListener("click", () => {
-    const testFile = document.getElementById("user-story")
-    const fileInput = document.getElementById('photoUpload')
-    const file = fileInput.files[0];
-    const postTextContent = testFile.value
+    const textInput = document.getElementById("user-story"); // Get the text input element for the post
+    const fileInput = document.getElementById('photoUpload'); // Get the file input element for the photo upload
+    const file = fileInput.files[0]; // Retrieve the first file from the file input
+    const postTextContent = textInput.value; // Get the text content of the post
 
-    showThankYouMessage()
+    showThankYouMessage(); // Display a thank-you message
 
     if (file) {
-        let storageRef = firebase.storage().ref('photos/' + file.name)
-
+        // If a file is provided for the post
+        let storageRef = firebase.storage().ref('photos/' + file.name); // Create a reference in Firebase Storage for the photo
         storageRef.put(file).then(function(snapshot) {
+            // Upload the file to Firebase Storage
             snapshot.ref.getDownloadURL().then(function(downloadURL) {
-                createPostWithImage(postTextContent, downloadURL)
-            })
-        })
+                // Get the download URL of the uploaded photo
+                createPostWithImage(postTextContent, downloadURL); // Create a new post with the text content and photo URL
+            });
+        });
     } else {
-        createPostWithImage(postTextContent,null);
+        // If no file is provided
+        createPostWithImage(postTextContent, null); // Create a new post with only the text content
     }
-})
+});
 
 /**
  * Creates a new post with the provided text content and image URL (if available). The function
@@ -35,45 +38,52 @@ postButton.addEventListener("click", () => {
  */
 function createPostWithImage(postTextContent, imageUrl) {
     firebase.auth().onAuthStateChanged(user => {
+        // Check if a user is logged in
         if (user) {
-
-            let userID = user.uid;
-            let userRef = db.collection('users').doc(userID)
+            let userID = user.uid; // Get the user's ID
+            let userRef = db.collection('users').doc(userID); // Reference to the user's document in Firestore
 
             db.collection("users").doc(userID).get().then((doc) => {
+                // Get the user's document from Firestore
+                let userLocation = doc.data().location; // Retrieve the user's location
+                let postWrite = db.collection(`posts-${userLocation}`); // Reference to the posts collection for the user's location
+                let userName = doc.data().name; // Get the user's name
 
-                let userLocation = doc.data().location
-                let postWrite = db.collection(`posts-${userLocation}`);
-                let userName = doc.data().name
-
+                // Construct the post data
                 let postData = {
                     posterID: userID,
                     poster: userName,
                     posterLocation: userLocation,
                     text: postTextContent,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(), // Set the current timestamp
                     likesNumber: 0,
                     commentsNumber: 0
-                }
+                };
+
+                // Add poster's profile picture URL if available
                 if (doc.data().photoURL) {
-                    postData.posterImg = doc.data().photoURL
+                    postData.posterImg = doc.data().photoURL;
                 }
 
+                // Add the image URL if provided
                 if (imageUrl) {
-                    postData.imageUrl = imageUrl
+                    postData.imageUrl = imageUrl;
                 }
-                return postWrite.add(postData)
 
+                // Add the new post to Firestore
+                return postWrite.add(postData);
             }).then(function(postRef) {
-                console.log("Post success with ID ", postRef.id)
+                console.log("Post success with ID ", postRef.id); // Log the success message with the new post's ID
+                // Update the user's document with the reference to the new post
                 return userRef.update({
                     posts: firebase.firestore.FieldValue.arrayUnion(postRef.id)
-                })
+                });
             }).then(() => {
-                window.location.assign('main.html')
-            })
+                // Redirect to the main page after successfully creating the post
+                window.location.assign('main.html');
+            });
         }
-    })
+    });
 }
 
 /**
@@ -81,10 +91,10 @@ function createPostWithImage(postTextContent, imageUrl) {
  * submits a post, providing visual feedback that the post submission process is complete.
  */
 function showThankYouMessage() {
-    const thankYouDiv = document.querySelector('.post-thankyou')
-    thankYouDiv.style.display = 'flex'
+    const thankYouDiv = document.querySelector('.post-thankyou'); // Select the thank-you message container
+    thankYouDiv.style.display = 'flex'; // Display the thank-you message
 
     setTimeout(() => {
-        thankYouDiv.style.display = 'none'
-    }, 20000)
+        thankYouDiv.style.display = 'none'; // Hide the thank-you message after 2 seconds
+    }, 2000);
 }

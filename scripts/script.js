@@ -145,28 +145,37 @@ function setUpDeleteButton(newTemplate, docID) {
  * @param {Element} likesNumber - The DOM element displaying the number of likes.
  */
 function handleLikeLogic(section, docID, userID, userLocation, likesIcon, likesNumber) {
-    let feedbackRef = db.collection(`${section}-${userLocation}`).doc(docID)
+    let feedbackRef = db.collection(`${section}-${userLocation}`).doc(docID) // Reference to the specific document in the Firestore collection
+
+    // Start a Firestore transaction to ensure atomic read and write
     db.runTransaction(transaction => {
+        // Get the document to check current state of likes
         return transaction.get(feedbackRef).then(doc => {
-            let newLikes = doc.data().likesNumber || 0
-            let voteUsers = doc.data().voteUser || []
-            let userIndex = voteUsers.indexOf(userID)
+            let newLikes = doc.data().likesNumber || 0; // Get the current number of likes, defaulting to 0 if undefined
+            let voteUsers = doc.data().voteUser || []; // Get array of users who have liked the post/feedback
+            let userIndex = voteUsers.indexOf(userID); // Check if the current user has already liked the post/feedback
+            // Logic to handle like or unlike action
             if (userIndex === -1) {
-                newLikes++
-                voteUsers.push(userID)
-                likesIcon.classList.replace('fa-regular','fa-solid' )
+                // If user hasn't liked yet, increase the likes count and add user to the array
+                newLikes++;
+                voteUsers.push(userID);
+                likesIcon.classList.replace('fa-regular','fa-solid'); // Change the like icon to solid (liked state)
             } else {
-                newLikes = newLikes > 0? newLikes - 1: 0
-                voteUsers.splice(userIndex, 1)
-                likesIcon.classList.replace('fa-solid','fa-regular')
+                // If user has already liked, decrease the likes count and remove user from the array
+                newLikes = newLikes > 0 ? newLikes - 1 : 0;
+                voteUsers.splice(userIndex, 1);
+                likesIcon.classList.replace('fa-solid','fa-regular'); // Change the like icon to regular (unliked state)
             }
+            // Update the Firestore document with the new likes count and users array
             transaction.update(feedbackRef, {
                 likesNumber: newLikes,
                 voteUser: voteUsers
-            })
-            likesNumber.innerText = newLikes
-        })
-    })
+            });
+            // Update the likes count displayed on the webpage
+            likesNumber.innerText = newLikes;
+        });
+    });
 }
+
 
 

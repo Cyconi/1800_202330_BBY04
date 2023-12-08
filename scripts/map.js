@@ -6,7 +6,7 @@
  * @param {string} area - The area or location to set as the selected value in the dropdown menu.
  */
 function setDropDown(area) {
-    document.querySelector('#location-dropdown').value = area
+    document.querySelector('#location-dropdown').value = area; // Set the dropdown value to the selected area
 }
 
 /**
@@ -15,20 +15,21 @@ function setDropDown(area) {
  * dropdown menu. Upon successful update, it redirects the user to the 'main.html' page.
  */
 document.querySelector('#location-submit').addEventListener('click', function() {
-
+    // Listen for click events on the location submit button
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            let userLocation = document.querySelector('#location-dropdown').value
+            // If a user is logged in
+            let userLocation = document.querySelector('#location-dropdown').value; // Get the selected location from the dropdown
+            // Update the user's location in Firestore
             db.collection('users').doc(user.uid).update({
                 location: userLocation
-            }).then(function(){
-                console.log('location update successfully')
-                window.location.href = 'main.html'
+            }).then(function() {
+                console.log('Location updated successfully'); // Log the success message
+                window.location.href = 'main.html'; // Redirect to the main page
             }).catch(function(error) {
-                console.error("Error updating account: ", error)
+                // Log any errors during the update process
+                console.error("Error updating account: ", error);
             })
-
-
         }
     })
 })

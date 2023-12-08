@@ -3,39 +3,42 @@
  * updates the user's username, and uploads a new profile photo if provided. It updates the user's profile
  * information in Firestore and navigates to the main page upon successful update.
  */
-document.querySelector('#profileForm').addEventListener('submit', function (event){
-    event.preventDefault()
-    const user = firebase.auth().currentUser
-    console.log(user.uid)
-    const username = document.querySelector('#username').value
-    const profilePhoto = document.querySelector('#profilePhoto').files[0]
+document.querySelector('#profileForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-    if(user && profilePhoto) {
+    const user = firebase.auth().currentUser; // Get the current authenticated user
+    console.log(user.uid); // Log the user's UID for debugging
+    const username = document.querySelector('#username').value; // Get the entered username from the form
+    const profilePhoto = document.querySelector('#profilePhoto').files[0]; // Get the uploaded profile photo, if any
 
-        const storageRef = firebase.storage().ref('profile_photos/' + user.uid + '/' + profilePhoto.name)
+    if (user && profilePhoto) {
+        // If there's a user logged in and a profile photo uploaded
+        const storageRef = firebase.storage().ref('profile_photos/' + user.uid + '/' + profilePhoto.name); // Create a reference to where the photo will be stored
 
         storageRef.put(profilePhoto).then(snapshot => {
-            return snapshot.ref.getDownloadURL();
+            // Upload the photo to Firebase Storage
+            return snapshot.ref.getDownloadURL(); // Get the download URL after upload
         }).then(downloadURL => {
-
+            // Update the user's profile information in Firestore with the new photo URL
             return db.collection('users').doc(user.uid).update({
                 name: username,
                 photoURL: downloadURL
             }).then(() => {
-                console.log("Profile updated successfully")
-                window.location.assign("main.html")
-
+                console.log("Profile updated successfully"); // Log the success message
+                window.location.assign("main.html"); // Redirect to the main page
             })
         })
     } else {
+        // If there's no new profile photo, only update the username
         db.collection('users').doc(user.uid).update({
             name: username
         }).then(() => {
-            console.log("Username updated successfully")
-            window.history.back()
+            console.log("Username updated successfully"); // Log the success message
+            window.history.back(); // Navigate back to the previous page
         })
     }
 })
+
 
 /**
  * Displays the current user's information on the profile editing page. It fetches the user's data
@@ -43,45 +46,57 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
  * current information. This function is called when the profile editing page is loaded.
  */
 function showCurrentInfo() {
-    let user = firebase.auth().currentUser
-   console.log("abcdefg")
+    let user = firebase.auth().currentUser; // Get the currently authenticated user
+    console.log("abcdefg"); // Debugging log
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            // If a user is logged in
             db.collection('users').doc(user.uid).get().then(doc => {
+                // Fetch the user's document from Firestore using their UID
                 if (doc.exists) {
-                    const userData = doc.data()
-                    console.log("userData")
-                    const userName = userData.name
-                    const postalCode = userData.postalcode
+                    // If the document exists
+                    const userData = doc.data(); // Extract the user's data from the document
+                    console.log("userData"); // Debugging log
+                    const userName = userData.name; // Get the user's name
+                    const postalCode = userData.postalcode; // Get the user's postal code
 
-                    document.querySelector('#username').placeholder = userName
+                    // Update the username input placeholder with the user's name
+                    document.querySelector('#username').placeholder = userName;
                     if (userData.photoURL) {
-                        console.log("userData.photoURL")
-                        document.querySelector('#imagePreview').src = userData.photoURL
+                        // If a photo URL exists
+                        console.log("userData.photoURL"); // Debugging log
+                        // Update the image preview with the user's photo
+                        document.querySelector('#imagePreview').src = userData.photoURL;
                     }
                 } else {
-                    console.log("No such document")
+                    // If the document does not exist
+                    console.log("No such document"); // Log that the document was not found
                 }
             }).catch((error) => {
-                console.log("Error getting document", error)
+                // Handle any errors that occur during the fetch
+                console.log("Error getting document", error);
             })
         } else {
-            console.log("No user log in")
+            // If no user is logged in
+            console.log("No user logged in"); // Log that no user is logged in
         }
     })
 
 }
-showCurrentInfo()
+showCurrentInfo();
+
 
 /**
  * Adds an event listener for changes to the profile photo input. When a new photo is selected,
  * it updates the image preview to show the newly selected photo.
  */
 document.querySelector('#profilePhoto').addEventListener('change', function (event){
-    const [file] = event.target.files;
-    const imagePreview = document.querySelector('#imagePreview')
+    const [file] = event.target.files; // Retrieve the selected file from the input
+    const imagePreview = document.querySelector('#imagePreview'); // Select the image preview element
+
     if (file) {
-        imagePreview.src = URL.createObjectURL(file)
+        // If a file is selected
+        imagePreview.src = URL.createObjectURL(file); // Update the image preview to show the selected photo
     }
 })

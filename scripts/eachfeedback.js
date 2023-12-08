@@ -69,23 +69,22 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
         if (user) {  // check if user is login
             let userID = user.uid
 
-            let comment = document.querySelector('#comment-input').value
+            let comment = document.querySelector('#comment-input').value // read user input from the form
             let params = new URL(window.location.href)
-            let ID = params.searchParams.get("docId")
+            let ID = params.searchParams.get("docId") // get the feedback ID from the URL
 
             if (user&& comment.trim() !== "") {
 
                 db.collection('users').doc(userID).get().then(function(doc) {
                     let userLocation = doc.data().location
-                    firebase.firestore().collection("feedbacks-comments").add({
+                    firebase.firestore().collection("feedbacks-comments").add({  // use the user location to find the correct collection to update
                         commenterID: userID,
                         comment: comment,
                         feedbackID: ID,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(function() {
-                        console.log("Comment added!")
                         document.querySelector('#comment-input').value = ""
-                        addCommentsNumber(userLocation, "feedbacks")
+                        addCommentsNumber(userLocation, "feedbacks") // increase the number of comments
                     })
                 })
 
@@ -104,15 +103,15 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
  */
 function loadFeedbackComment () {
     let params = new URL(window.location.href)
-    let ID = params.searchParams.get("docId")
+    let ID = params.searchParams.get("docId")  // read feedbackID from the URL
 
-    db.collection('feedbacks-comments').where("feedbackID", "==", ID).orderBy("timestamp")
-        .onSnapshot(snapshot => {
+    db.collection('feedbacks-comments').where("feedbackID", "==", ID).orderBy("timestamp") // query the comments collection to find feedbackID match
+        .onSnapshot(snapshot => {  // use onSnapshot to listen to the changes in the collection.
             snapshot.docChanges().forEach(change => {
                 let data = change.doc.data()
                 let commentID = `comment-${change.doc.id}`
 
-                if(change.type === "added") {
+                if(change.type === "added") {  // display the new comment
                     let commentTemplate = document.querySelector('#feedback-comment-template')
                     let newComment = commentTemplate.content.cloneNode(true)
 
