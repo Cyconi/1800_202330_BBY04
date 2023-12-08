@@ -96,7 +96,7 @@ It has the following subfolders and files:
 
 Firebase hosting files: 
 ├── .firebase
-	/hosting..cache
+    /hosting..cache
 ├── .firebaserc
 ├── 404.html
 ├── firebase.json
