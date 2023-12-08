@@ -9,22 +9,22 @@ function displayFeedbackInfo() {
     console.log(ID)
 
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            db.collection('users').doc(user.uid).get().then(doc => {
+        if (user) {  // check user is login
+            db.collection('users').doc(user.uid).get().then(doc => { // get user document from firestore
 
-                let userLocation = doc.data().location
+                let userLocation = doc.data().location   // read the location field of document
                 let userID = user.uid
 
-                db.collection(`feedbacks-${userLocation}`)
+                db.collection(`feedbacks-${userLocation}`) // use userLocation to find the collection that match user location
                     .doc(ID)
                     .get()
                     .then(doc => {
                         let data = doc.data()
-                        let voteUsers = doc.data().voteUser || []
-                        let userIndex = voteUsers.indexOf(userID)
+                        let voteUsers = doc.data().voteUser || []   // check whether userId is in the array voteUser
+                        let userIndex = voteUsers.indexOf(userID) // which indicate if the current user have liked this feedback before.
                         let likeButton = document.querySelector('#circle-up');
 
-                        if (userIndex === -1) {
+                        if (userIndex === -1) {  // change the like button style base on the check result.
                             likeButton.classList.add('fa-regular')
                         } else {
                             likeButton.classList.add('fa-solid')
@@ -35,12 +35,13 @@ function displayFeedbackInfo() {
                         document.querySelector('.feedback-comments-number').innerText = data.commentsNumber
 
                         let imageURL = data.photoURL
-                        if (imageURL) {
+                        if (imageURL) {             // check if user upload a photo for the post, if didn't, hide the container for the image
                             document.querySelector('.feedback-photo').src = imageURL
                         } else {
                             document.querySelector('.feedback-photo').style.display = 'none'
                         }
 
+                        // Set up like button on each post
                         let feedbackLikesNumber = document.querySelector('.feedback-likes-number')
                         document.querySelector('#feedback-add-like').addEventListener('click', function () {
                             handleLikeLogic('feedbacks', ID, userID, userLocation, likeButton, feedbackLikesNumber)
@@ -65,7 +66,7 @@ document.querySelector('#comment-form').addEventListener('submit', function(even
     event.preventDefault()
 
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
+        if (user) {  // check if user is login
             let userID = user.uid
 
             let comment = document.querySelector('#comment-input').value

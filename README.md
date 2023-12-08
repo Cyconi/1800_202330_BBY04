@@ -1,7 +1,7 @@
 # Project Title
-
+CGlue
 ## 1. Project Description
-A better and more efficient way of electing our Government and how they will effect smarter and greener living. 
+A Web application that Keeps user connected and involved in their local city.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
@@ -14,26 +14,31 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* Blood, sweat and tiers. (My brain is a slow harddrive...)
+* Fontawesome
+* Google Font
+* Google News RSS Feeds
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* download the zip file from repository
+* Download the zip file from repository
 * open the code in any IDE then try for live server
+* go through login
+* Alternatively, access https://teambby-4-cglue.web.app/
 * go through login
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
-* minor like the profile picture is not 1:1 ratio
-* pressing enter doesnt sent a chat, you need to click the send button
-* some other minor QOL bugs
+* Minor like the profile picture is not 1:1 ratio
+* Pressing enter doesn't send a chat, you need to click the send button
+* Margin issues when the app is display on land scale
 
 ## 6. Features for Future
 What we'd like to build in the future:
 * Volunteer Opportunities
 * Neighborhood Marketplace
 * Community Calendar
+* Sort feature for posts and feedback
 	
 ## 7. Contents of Folder
 Content of the project folder:
@@ -112,4 +117,9 @@ Firebase hosting files:
 * Radman Mohammadi - radmanon01@gmail.com
 
 ## 9. Acknowledgements
-*
+* <a href="https://fontawesome.com/">Font Awesome</a>
+* <a href="https://fonts.google.com/">Google Fonts</a>
+* <a href="https://getbootstrap.com/">Bootstrap</a>
+* <a href="https://firebase.google.com/">Firebase</a>
+* <a href="https://news.google.com/">Google News</a>
+* 
