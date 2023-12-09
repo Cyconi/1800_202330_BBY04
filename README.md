@@ -76,8 +76,8 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                    	       # Folder for git repo
 ├── images                   	      # Folder for images
-    /images                	        # Acknowledge source
-├── scripts                  	      # Folder for scripts
+    /images                	          # Acknowledge source
+├── scripts                  	    # Folder for scripts
     /authentication.js              # Handles user authentication and access control.
     /chat.js                        # Manages chat functionality and communication features.
     /components.js                 	# Contains reusable components used across the application.
@@ -97,16 +97,20 @@ It has the following subfolders and files:
     /userActivity-feedback.js      	# Tracks and manages user activity related to feedback.
     /userActivity-posts.js         	# Tracks and manages user activity related to posts.
 
-├── styles                   	      # Folder for styles
-    /index.css                	     # Styles for the landing page
+├── styles                   	    # Folder for styles
+    /chat.css                       # Styles for the local caht lobby
+    /components.css                 # Styles for component like footer
+    /eachpost.css                   # Styles for dedicated post page
+    /index.css                	    # Styles for the landing page
     /feedback.css                   # Styles for the feedback and survey comments page
     /help.css                       # Styles for the help and information page
     /login.css                      # Styles for the login interface
-    /main.css                	      # Styles for the main page and post-presentation
+    /main.css                	    # Styles for the main page and post-presentation
     /map.css                        # Styles for choosing the community zone map
     /news.css                       # Styles for the news and updates page
     /post.css                       # Styles for individual post details and comments
     /editprofile.css                # Styles for the edit profile interface
+    /userActivities.css             # Styles for the my activities section where display user's posts and feedback
 
 
 Firebase hosting files: 
