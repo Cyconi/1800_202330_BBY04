@@ -16,6 +16,7 @@ function populateFeedbackData(doc, userID, userLocation) {
     let newFeedback = feedbackTemplate.content.cloneNode(true); // Clone the feedback template for a new feedback item
 
     setUpFeedbackContent(newFeedback, doc); // Populate the feedback content
+    setUpDeleteButton(newFeedback, docID);
     setUpFeedbackPhoto(newFeedback, doc); // Set up the feedback photo, if it exists
     let feedbackLikesNumber = newFeedback.querySelector('.feedback-likes-number'); // Select the likes number element
     let votesIcon = newFeedback.querySelector('i.fa-circle-up'); // Select the votes icon element
