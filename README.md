@@ -112,7 +112,6 @@ It has the following subfolders and files:
     /editprofile.css                # Styles for the edit profile interface
     /userActivities.css             # Styles for the my activities section where display user's posts and feedback
 
-
 Firebase hosting files: 
 ├── .firebase
     /hosting..cache
@@ -122,9 +121,8 @@ Firebase hosting files:
 ├── firestore.indexes.json
 ├── firestore.rules
 ├── storage.rules
-
-
 ```
+
 ## 8. Contact
 * Ziqi liu - ziqi.liu1207@gmail.com
 * Radman Mohammadi - radmanon01@gmail.com
