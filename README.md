@@ -6,7 +6,7 @@ An app that keeps you locally connected and involved in such an online world.
 ## 2. Names of Contributors
 List team members and/or short bios here...
 * Hi~ I am ziqi. I am excited to create some cool stuff with my team.
-* Hi I'm Jonathan and I hope that HTML is not as painful as I remember it to be.
+* Hi I'm Athen and I hope that HTML is not as painful as I remember it to be.
 * Hi I'm Radman, Let's dive into a kind of real project within a team.
 
 ## 3. Technologies and Resources Used
@@ -126,7 +126,6 @@ Firebase hosting files:
 
 ```
 ## 8. Contact
-* Jonathan Hilde - jonhilde5@gmail.com
 * Ziqi liu - ziqi.liu1207@gmail.com
 * Radman Mohammadi - radmanon01@gmail.com
 
