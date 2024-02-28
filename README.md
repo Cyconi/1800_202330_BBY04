@@ -124,8 +124,9 @@ Firebase hosting files:
 ```
 
 ## 8. Contact
-* Ziqi liu - ziqi.liu1207@gmail.com
-* Radman Mohammadi - radmanon01@gmail.com
+* Ziqi - ziqi.liu1207@gmail.com
+* Radman - radmanon01@gmail.com
+* Athen - cyconiexo@gmail.com
 
 
 ## 9. Acknowledgments
